@@ -41,6 +41,8 @@
 
 ### Trabajar con el API
 Para trabajar con el API, es fundamental realizar un proceso controlado que garantice que las integraciones funcionen correctamente antes de operar en un entorno real. Para lograrlo, se utilizan dos entornos diferenciados:
+
+* [Métodos de prueba disponibles]
 	*[Entorno de Pruebas (IP Pruebas): Donde se llevan a cabo ensayos y validaciones sin afectar datos reales ni operaciones en curso.]
 	*[Entorno de Producción: El entorno final en el que la API interactúa con datos reales y soporta la operación diaria.]
 
