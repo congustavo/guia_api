@@ -1,6 +1,3 @@
-# guia_api
-
-
 # Guía de uso para el API  
 
 ## Índice
@@ -40,9 +37,12 @@
     * [Restaurar CURP mediante EUV](#restaura-el-curp-mediante-folio-euv)
 
 
-## Cómo identificarse con el sistema
+## Endpoints disponibles para consumir en esta Api.
 
-### 1. Cómo obtener un token
-Para obtener un token, se debe hacer una petición a __/api/tokens/create__ enviando dos parámetros: email y password. Si las credenciales son correctas, se obtendrá un objeto json con la llave para realizar peticiones durante un día.
+### Trabajar con el API
+Para trabajar con el API, es fundamental realizar un proceso controlado que garantice que las integraciones funcionen correctamente antes de operar en un entorno real. Para lograrlo, se utilizan dos entornos diferenciados:
+	* Entorno de Pruebas (IP Pruebas): Donde se llevan a cabo ensayos y validaciones sin afectar datos reales ni operaciones en curso.
+	* Entorno de Producción: El entorno final en el que la API interactúa con datos reales y soporta la operación diaria.
 
-Con curl se puede realizar así:
+La transición del entorno de pruebas al de producción es un paso clave, ya que asegura que la API esté lista para usarse en condiciones reales sin errores ni interrupciones. Este cambio se realiza únicamente al finalizar todas las pruebas necesarias, garantizando que la implementación en producción sea exitosa.
+Utilizaremos variables de entorno para facilitar la gestión de dominios.
