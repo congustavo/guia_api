@@ -170,7 +170,7 @@ Los métodos siguientes utilizan el Bearer token para autenticar al usuario que 
 El curp es una clave única e intransferible que identifica a una persona que habita nuestro país, así como mexicanos que radican en el extranjero. La búsqueda por curp permite tener mayor certeza de identificación de los datos de la víctima.
 
 #### POST
-```json
+```
     http://API_URL/api/curp
 ```
 #### Body raw (json)
@@ -272,7 +272,7 @@ con estatus 422. Curp no está registrado.
 El método permite identificar a la víctima por el hecho de violencia. La búsqueda se realiza a través de envíar por la url el hecho_id.
 
 #### GET
-```json
+```
     http://API_URL/api/datos-victima-por-hecho/{hecho_id}
 ```
 #### Ejemplo de solicitud.
@@ -437,7 +437,7 @@ con estatus 200  en formato json.
 Los agresores que realizaron un hecho de violencia están registrados y pueden ser consultados por este método con el hecho_id.
 
 #### GET
-```json
+```
     http://API_URL/api/datos-agresor-por-hecho/{hecho_id}
 ```
 #### Ejemplo de solicitud.
@@ -536,7 +536,7 @@ con estatus 200  en formato json.
 ----------------------------------------------------------------
 Esté método permite buscar seguimientos con el folio EUV y el hecho_id 
 #### POST
-```json
+```
     http://API_URL/api/seguimientos-por-hecho
 ```
 #### Body raw (json)
@@ -685,7 +685,7 @@ con estatus 200  en formato json.
 --------------------------------------------------------------
 Esté método permite buscar seguimientos con el folio EUV.
 #### POST
-```javascript
+```
     http://API_URL/api/seguimientos-por-euv
 ```
 #### Body raw (json)
@@ -830,7 +830,7 @@ con estatus 200  en formato json.
 --------------------------------------------------------------
 El método requiere que las fechas sean válidas, en orden con la fecha inicial y la final, utilizando el enlace_id correspondiente a su estado.
 #### POST
-```json
+```
     http://API_URL/api/folios-euv-por-enlace-estatal
 ```
 #### Body raw (json)
@@ -952,7 +952,7 @@ con estatus 422. Usuario no tiene permisos para realizar esta acción.
 --------------------------------------------------------------
 El método requiere que las fechas sean válidas, en orden con la fecha inicial y la final, utilizando la clave de la entidad y la página.
 #### POST
-```json
+```
     http://API_URL/api/folios-euv-por-estado
 ```
 catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing)
@@ -1099,7 +1099,7 @@ con estatus 422. Faltan parámetros.
 ### Búsqueda de Hechos por id.
 --------------------------------------------------------------
 #### POST
-```json
+```
     http://API_URL/api/hecho
 ```
 #### Body raw (json)
@@ -1321,7 +1321,7 @@ con estatus 200  en formato json.
 --------------------------------------------------------------
 El consumo de este método requiere cuatro parámetros que permitirá obtener la información de la entidad y rango de fecha.
 #### POST
-```json
+```
     http://API_URL/api/hechos
 ```
 catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing)
@@ -1454,7 +1454,7 @@ con estatus 422. El campo fecha final debe ser una fecha valida.
 El consumo de este método requiere cuatro parámetros de la víctima debido a que realiza una consulta a la renapo permitiendo traer el registro de sus datos.
 
 #### POST
-```json
+```
     http://API_URL/api/registrar-victima-con-curp
 ```
 catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing), [nacionalidad_id](https://drive.google.com/file/d/1Q0gUDPgv9_3xfmPYPJ6WLfrUrFdqvEGB/view)
@@ -1599,7 +1599,7 @@ con estatus 422. No hay registro del curp en la renapo.
 --------------------------------------------------------------
 El consumo de este método requiere el curp y datos, es necesario enviarlos como parámetros.
 #### POST
-```json
+```
     http://API_URL/api/registrar-victima-con-datos
 ```
 catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing)
@@ -1783,7 +1783,7 @@ con estatus 500. No se envió el curp.
 --------------------------------------------------------------
 El consumo de este método no requiere el curp de la víctima, sin embargo es necesario envíar los datos como parámetros.
 #### POST
-```json
+```
     http://API_URL/api/registrar-victima-sin-curp
 ```
 catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing)
@@ -1960,7 +1960,7 @@ con estatus 422. Faltan parámetros.
 --------------------------------------------------------------
 El hecho de violencia tiene una dependencia funcional, que requiere que la víctima esté registrada.
 #### POST
-```json
+```
     http://API_URL/api/hecho-de-violencia
 ```
 catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing), [lugar_id](https://drive.google.com/file/d/1_rs52tWT5M-6U0AVn3texkHHpeSwtmRZ/view), [lugar_detalle_id](https://drive.google.com/file/d/1HvwJJpAHiQ7h5XnzVLAMT6tDnUCZZnZk/view), [pais_id](https://drive.google.com/file/d/1-5gPflCkSALusWLp_pUN20NJbqEWE6ir/view), [cve_mun](https://drive.google.com/file/d/19q9v31lH0Dgq7bsCBpO3hGfr_mT5VfNk/view), [cve_loc](https://drive.google.com/file/d/1VDHjmDqURqkLc5MQb84MKhI9NlVrg3m3/view), [tipo_violencia](https://drive.google.com/file/d/1Vf4-VABIMH5LIK308ubKLfjfFKwfnhOk/view), [modalidad_violencia](https://drive.google.com/file/d/1_Oq77ueBKXeV6e9848S7Y4i-Xa2WGUG-/view), [efectos_fisicos](https://drive.google.com/file/d/1TFijVmvWgGEAzjrAE1WVW-WQveIg-UXy/view), [consecuencias_sexuales](https://drive.google.com/file/d/1qG8ny2idjFkaGjYP_piFKFb30Dgg4jhR/view), [efectos_psicologicos](https://drive.google.com/file/d/1F-R-n6QdIxWPczrw_ZFcSvzQzu_FPXY0/view), [efectos_economicos_y_patrimoniales](https://drive.google.com/file/d/1o9U4ySp0xzFkItncnuLDeqliUOhHIB1L/view), [agente_de_lesion](https://drive.google.com/file/d/1RjXu3Ea0osZeesVqZPWAQXP3iVVIY2Kh/view) y [area_anatomica_lesionada](https://drive.google.com/file/d/1R0fblWPIU9-bc74GapgzEnBwFjP4T11p/view).
@@ -2261,7 +2261,7 @@ Registro del seguimiento de un hecho de violencia.
 --------------------------------------------------------------
 El seguimiento requiere que exista un hecho de violencia para ser registrado, teniendo una dependencia funcional directa.
 #### POST
-```json
+```
     http://API_URL/api/seguimiento
 ```
 catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view), [tipo_id](https://drive.google.com/file/d/1Tz1iLpC6t2DzMORBua1caDhzsWivB_WL/view) y [servicios_id](https://drive.google.com/file/d/1aK-fX_3OAdzQIF72efVlLA-20lJFOda1/view)
@@ -2434,7 +2434,7 @@ con estatus 422. .
 --------------------------------------------------------------
 El registro requiere que exista un hecho de violencia, teniendo una dependencia funcional directa.
 #### POST
-```json
+```
     http://API_URL/api/registrar-mujer-en-prision
 ```
 catálogos: [calidad_legal_id](https://drive.google.com/file/d/1MpQvCjgHaLPso9DCxl6ugngvlyUwamRF/view), [tortura_tipo_id](https://drive.google.com/file/d/1ycr5AJKeDrzD8q3HfJAyCNuK_uZ26n_Z/view), [tortura_momento_id](https://drive.google.com/file/d/1taXbMYYtM7tfd4X4GaX1rZrRImRmIzYZ/view) y [autoridad_id](https://drive.google.com/file/d/1V5roC6VJQBAm_2D0Mw6VrapUoZSPlBP7/view).
@@ -2595,7 +2595,7 @@ con estatus 422. Faltan parámetros.
 --------------------------------------------------------------
 El registro requiere que exista un hecho de violencia, teniendo una dependencia funcional directa.
 #### POST
-```json
+```
     http://API_URL/api/registrar-mujer-victima-de-trata
 ```
 catálogos: [accion_omision_dolosa_id](https://drive.google.com/file/d/13CdVeVrsyRmC9PmOj5kPkgw52Xrv2b2M/view), [fines_reclutamiento_id](https://drive.google.com/file/d/1jC7ZmP3p_CiuNqCcflfkDsilpbrLfx02/view), [accion_omision_dolosa_array](https://drive.google.com/file/d/13CdVeVrsyRmC9PmOj5kPkgw52Xrv2b2M/view) y [fines_reclutamiento_array](https://drive.google.com/file/d/1jC7ZmP3p_CiuNqCcflfkDsilpbrLfx02/view)
@@ -2734,7 +2734,7 @@ con estatus 422. Faltan parámetros.
 --------------------------------------------------------------
 El registro requiere que exista un hecho de violencia, teniendo una dependencia funcional directa.
 #### POST
-```json
+```
     http://API_URL/api/registrar-mujer-desaparecida
 ```
 catálogos: [tipo_de_desaparicion_id](https://drive.google.com/file/d/1iILF7y_7DU-U5l_AKquuuqarLu1AA-6y/view), [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view), [cve_mun](https://drive.google.com/file/d/19q9v31lH0Dgq7bsCBpO3hGfr_mT5VfNk/view), [vinculo_victima_id](https://drive.google.com/file/d/1_F5CDwHh3Tq7JtOho6v1upeZYnIZf8C6/view) y [estatus_desaparicion_id](https://drive.google.com/file/d/16k8t3y2nOkq1xhZ-7aGx77V333Yq__eg/view)
@@ -2926,7 +2926,7 @@ con estatus 422. Faltan parámetros.
 --------------------------------------------------------------
 El registro requiere que exista un hecho de violencia, teniendo una dependencia funcional directa.
 #### POST
-```json
+```
     http://API_URL/api/registrar-canalizacion
 ```
 catálogos: [instancias_id](https://drive.google.com/file/d/152JS404Y43GSvJnTWFx3K7DSuQJX9OUK/view), [instancias_envia_id](https://drive.google.com/file/d/152JS404Y43GSvJnTWFx3K7DSuQJX9OUK/view), [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view), [cve_mun](https://drive.google.com/file/d/19q9v31lH0Dgq7bsCBpO3hGfr_mT5VfNk/view), tipo_id y [servicios_id](https://drive.google.com/file/d/1Tz1iLpC6t2DzMORBua1caDhzsWivB_WL/view)
@@ -3139,7 +3139,7 @@ con estatus 422. Faltan parámetros..
 --------------------------------------------------------------
 El registro requiere que exista un hecho de violencia, teniendo una dependencia funcional directa.
 #### POST
-```json
+```
     http://API_URL/api/registrar-agresor
 ```
 catálogos: [sexo_id](https://docs.google.com/spreadsheets/d/1KhLoeg4tQSjiADualz6AvGSHHuA4hlr7FANCYOx2HyI/edit?gid=0#gid=0), [tipos_armas](https://drive.google.com/file/d/1yFUao4LN0Qcs0rP2OP_YeykQoDHZXP12/view), [vinculo_victima_id](https://drive.google.com/file/d/1_F5CDwHh3Tq7JtOho6v1upeZYnIZf8C6/view), [identidad_genero_id](https://drive.google.com/file/d/1K7jBCF4E6aiBfnrg4ioD5cqh6gbFOXcL/view), [orientacion_sexual_id](https://drive.google.com/file/d/1hc5Yhl2gr6_pWBFED7G0QMGyooVzIS5x/view), [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view), [cve_mun](https://drive.google.com/file/d/19q9v31lH0Dgq7bsCBpO3hGfr_mT5VfNk/view), [cve_loc](https://drive.google.com/file/d/1VDHjmDqURqkLc5MQb84MKhI9NlVrg3m3/view), [colonias_id](https://drive.google.com/file/d/1wWVhPLa0zFgdoeQYEtCRNfODEcpQx6BH/view), [escolaridad_id](https://drive.google.com/file/d/1Pf_eJpt_S34Ipo908Ih7RS-kQHfwJQGr/view), [ingreso_economico_id](https://docs.google.com/spreadsheets/d/15yA5gPDJXZFZkW1fiFKhrCXeQT1uVGJB/edit?gid=717444154#gid=717444154), [ocupacion_id](https://drive.google.com/file/d/1tY37QRvcZa0c-vzlSsgEpIRJnN2BqCw_/view), [tipos_drogas](https://drive.google.com/file/d/1YDUsKIZLzOA32YrEa4LekGQ0DY2wqFl_/view).
@@ -3445,7 +3445,7 @@ con estatus 422. Faltan parámetros.
 -----------------------------------------------------------------
 El registro requiere que exista un hecho de violencia, teniendo una dependencia funcional directa.
 #### POST
-```json
+```
     http://API_URL/api/edita-mujer-en-prision
 ```
 catálogos: calidad_legal_id, tortura_tipo_id, tortura_momento_id, autoridad_id
@@ -3619,7 +3619,7 @@ con estatus 422. El id es necesario y debe ser enviado
 -----------------------------------------------------------------
 Método de personalizado para obtener los datos de niñas adolecentes de madres embarazadas menores de 15 años (name).
 #### POST
-```json
+```
     http://API_URL/api/custom/infoname
 ```
 #### Body raw (json)
@@ -3792,7 +3792,7 @@ con estatus 422. El curp es necesario ser enviado.
 -----------------------------------------------------------------
 El consumo de este método requiere del curp de la víctima. Este endpoint estará disponible unicamente para las puebas en el desarrollo de sus soluciones para el consumo de la Api.
 #### POST
-```json
+```
     http://API_URL/api/delete-curp
 ```
 #### Body raw (json)
@@ -3904,7 +3904,7 @@ con estatus 422. En caso de no recibir el dato.
 -----------------------------------------------------------------
 El consumo de este método requiere del folio euv de la víctima. Este endpoint estará disponible unicamente para las puebas en el desarrollo de sus soluciones para el consumo de la Api.
 #### POST
-```json
+```
     http://API_URL/api/delete-curp-from-euv
 ```
 #### Body raw (json)
@@ -4018,7 +4018,7 @@ con estatus 422. En caso de no recibir el dato.
 -----------------------------------------------------------------
 El consumo de este método requiere del curp y el folio euv de la víctima. Este endpoint estará disponible unicamente para las puebas en el desarrollo de sus soluciones para el consumo de la Api.
 #### POST
-```json
+```
     http://API_URL/api/restore-curp-from-euv
 ```
 #### Body raw (json)
