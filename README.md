@@ -18,9 +18,9 @@
     * [Registro de víctima con Datos](#registro-de-víctima-con-datos)
     * [Registro de víctima sin CURP](#registro-de-víctima-sin-curp)
     * [Registro de un hecho de violencia](#registro-de-un-hecho-de-violencia)
-    * [Registro de los datos de una víctima](#registro-o-edición-de-los-datos-de-una-víctima) <small>nuevo</small>
-    * [Registro de un dependiente de una víctima por hecho de violencia](#registro-de-un-dependiente-de-una-víctima-por-hecho-de-violencia) <small>nuevo</small>
-    * [Registro de la red de apoyo de una víctima por hecho de violencia](#registro-de-la-red-de-apoyo-de-una-víctima-por-hecho-de-violencia) <small>nuevo</small>
+    * [Registro de los datos de una víctima](#registro-o-edición-de-los-datos-de-una-víctima) <sub><small>nuevo</small></sub>
+    * [Registro de un dependiente de una víctima por hecho de violencia](#registro-de-un-dependiente-de-una-víctima-por-hecho-de-violencia) <sub><small>nuevo</small></sub>
+    * [Registro de la red de apoyo de una víctima por hecho de violencia](#registro-de-la-red-de-apoyo-de-una-víctima-por-hecho-de-violencia)<sub><small>nuevo</small></sub>
     * [Registro del seguimiento de un hecho de violencia.](#registro-del-seguimiento-de-un-hecho-de-violencia)
     * [Registro de mujeres en prisión para un hecho de violencia](#registro-de-mujeres-en-prisión-para-un-hecho-de-violencia)
     * [Registro de mujeres víctimas de trata para un hecho de violencia](#registro-de-mujeres-víctimas-de-trata-para-un-hecho-de-violencia)
@@ -28,8 +28,8 @@
     * [Registro una canalización para un hecho de violencia](#registro-una-canalización-para-un-hecho-de-violencia)
     * [Registro de un agresor para un hecho de violencia](#registro-de-un-agresor-para-un-hecho-de-violencia)
 * [Métodos de edición disponibles](#métodos-de-edición-disponibles)
-    * [Editar hecho de violencia ](#editar-hecho-de-violencia)<small>--En construcción--</small>
-    * [Editar los datos de una víctima](#registro-o-edición-de-los-datos-de-una-víctima) <small>nuevo</small>
+    * [Editar hecho de violencia ](#editar-hecho-de-violencia)<sub><small>--En construcción--</small></sub>
+    * [Editar los datos de una víctima](#registro-o-edición-de-los-datos-de-una-víctima)<sub><small>nuevo</small></sub>
     * [Editar registro de mujeres en prisión para un hecho de violencia](#editar-registro-de-mujeres-en-prisión-para-un-hecho-de-violencia)
     * [Editar registro de mujeres víctimas de trata](#editar-registro-de-mujeres-víctimas-de-trata)
 * [Método de consulta personalizados](#métodos-de-consulta-personalizados-disponibles)
