@@ -18,6 +18,9 @@
     * [Registro de víctima con Datos](#registro-de-víctima-con-datos)
     * [Registro de víctima sin CURP](#registro-de-víctima-sin-curp)
     * [Registro de un hecho de violencia](#registro-de-un-hecho-de-violencia)
+    * [Registro de los datos de una víctima](#registro-o-edición-de-los-datos-de-una-víctima) <small>nuevo</small>
+    * [Registro de un dependiente de una víctima por hecho de violencia](#registro-de-un-dependiente-de-una-víctima-por-hecho-de-violencia) <small>nuevo</small>
+    * [Registro de la red de apoyo de una víctima por hecho de violencia](#registro-de-la-red-de-apoyo-de-una-víctima-por-hecho-de-violencia) <small>nuevo</small>
     * [Registro del seguimiento de un hecho de violencia.](#registro-del-seguimiento-de-un-hecho-de-violencia)
     * [Registro de mujeres en prisión para un hecho de violencia](#registro-de-mujeres-en-prisión-para-un-hecho-de-violencia)
     * [Registro de mujeres víctimas de trata para un hecho de violencia](#registro-de-mujeres-víctimas-de-trata-para-un-hecho-de-violencia)
@@ -25,7 +28,8 @@
     * [Registro una canalización para un hecho de violencia](#registro-una-canalización-para-un-hecho-de-violencia)
     * [Registro de un agresor para un hecho de violencia](#registro-de-un-agresor-para-un-hecho-de-violencia)
 * [Métodos de edición disponibles](#métodos-de-edición-disponibles)
-    * [Editar hecho de violencia --En construcción--](#editar-hecho-de-violencia)
+    * [Editar hecho de violencia ](#editar-hecho-de-violencia)<small>--En construcción--</small>
+    * [Editar los datos de una víctima](#registro-o-edición-de-los-datos-de-una-víctima) <small>nuevo</small>
     * [Editar registro de mujeres en prisión para un hecho de violencia](#editar-registro-de-mujeres-en-prisión-para-un-hecho-de-violencia)
     * [Editar registro de mujeres víctimas de trata](#editar-registro-de-mujeres-víctimas-de-trata)
 * [Método de consulta personalizados](#métodos-de-consulta-personalizados-disponibles)
@@ -58,7 +62,7 @@ Los tokens se generan con un algoritmo de combinación única de caracteres que 
 
 #### POST
 ```
-    http://API_URL/api/tokens/create
+    API_URL/api/tokens/create
 ```
 #### Body raw (json)
 ```json
@@ -77,7 +81,7 @@ Los tokens se generan con un algoritmo de combinación única de caracteres que 
 #### Ejemplo de solicitud.
 con curl.
 ```bash
-    curl --location 'http://API_URL/api/tokens/create' \
+    curl --location 'API_URL/api/tokens/create' \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/json' \
     --data-raw '{
@@ -90,7 +94,7 @@ con PHP - cURL.
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://API_URL/api/tokens/create',
+    CURLOPT_URL => 'API_URL/api/tokens/create',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
@@ -128,7 +132,7 @@ con JavaScrip - fetch
     body: raw,
     redirect: "follow"
     };
-    fetch("http://API_URL/api/tokens/create", requestOptions)
+    fetch("API_URL/api/tokens/create", requestOptions)
     .then((response) => response.text())
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
@@ -171,7 +175,7 @@ El curp es una clave única e intransferible que identifica a una persona que ha
 
 #### POST
 ```
-    http://API_URL/api/curp
+    API_URL/api/curp
 ```
 #### Body raw (json)
 ```json
@@ -188,7 +192,7 @@ El curp es una clave única e intransferible que identifica a una persona que ha
 #### Ejemplo de solicitud.
 con curl.
 ```bash
-    curl --location 'http://API_URL/api/curp' \
+    curl --location 'API_URL/api/curp' \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer TOKEN' \
@@ -201,7 +205,7 @@ con PHP - cURL.
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://API_URL/api/curp',
+    CURLOPT_URL => 'API_URL/api/curp',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
@@ -242,7 +246,7 @@ con JavaScrip - fetch.
     redirect: "follow"
     };
 
-    fetch("http://API_URL/api/curp", requestOptions)
+    fetch("API_URL/api/curp", requestOptions)
     .then((response) => response.text())
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
@@ -273,12 +277,12 @@ El método permite identificar a la víctima por el hecho de violencia. La búsq
 
 #### GET
 ```
-    http://API_URL/api/datos-victima-por-hecho/{hecho_id}
+    API_URL/api/datos-victima-por-hecho/{hecho_id}
 ```
 #### Ejemplo de solicitud.
 con curl.
 ```bash
-    curl --location 'http://API_URL/api/datos-victima-por-hecho/10' \
+    curl --location 'API_URL/api/datos-victima-por-hecho/10' \
     --header 'Authorization: Bearer TOKEN'
 ```
 con PHP - cURL.
@@ -286,7 +290,7 @@ con PHP - cURL.
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://API_URL/api/datos-victima-por-hecho/10',
+    CURLOPT_URL => 'API_URL/api/datos-victima-por-hecho/10',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
@@ -315,7 +319,7 @@ con JavaScrip - fetch
     redirect: "follow"
     };
 
-    fetch("http://API_URL/api/datos-victima-por-hecho/10", requestOptions)
+    fetch("API_URL/api/datos-victima-por-hecho/10", requestOptions)
     .then((response) => response.text())
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
@@ -438,12 +442,12 @@ Los agresores que realizaron un hecho de violencia están registrados y pueden s
 
 #### GET
 ```
-    http://API_URL/api/datos-agresor-por-hecho/{hecho_id}
+    API_URL/api/datos-agresor-por-hecho/{hecho_id}
 ```
 #### Ejemplo de solicitud.
 con curl.
 ```bash
-    curl --location 'http://API_URL/api/datos-agresor-por-hecho/3' \
+    curl --location 'API_URL/api/datos-agresor-por-hecho/3' \
     --header 'Authorization: Bearer TOKEN'
 ```
 con PHP - cURL.
@@ -453,7 +457,7 @@ con PHP - cURL.
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://API_URL/api/datos-agresor-por-hecho/3',
+    CURLOPT_URL => 'API_URL/api/datos-agresor-por-hecho/3',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
@@ -482,7 +486,7 @@ con JavaScrip - fetch
     redirect: "follow"
     };
 
-    fetch("http://API_URL/api/datos-agresor-por-hecho/3", requestOptions)
+    fetch("API_URL/api/datos-agresor-por-hecho/3", requestOptions)
     .then((response) => response.text())
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
@@ -537,7 +541,7 @@ con estatus 200  en formato json.
 Esté método permite buscar seguimientos con el folio EUV y el hecho_id 
 #### POST
 ```
-    http://API_URL/api/seguimientos-por-hecho
+    API_URL/api/seguimientos-por-hecho
 ```
 #### Body raw (json)
 ```json
@@ -556,7 +560,7 @@ Esté método permite buscar seguimientos con el folio EUV y el hecho_id
 #### Ejemplo de solicitud.
 con curl.
 ```bash
-    curl --location 'http://API_URL/api/seguimientos-por-hecho' \
+    curl --location 'API_URL/api/seguimientos-por-hecho' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer TOKEN' \
     --data '{
@@ -571,7 +575,7 @@ con PHP - cURL.
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://API_URL/api/seguimientos-por-hecho',
+    CURLOPT_URL => 'API_URL/api/seguimientos-por-hecho',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
@@ -611,7 +615,7 @@ con JavaScrip - fetch
     redirect: "follow"
     };
 
-    fetch("http://API_URL/api/seguimientos-por-hecho", requestOptions)
+    fetch("API_URL/api/seguimientos-por-hecho", requestOptions)
     .then((response) => response.text())
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
@@ -686,7 +690,7 @@ con estatus 200  en formato json.
 Esté método permite buscar seguimientos con el folio EUV.
 #### POST
 ```
-    http://API_URL/api/seguimientos-por-euv
+    API_URL/api/seguimientos-por-euv
 ```
 #### Body raw (json)
 ```json
@@ -703,7 +707,7 @@ Esté método permite buscar seguimientos con el folio EUV.
 #### Ejemplo de solicitud.
 con curl.
 ```bash
-    curl --location 'http://API_URL/api/seguimientos-por-euv' \
+    curl --location 'API_URL/api/seguimientos-por-euv' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: TOKEN' \
     --data '{
@@ -717,7 +721,7 @@ con PHP - cURL.
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://API_URL/api/seguimientos-por-euv',
+    CURLOPT_URL => 'API_URL/api/seguimientos-por-euv',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
@@ -756,7 +760,7 @@ con JavaScrip - fetch
     redirect: "follow"
     };
 
-    fetch("http://API_URL/api/seguimientos-por-euv", requestOptions)
+    fetch("API_URL/api/seguimientos-por-euv", requestOptions)
     .then((response) => response.text())
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
@@ -831,7 +835,7 @@ con estatus 200  en formato json.
 El método requiere que las fechas sean válidas, en orden con la fecha inicial y la final, utilizando el enlace_id correspondiente a su estado.
 #### POST
 ```
-    http://API_URL/api/folios-euv-por-enlace-estatal
+    API_URL/api/folios-euv-por-enlace-estatal
 ```
 #### Body raw (json)
 ```json
@@ -852,7 +856,7 @@ El método requiere que las fechas sean válidas, en orden con la fecha inicial 
 #### Ejemplo de solicitud.
 con curl.
 ```bash
-    curl --location 'http://API_URL/api/folios-euv-por-enlace-estatal' \
+    curl --location 'API_URL/api/folios-euv-por-enlace-estatal' \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer TOKEN' \
@@ -869,7 +873,7 @@ con PHP - cURL.
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://API_URL/api/folios-euv-por-enlace-estatal',
+    CURLOPT_URL => 'API_URL/api/folios-euv-por-enlace-estatal',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
@@ -913,7 +917,7 @@ con JavaScrip - fetch.
     redirect: "follow"
     };
 
-    fetch("http://API_URL/api/folios-euv-por-enlace-estatal", requestOptions)
+    fetch("API_URL/api/folios-euv-por-enlace-estatal", requestOptions)
     .then((response) => response.text())
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
@@ -953,7 +957,7 @@ con estatus 422. Usuario no tiene permisos para realizar esta acción.
 El método requiere que las fechas sean válidas, en orden con la fecha inicial y la final, utilizando la clave de la entidad y la página.
 #### POST
 ```
-    http://API_URL/api/folios-euv-por-estado
+    API_URL/api/folios-euv-por-estado
 ```
 catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing)
 #### Body raw (json)
@@ -977,7 +981,7 @@ catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l
 #### Ejemplo de solicitud.
 con curl.
 ```bash
-    curl --location 'http://API_URL/api/folios-euv-por-estado' \
+    curl --location 'API_URL/api/folios-euv-por-estado' \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer TOKEN' \
@@ -995,7 +999,7 @@ con PHP - cURL.
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://API_URL/api/folios-euv-por-estado',
+    CURLOPT_URL => 'API_URL/api/folios-euv-por-estado',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
@@ -1042,7 +1046,7 @@ con JavaScrip - fetch.
     redirect: "follow"
     };
 
-    fetch("http://API_URL/api/folios-euv-por-estado", requestOptions)
+    fetch("API_URL/api/folios-euv-por-estado", requestOptions)
     .then((response) => response.text())
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
@@ -1100,7 +1104,7 @@ con estatus 422. Faltan parámetros.
 --------------------------------------------------------------
 #### POST
 ```
-    http://API_URL/api/hecho
+    API_URL/api/hecho
 ```
 #### Body raw (json)
 ```json
@@ -1117,7 +1121,7 @@ con estatus 422. Faltan parámetros.
 #### Ejemplo de solicitud.
 con curl.
 ```bash
-    curl --location 'http://API_URL/api/hecho' \
+    curl --location 'API_URL/api/hecho' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer TOKEN' \
     --data '{
@@ -1131,7 +1135,7 @@ con PHP - cURL.
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://API_URL/api/hecho',
+    CURLOPT_URL => 'API_URL/api/hecho',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
@@ -1170,7 +1174,7 @@ con JavaScrip - fetch.
     redirect: "follow"
     };
 
-    fetch("http://API_URL/api/hecho", requestOptions)
+    fetch("API_URL/api/hecho", requestOptions)
     .then((response) => response.text())
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
@@ -1322,7 +1326,7 @@ con estatus 200  en formato json.
 El consumo de este método requiere cuatro parámetros que permitirá obtener la información de la entidad y rango de fecha.
 #### POST
 ```
-    http://API_URL/api/hechos
+    API_URL/api/hechos
 ```
 catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing)
 #### Body raw (json)
@@ -1346,7 +1350,7 @@ catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l
 #### Ejemplo de solicitud.
 con curl.
 ```bash
-curl --location 'http://API_URL/api/hechos' \
+curl --location 'API_URL/api/hechos' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer TOKEN' \
@@ -1364,7 +1368,7 @@ con PHP - cURL.
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://API_URL/api/hechos',
+    CURLOPT_URL => 'API_URL/api/hechos',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
@@ -1411,7 +1415,7 @@ const requestOptions = {
   redirect: "follow"
 };
 
-fetch("http://API_URL/api/hechos", requestOptions)
+fetch("API_URL/api/hechos", requestOptions)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.error(error));
@@ -1455,7 +1459,7 @@ El consumo de este método requiere cuatro parámetros de la víctima debido a q
 
 #### POST
 ```
-    http://API_URL/api/registrar-victima-con-curp
+    API_URL/api/registrar-victima-con-curp
 ```
 catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing), [nacionalidad_id](https://drive.google.com/file/d/1Q0gUDPgv9_3xfmPYPJ6WLfrUrFdqvEGB/view)
 #### Body raw (json)
@@ -1479,7 +1483,7 @@ catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l
 #### Ejemplo de solicitud.
 con curl.
 ```bash
-    curl --location 'http://API_URL/api/registrar-victima-con-curp' \
+    curl --location 'API_URL/api/registrar-victima-con-curp' \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer TOKEN' \
@@ -1497,7 +1501,7 @@ con PHP - cURL.
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://API_URL/api/registrar-victima-con-curp',
+    CURLOPT_URL => 'API_URL/api/registrar-victima-con-curp',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
@@ -1544,7 +1548,7 @@ con JavaScrip - fetch.
     redirect: "follow"
     };
 
-    fetch("http://API_URL/api/registrar-victima-con-curp", requestOptions)
+    fetch("API_URL/api/registrar-victima-con-curp", requestOptions)
     .then((response) => response.text())
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
@@ -1600,7 +1604,7 @@ con estatus 422. No hay registro del curp en la renapo.
 El consumo de este método requiere el curp y datos, es necesario enviarlos como parámetros.
 #### POST
 ```
-    http://API_URL/api/registrar-victima-con-datos
+    API_URL/api/registrar-victima-con-datos
 ```
 catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing)
 #### Body raw (json)
@@ -1632,7 +1636,7 @@ catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l
 #### Ejemplo de solicitud.
 con curl.
 ```bash
-    curl --location 'http://API_URL/api/registrar-victima-con-datos' \
+    curl --location 'API_URL/api/registrar-victima-con-datos' \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer TOKEN' \
@@ -1654,7 +1658,7 @@ con PHP - cURL.
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://API_URL/api/registrar-victima-con-datos',
+    CURLOPT_URL => 'API_URL/api/registrar-victima-con-datos',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
@@ -1709,7 +1713,7 @@ con JavaScrip - fetch.
     redirect: "follow"
     };
 
-    fetch("http://API_URL/api/registrar-victima-con-datos", requestOptions)
+    fetch("API_URL/api/registrar-victima-con-datos", requestOptions)
     .then((response) => response.text())
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
@@ -1784,7 +1788,7 @@ con estatus 500. No se envió el curp.
 El consumo de este método no requiere el curp de la víctima, sin embargo es necesario envíar los datos como parámetros.
 #### POST
 ```
-    http://API_URL/api/registrar-victima-sin-curp
+    API_URL/api/registrar-victima-sin-curp
 ```
 catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing)
 #### Body raw (json)
@@ -1816,7 +1820,7 @@ catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l
 #### Ejemplo de solicitud.
 con curl.
 ```bash
-    curl --location 'http://API_URL/api/registrar-victima-sin-curp' \
+    curl --location 'API_URL/api/registrar-victima-sin-curp' \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer TOKEN' \
@@ -1837,7 +1841,7 @@ con PHP - cURL.
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://API_URL/api/registrar-victima-sin-curp',
+    CURLOPT_URL => 'API_URL/api/registrar-victima-sin-curp',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
@@ -1890,7 +1894,7 @@ con JavaScrip - fetch.
     redirect: "follow"
     };
 
-    fetch("http://API_URL/api/registrar-victima-sin-curp", requestOptions)
+    fetch("API_URL/api/registrar-victima-sin-curp", requestOptions)
     .then((response) => response.text())
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
@@ -1961,7 +1965,7 @@ con estatus 422. Faltan parámetros.
 El hecho de violencia tiene una dependencia funcional, que requiere que la víctima esté registrada.
 #### POST
 ```
-    http://API_URL/api/hecho-de-violencia
+    API_URL/api/hecho-de-violencia
 ```
 catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing), [lugar_id](https://drive.google.com/file/d/1_rs52tWT5M-6U0AVn3texkHHpeSwtmRZ/view), [lugar_detalle_id](https://drive.google.com/file/d/1HvwJJpAHiQ7h5XnzVLAMT6tDnUCZZnZk/view), [pais_id](https://drive.google.com/file/d/1-5gPflCkSALusWLp_pUN20NJbqEWE6ir/view), [cve_mun](https://drive.google.com/file/d/19q9v31lH0Dgq7bsCBpO3hGfr_mT5VfNk/view), [cve_loc](https://drive.google.com/file/d/1VDHjmDqURqkLc5MQb84MKhI9NlVrg3m3/view), [tipo_violencia](https://drive.google.com/file/d/1Vf4-VABIMH5LIK308ubKLfjfFKwfnhOk/view), [modalidad_violencia](https://drive.google.com/file/d/1_Oq77ueBKXeV6e9848S7Y4i-Xa2WGUG-/view), [efectos_fisicos](https://drive.google.com/file/d/1TFijVmvWgGEAzjrAE1WVW-WQveIg-UXy/view), [consecuencias_sexuales](https://drive.google.com/file/d/1qG8ny2idjFkaGjYP_piFKFb30Dgg4jhR/view), [efectos_psicologicos](https://drive.google.com/file/d/1F-R-n6QdIxWPczrw_ZFcSvzQzu_FPXY0/view), [efectos_economicos_y_patrimoniales](https://drive.google.com/file/d/1o9U4ySp0xzFkItncnuLDeqliUOhHIB1L/view), [agente_de_lesion](https://drive.google.com/file/d/1RjXu3Ea0osZeesVqZPWAQXP3iVVIY2Kh/view) y [area_anatomica_lesionada](https://drive.google.com/file/d/1R0fblWPIU9-bc74GapgzEnBwFjP4T11p/view).
 #### Body raw (json)
@@ -2036,7 +2040,7 @@ catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l
 #### Ejemplo de solicitud.
 con curl.
 ```bash
-    curl --location 'http://API_URL/api/hecho-de-violencia' \
+    curl --location 'API_URL/api/hecho-de-violencia' \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer TOKEN' \
@@ -2079,7 +2083,7 @@ con PHP - cURL.
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://API_URL/api/hecho-de-violencia',
+    CURLOPT_URL => 'API_URL/api/hecho-de-violencia',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
@@ -2176,7 +2180,7 @@ con JavaScrip - fetch.
     redirect: "follow"
     };
 
-    fetch("http://API_URL/api/hecho-de-violencia", requestOptions)
+    fetch("API_URL/api/hecho-de-violencia", requestOptions)
     .then((response) => response.text())
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
@@ -2257,12 +2261,793 @@ con estatus 422. Faltan parámetros.
 }
 ```
 --------------------------------------------------------------
+### Registro o edición de los datos de una víctima
+--------------------------------------------------------------
+Este endpoint puede ser utilizado tanto para crear un nuevo registro como para editar uno existente y tiene una dependencia funcional que requiere que la víctima tenga un hecho de víolencia registrado.
+
+1.- **Para un nuevo registro**: Si el identificador hechos_id de la solicitud, no existe registrado en los datos de la víctima del sistema, se interpreta que debe crear un nuevo registro con los datos proporcionados.
+
+2.- **Para editar un registro existente**: Si el identificador hechos_id de la solicitud, tiene registro en los datos de la víctima del sistema, se interpreta que debe editar el registro con los datos proporcionados.
+
+Esto permite aprovechar el mismo endpoint para múltiples acciones, facilitando tanto la creación como la modificación de los registros.
+
+
+#### POST
+```json
+    API_URL/api/registrar-datos-victima-por-hecho
+```
+catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing), [cve_mun](https://drive.google.com/file/d/19q9v31lH0Dgq7bsCBpO3hGfr_mT5VfNk/view), [cve_loc](https://drive.google.com/file/d/1VDHjmDqURqkLc5MQb84MKhI9NlVrg3m3/view), [colonias_id](https://drive.google.com/file/d/1wWVhPLa0zFgdoeQYEtCRNfODEcpQx6BH/view), [estado_conyugal](https://drive.google.com/file/d/1ealfYFyyPpz_C2VfJ3tTrpXzGMVAzfwi/view?usp=sharing), [pais_id](https://drive.google.com/file/d/1-5gPflCkSALusWLp_pUN20NJbqEWE6ir/view), [escolaridad_id](https://drive.google.com/file/d/1Pf_eJpt_S34Ipo908Ih7RS-kQHfwJQGr/view), [ingreso_economico_id](https://docs.google.com/spreadsheets/d/15yA5gPDJXZFZkW1fiFKhrCXeQT1uVGJB/edit?gid=717444154#gid=717444154), [ocupacion_id](https://drive.google.com/file/d/1tY37QRvcZa0c-vzlSsgEpIRJnN2BqCw_/view), [discapacidad](https://drive.google.com/file/d/1mNHUBUsaUKiOPfnoRkGyJjG9fWvcKZFU/view?usp=sharing), [pueblo_indigena_id](https://drive.google.com/file/d/1HUX7WHG1yI-QA-Jo7DG483HCf2kJBBDA/view?usp=drive_link), [identidad_genero_id](https://drive.google.com/file/d/1K7jBCF4E6aiBfnrg4ioD5cqh6gbFOXcL/view), [orientacion_sexual_id](https://drive.google.com/file/d/1hc5Yhl2gr6_pWBFED7G0QMGyooVzIS5x/view), [cual_adiccion](https://drive.google.com/file/d/165EOC-eMmor3JFDXKJT4-Scb8zgjZEAF/view?usp=sharing), [gestacion_id](https://drive.google.com/file/d/1pJCpimw2w7NzZwj0_0zRW3dalcDBgzdu/view?usp=sharing), [servicio_medico_id](https://drive.google.com/file/d/148DpyySvBaHaBcimb0VhGkyusW3lqrc9/view?usp=sharing), [tipos_adicciones](https://drive.google.com/file/d/1Rj1oaktbwIiDQ04Jq6-n8bSXv09FCTaa/view?usp=sharing).
+
+#### Body raw (json)
+```
+{
+    "hechos_id"                    : 2,         
+    "edad"                         : 33,                      
+    "telefono"                     : "26460978",                  
+    "correo_electronico"           : "prueba@fake.com",
+    "calle"                        : "calle",          
+    "num_exterior"                 : "e1",        
+    "num_interior"                 : "i1",         
+    "cve_ent"                      : 21,                       
+    "cve_mun"                      : 132,                      
+    "cve_loc"                      : 1,                    
+    "colonias_id"                  : 1,        
+    "entre_calle_uno"              : "uno",
+    "entre_calle_dos"              : "dos",
+    "referencia"                   : "referencia", 
+    "estado_conyugal"              : 1, 
+    "pais"                         : 153,
+    "codigo_postal"                : 6400,
+    "escolaridad_id"               : 1, 
+    "ingreso_economico_id"         : 1, 
+    "ocupacion_id"                 : 1,
+    "presenta_discapacidad"        : true, 
+    "discapacidad"                 : [1],           
+    "otra_discapacidad"            : "sin definir", 
+    "enfermedad"                   : true, 
+    "cual_enfermedad"              : "descripción de la enfermedad",
+    "enfermedad_psiquiatrica"      : true,
+    "cual_enfermedad_psiquiatrica" : "psiquiatrica",
+    "tratamiento"                  : true,
+    "cual_tratamiento"             : "tratamiento",
+    "situacion_calle"              : true, 
+    "migrante"                     : true,
+    "pueblo_indigena"              : true,
+    "pueblo_indigena_id"           : 1, 
+    "lgbtti"                       : true, 
+    "identidad_genero_id"          : 1, 
+    "orientacion_sexual_id"        : 1, 
+    "embarazada"                   : true, 
+    "numero_semanas_emb"           : 20, 
+    "dependientes"                 : true, 
+    "red_apoyo"                    : true,
+    "adiccion"                     : true, 
+    "cual_adiccion"                : [1], 
+    "persona_afrodescendiente"     : "afro",  
+    "caso_name"                    : "no name", 
+    "realiza_mas_actividades"      : true, 
+    "discapacidad_por_violencia"   : true,
+    "gestacion_id"                 : 1, 
+    "clave_centro_escolar"         : "Clave centro", 
+    "numero_seguro_social"         : "AV0569806410",
+    "servicio_medico_id"           : 1,
+    "otro_servicio_medico"         : "otro servicio medico", 
+    "tipos_adicciones"             : [1] 
+}
+```
+#### Campos Obligatorios
+
+|   Campo                      | Obligatorio |Tipo de dato |
+|:----------------------------:|:-----------:|:-----------:|
+| hechos_id                    |     SI      |   integer   | 
+| edad                         |     NO      |   integer   | 
+| telefono                     |     NO      |   string    | 
+| correo_electronico           |     NO      |   string    | 
+| calle                        |     NO      |   string    | 
+| num_exterior                 |     NO      |   string    | 
+| num_interior                 |     NO      |   string    | 
+| cve_ent                      |     NO      |   integer   | 
+| cve_mun                      |     NO      |   integer   | 
+| cve_loc                      |     NO      |   integer   | 
+| colonias_id                  |     NO      |   integer   | 
+| entre_calle_uno              |     NO      |   string    | 
+| entre_calle_dos              |     NO      |   string    | 
+| referencia                   |     NO      |   string    | 
+| estado_conyugal              |     NO      |   integer   | 
+| pais                         |     NO      |   integer   | 
+| codigo_postal                |     NO      |   integer   | 
+| escolaridad_id               |     NO      |   integer   | 
+| ingreso_economico_id         |     NO      |   integer   | 
+| ocupacion_id                 |     NO      |   integer   | 
+| presenta_discapacidad        |     NO      |   boolean   | 
+| discapacidad                 |     NO      |   integer[] | 
+| otra_discapacidad            |     NO      |   string    | 
+| enfermedad                   |     NO      |   boolean   | 
+| cual_enfermedad              |     NO      |   string    | 
+| enfermedad_psiquiatrica      |     NO      |   boolean   | 
+| cual_enfermedad_psiquiatrica |     NO      |   string    | 
+| tratamiento                  |     NO      |   boolean   | 
+| cual_tratamiento             |     NO      |   string    | 
+| situacion_calle              |     NO      |   boolean   | 
+| migrante                     |     NO      |   boolean   | 
+| pueblo_indigena              |     NO      |   boolean   | 
+| pueblo_indigena_id           |     NO      |   integer   | 
+| lgbtti                       |     NO      |   boolean   | 
+| identidad_genero_id          |     NO      |   integer   | 
+| orientacion_sexual_id        |     NO      |   integer   | 
+| embarazada                   |     NO      |   boolean   | 
+| numero_semanas_emb           |     NO      |   integer   | 
+| dependientes                 |     NO      |   boolean   | 
+| red_apoyo                    |     NO      |   boolean   | 
+| adiccion                     |     NO      |   boolean   | 
+| cual_adiccion                |     NO      |   integer[] | 
+| persona_afrodescendiente     |     NO      |   string    | 
+| caso_name                    |     NO      |   string    | 
+| realiza_mas_actividades      |     NO      |   boolean   | 
+| discapacidad_por_violencia   |     NO      |   boolean   | 
+| gestacion_id                 |     NO      |   integer   | 
+| clave_centro_escolar         |     NO      |   string    | 
+| numero_seguro_social         |     NO      |   string    | 
+| servicio_medico_id           |     NO      |   integer   | 
+| otro_servicio_medico         |     NO      |   string    | 
+| tipos_adicciones             |     NO      |   integer[] | 
+
+#### Ejemplo de solicitud.
+con curl.
+```bash
+curl --location 'API_URL/api/registrar-datos-victima-por-hecho' \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer TOKEN' \
+--data-raw '{
+    "hechos_id"                    : 2,         
+    "edad"                         : 33,                      
+    "telefono"                     : "26460978",                  
+    "correo_electronico"           : "prueba@fake.com",
+    "calle"                        : "calle",          
+    "num_exterior"                 : "e1",        
+    "num_interior"                 : "i1",         
+    "cve_ent"                      : 21,                       
+    "cve_mun"                      : 132,                      
+    "cve_loc"                      : 1,                    
+    "colonias_id"                  : 1,        
+    "entre_calle_uno"              : "uno",
+    "entre_calle_dos"              : "dos",
+    "referencia"                   : "referencia", 
+    "estado_conyugal"              : 1, 
+    "pais"                         : 153,
+    "codigo_postal"                : 6400,
+    "escolaridad_id"               : 1, 
+    "ingreso_economico_id"         : 1, 
+    "ocupacion_id"                 : 1,
+    "presenta_discapacidad"        : true, 
+    "discapacidad"                 : [1],           
+    "otra_discapacidad"            : "sin definir", 
+    "enfermedad"                   : true, 
+    "cual_enfermedad"              : "descripción de la enfermedad",
+    "enfermedad_psiquiatrica"      : true,
+    "cual_enfermedad_psiquiatrica" : "psiquiatrica",
+    "tratamiento"                  : true,
+    "cual_tratamiento"             : "tratamiento",
+    "situacion_calle"              : true, 
+    "migrante"                     : true,
+    "pueblo_indigena"              : true,
+    "pueblo_indigena_id"           : 1, 
+    "lgbtti"                       : true, 
+    "identidad_genero_id"          : 1, 
+    "orientacion_sexual_id"        : 1, 
+    "embarazada"                   : true, 
+    "numero_semanas_emb"           : 20, 
+    "dependientes"                 : true, 
+    "red_apoyo"                    : true,
+    "adiccion"                     : true, 
+    "cual_adiccion"                : [1], 
+    "persona_afrodescendiente"     : "afro",  
+    "caso_name"                    : "no name", 
+    "realiza_mas_actividades"      : true, 
+    "discapacidad_por_violencia"   : true,
+    "gestacion_id"                 : 1, 
+    "clave_centro_escolar"         : "Clave centro", 
+    "numero_seguro_social"         : "AV0569806410",
+    "servicio_medico_id"           : 1,
+    "otro_servicio_medico"         : "otro servicio medico", 
+    "tipos_adicciones"             : [1] 
+}'
+```
+con PHP - cURL.
+```php
+<?php
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => 'API_URL/api/registrar-datos-victima-por-hecho',
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => '',
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => 'POST',
+  CURLOPT_POSTFIELDS =>'{
+    "hechos_id"                    : 2,         
+    "edad"                         : 33,                      
+    "telefono"                     : "26460978",                  
+    "correo_electronico"           : "prueba@fake.com",
+    "calle"                        : "calle",          
+    "num_exterior"                 : "e1",        
+    "num_interior"                 : "i1",         
+    "cve_ent"                      : 21,                       
+    "cve_mun"                      : 132,                      
+    "cve_loc"                      : 1,                    
+    "colonias_id"                  : 1,        
+    "entre_calle_uno"              : "uno",
+    "entre_calle_dos"              : "dos",
+    "referencia"                   : "referencia", 
+    "estado_conyugal"              : 1, 
+    "pais"                         : 153,
+    "codigo_postal"                : 6400,
+    "escolaridad_id"               : 1, 
+    "ingreso_economico_id"         : 1, 
+    "ocupacion_id"                 : 1,
+    "presenta_discapacidad"        : true, 
+    "discapacidad"                 : [1],           
+    "otra_discapacidad"            : "sin definir", 
+    "enfermedad"                   : true, 
+    "cual_enfermedad"              : "descripción de la enfermedad",
+    "enfermedad_psiquiatrica"      : true,
+    "cual_enfermedad_psiquiatrica" : "psiquiatrica",
+    "tratamiento"                  : true,
+    "cual_tratamiento"             : "tratamiento",
+    "situacion_calle"              : true, 
+    "migrante"                     : true,
+    "pueblo_indigena"              : true,
+    "pueblo_indigena_id"           : 1, 
+    "lgbtti"                       : true, 
+    "identidad_genero_id"          : 1, 
+    "orientacion_sexual_id"        : 1, 
+    "embarazada"                   : true, 
+    "numero_semanas_emb"           : 20, 
+    "dependientes"                 : true, 
+    "red_apoyo"                    : true,
+    "adiccion"                     : true, 
+    "cual_adiccion"                : [1], 
+    "persona_afrodescendiente"     : "afro",  
+    "caso_name"                    : "no name", 
+    "realiza_mas_actividades"      : true, 
+    "discapacidad_por_violencia"   : true,
+    "gestacion_id"                 : 1, 
+    "clave_centro_escolar"         : "Clave centro", 
+    "numero_seguro_social"         : "AV0569806410",
+    "servicio_medico_id"           : 1,
+    "otro_servicio_medico"         : "otro servicio medico", 
+    "tipos_adicciones"             : [1] 
+}',
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'Content-Type: application/json',
+    'Authorization: Bearer TOKEN',
+  ),
+));
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+echo $response;
+```
+con JavaScrip - fetch.
+```javascript
+const myHeaders = new Headers();
+myHeaders.append("Accept", "application/json");
+myHeaders.append("Content-Type", "application/json");
+myHeaders.append("Authorization", "Bearer TOKEN");
+
+const raw = JSON.stringify({
+  "hechos_id": 2,
+  "edad": 33,
+  "telefono": "26460978",
+  "correo_electronico": "prueba@fake.com",
+  "calle": "calle",
+  "num_exterior": "e1",
+  "num_interior": "i1",
+  "cve_ent": 21,
+  "cve_mun": 132,
+  "cve_loc": 1,
+  "colonias_id": 1,
+  "entre_calle_uno": "uno",
+  "entre_calle_dos": "dos",
+  "referencia": "referencia",
+  "estado_conyugal": 1,
+  "pais": 153,
+  "codigo_postal": 6400,
+  "escolaridad_id": 1,
+  "ingreso_economico_id": 1,
+  "ocupacion_id": 1,
+  "presenta_discapacidad": true,
+  "discapacidad": [
+    1
+  ],
+  "otra_discapacidad": "sin definir",
+  "enfermedad": true,
+  "cual_enfermedad": "descripción de la enfermedad",
+  "enfermedad_psiquiatrica": true,
+  "cual_enfermedad_psiquiatrica": "psiquiatrica",
+  "tratamiento": true,
+  "cual_tratamiento": "tratamiento",
+  "situacion_calle": true,
+  "migrante": true,
+  "pueblo_indigena": true,
+  "pueblo_indigena_id": 1,
+  "lgbtti": true,
+  "identidad_genero_id": 1,
+  "orientacion_sexual_id": 1,
+  "embarazada": true,
+  "numero_semanas_emb": 20,
+  "dependientes": true,
+  "red_apoyo": true,
+  "adiccion": true,
+  "cual_adiccion": [
+    1
+  ],
+  "persona_afrodescendiente": "afro",
+  "caso_name": "no name",
+  "realiza_mas_actividades": true,
+  "discapacidad_por_violencia": true,
+  "gestacion_id": 1,
+  "clave_centro_escolar": "Clave centro",
+  "numero_seguro_social": "AV0569806410",
+  "servicio_medico_id": 1,
+  "otro_servicio_medico": "otro servicio medico",
+  "tipos_adicciones": [
+    1
+  ]
+});
+
+const requestOptions = {
+  method: "POST",
+  headers: myHeaders,
+  body: raw,
+  redirect: "follow"
+};
+
+fetch("API_URL/api/registrar-datos-victima-por-hecho", requestOptions)
+  .then((response) => response.text())
+  .then((result) => console.log(result))
+  .catch((error) => console.error(error));
+```
+#### La respuesta que se recibirá después de la petición.
+con estatus 200  en formato json.
+```json
+{
+    "id": 1,
+    "hechos_id": 2,
+    "users_id": 1,
+    "edad": 33,
+    "telefono": "26460978",
+    "correo_electronico": "prueba@fake.com",
+    "calle": "calle",
+    "num_exterior": "e1",
+    "num_interior": "i1",
+    "cve_ent": 21,
+    "cve_mun": 132,
+    "cve_loc": 1,
+    "colonias_id": 1,
+    "entre_calle_uno": "uno",
+    "entre_calle_dos": "dos",
+    "referencia": "referencia",
+    "estado_conyugal": null,
+    "pais": 153,
+    "codigo_postal": 6400,
+    "escolaridad_id": 1,
+    "ingreso_economico_id": 1,
+    "ocupacion_id": 1,
+    "presenta_discapacidad": true,
+    "discapacidad": [
+        1
+    ],
+    "otra_discapacidad": "sin definir",
+    "enfermedad": true,
+    "cual_enfermedad": "descripción de la enfermedad",
+    "enfermedad_psiquiatrica": true,
+    "cual_enfermedad_psiquiatrica": "psiquiatrica",
+    "tratamiento": true,
+    "cual_tratamiento": "tratamiento",
+    "situacion_calle": true,
+    "migrante": true,
+    "pueblo_indigena": true,
+    "pueblo_indigena_id": 1,
+    "lgbtti": true,
+    "identidad_genero_id": 1,
+    "orientacion_sexual_id": 1,
+    "embarazada": true,
+    "numero_semanas_emb": 20,
+    "dependientes": true,
+    "red_apoyo": true,
+    "adiccion": true,
+    "created_at": "2024-08-12T17:33:20.000000Z",
+    "updated_at": "2024-11-13T01:49:51.000000Z",
+    "cual_adiccion": [
+        1
+    ],
+    "deleted_at": null,
+    "persona_afrodescendiente": "afro",
+    "caso_name": "no name",
+    "realiza_mas_actividades": true,
+    "discapacidad_por_violencia": true,
+    "gestacion_id": 1,
+    "clave_centro_escolar": "Clave centro",
+    "numero_seguro_social": "AV0569806410",
+    "servicio_medico_id": 1,
+    "otro_servicio_medico": "otro servicio medico",
+    "tipos_adicciones": [
+        1
+    ],
+    "ocupacion": null,
+    "escolaridad": null,
+    "ingreso_economico": null,
+    "colonia": null,
+    "identidad_genero": null,
+    "orientacion_sexual": null,
+    "semanas_gestacion": {
+        "id": null
+    }
+}
+```
+con estatus 422. Error de tipo de dato.
+```json
+{
+    "message": "El campo NOMBRE_CAMPO debe ser una TIPO_DATO.",
+    "errors": {
+        "otra_discapacidad": [
+            "El campo NOMBRE_CAMPO debe ser una TIPO_DATO."
+        ]
+    }
+}
+```
+--------------------------------------------------------------
+### Registro de un dependiente de una víctima por hecho de violencia
+--------------------------------------------------------------
+El registro de un dependiente de la víctima, tiene una dependencia funcional que requiere que la víctima tenga un hecho de víolencia registrado.
+#### POST
+```json
+    API_URL/api/registrar-dependiente-victima-por-hecho
+```
+catálogo: [vinculo_victima_id](https://drive.google.com/file/d/1_F5CDwHh3Tq7JtOho6v1upeZYnIZf8C6/view)
+#### Body raw (json)
+```json
+{
+    "hechos_id"                    : 2,         
+    "nombre"                       : "dependiente",
+    "primer_apellido"              : "papellido",
+    "segundo_apellido"             : "sapellido",
+    "edad"                         : 3,
+    "vinculo_victima_id"           : 1,
+    "esta_en_riesgo"               : true,
+    "presenta_discapacidad"        : true,
+    "extranjera"                   : true,
+    "enfermedad"                   : true,
+    "cual_enfermedad"              : "enfermedad",
+    "observaciones"                : "observación"
+}
+```
+#### Campos Obligatorios
+
+|             Campo       | Obligatorio |Tipo de dato |
+|:-----------------------:|:-----------:|:-----------:|
+| hechos_id               |     SI      |   integer   | 
+| nombre                  |     NO      |   string    | 
+| primer_apellido         |     NO      |   string    | 
+| segundo_apellido        |     NO      |   string    | 
+| edad                    |     NO      |   integer   | 
+| vinculo_victima_id      |     NO      |   integer   | 
+| esta_en_riesgo          |     NO      |   boolean   | 
+| presenta_discapacidad   |     NO      |   boolean   | 
+| extranjera              |     NO      |   boolean   | 
+| enfermedad              |     NO      |   boolean   | 
+| cual_enfermedad         |     NO      |   string    | 
+| observaciones           |     NO      |   string    | 
+| | |
+#### Ejemplo de solicitud.
+con curl.
+```bash
+    curl --location 'API_URL/api/registrar-dependiente-victima-por-hecho' \
+    --header 'Accept: application/json' \
+    --header 'Content-Type: application/json' \
+    --header 'Authorization: Bearer TOKEN' \
+    --data '{
+        "hechos_id"                    : 2,         
+        "nombre"                       : "dependiente",
+        "primer_apellido"              : "papellido",
+        "segundo_apellido"             : "sapellido",
+        "edad"                         : 3,
+        "vinculo_victima_id"           : 1,
+        "esta_en_riesgo"               : true,
+        "presenta_discapacidad"        : true,
+        "extranjera"                   : true,
+        "enfermedad"                   : true,
+        "cual_enfermedad"              : "enfermedad",
+        "observaciones"                : "observación"
+    }'
+```
+con PHP - cURL.
+```php
+    <?php
+
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+    CURLOPT_URL => 'API_URL/api/registrar-dependiente-victima-por-hecho',
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => '',
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => 'POST',
+    CURLOPT_POSTFIELDS =>'{
+        "hechos_id"                    : 2,         
+        "nombre"                       : "dependiente",
+        "primer_apellido"              : "papellido",
+        "segundo_apellido"             : "sapellido",
+        "edad"                         : 3,
+        "vinculo_victima_id"           : 1,
+        "esta_en_riesgo"               : true,
+        "presenta_discapacidad"        : true,
+        "extranjera"                   : true,
+        "enfermedad"                   : true,
+        "cual_enfermedad"              : "enfermedad",
+        "observaciones"                : "observación"
+    }',
+    CURLOPT_HTTPHEADER => array(
+        'Accept: application/json',
+        'Content-Type: application/json',
+        'Authorization: Bearer TOKEN'
+    ),
+    ));
+
+    $response = curl_exec($curl);
+
+    curl_close($curl);
+    echo $response;
+```
+con JavaScrip - fetch.
+```javascript
+    const myHeaders = new Headers();
+    myHeaders.append("Accept", "application/json");
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Authorization", "Bearer TOKEN");
+
+    const raw = JSON.stringify({
+    "hechos_id": 2,
+    "nombre": "dependiente",
+    "primer_apellido": "papellido",
+    "segundo_apellido": "sapellido",
+    "edad": 3,
+    "vinculo_victima_id": 1,
+    "esta_en_riesgo": true,
+    "presenta_discapacidad": true,
+    "extranjera": true,
+    "enfermedad": true,
+    "cual_enfermedad": "enfermedad",
+    "observaciones": "onservación"
+    });
+
+    const requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow"
+    };
+
+    fetch("API_URL/api/registrar-dependiente-victima-por-hecho", requestOptions)
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.error(error));
+```
+#### La respuesta que se recibirá después de la petición.
+con estatus 200  en formato json.
+```json
+{
+    "nombre": "dependiente",
+    "primer_apellido": "papellido",
+    "segundo_apellido": "sapellido",
+    "edad": 3,
+    "vinculo_victima_id": 1,
+    "esta_en_riesgo": true,
+    "presenta_discapacidad": true,
+    "extranjera": true,
+    "enfermedad": true,
+    "cual_enfermedad": "enfermedad",
+    "observaciones": "observación",
+    "users_id": 1,
+    "hechos_id": 2,
+    "updated_at": "2024-11-14T00:18:38.000000Z",
+    "created_at": "2024-11-14T00:18:38.000000Z",
+    "id": 73
+}
+```
+con estatus 422. El campo hechos id es requerido por la dependencia funcional.
+```json
+{
+    "message": "El campo hechos id es requerido.",
+    "errors": {
+        "hechos_id": [
+            "El campo hechos id es requerido."
+        ]
+    }
+}
+```
+con estatus 422. Error de tipo de dato.
+```json
+{
+    "message": "El campo NOMBRE_CAMPO debe ser una TIPO_DATO.",
+    "errors": {
+        "otra_discapacidad": [
+            "El campo NOMBRE_CAMPO debe ser una TIPO_DATO."
+        ]
+    }
+}
+```
+--------------------------------------------------------------
+### Registro de la red de apoyo de una víctima por hecho de violencia
+--------------------------------------------------------------
+El registro de la red de apoyo requiere que la víctima tenga un hecho de víolencia registrado.
+#### POST
+```json
+    API_URL/api/registrar-red-apoyo-victima-por-hecho
+```
+catálogo: [vinculo_victima_id](https://drive.google.com/file/d/1_F5CDwHh3Tq7JtOho6v1upeZYnIZf8C6/view)
+#### Body raw (json)
+```json
+{
+    "hechos_id"             : 1,
+    "nombre"                : "Juanita",
+    "primer_apellido"       : "papellido",
+    "segundo_apellido"      : "sapellido",
+    "vinculo_victima_id"    : 4,
+    "telefono"              : "2258877731",
+    "observaciones"         : "observaciones"
+}
+```
+#### Campos Obligatorios
+
+|        Campo       | Obligatorio | Tipo de dato |
+|:------------------:|:-----------:|:------------:|
+| hechos_id          |      SI     |    integer   | 
+| nombre             |      NO     |    string    | 
+| primer_apellido    |      NO     |    string    | 
+| segundo_apellido   |      NO     |    string    | 
+| vinculo_victima_id |      NO     |    integer   | 
+| telefono           |      NO     |    string    | 
+| observaciones      |      NO     |    string    | 
+|||
+#### Ejemplo de solicitud.
+con curl.
+```bash
+    curl --location 'API_URL/api/registrar-red-apoyo-victima-por-hecho' \
+    --header 'Accept: application/json' \
+    --header 'Content-Type: application/json' \
+    --header 'Authorization: Bearer TOKEN' \
+    --data '{
+        "hechos_id"             : 1,
+        "nombre"                : "Juanita",
+        "primer_apellido"       : "papellido",
+        "segundo_apellido"      : "sapellido",
+        "vinculo_victima_id"    : 4,
+        "telefono"              : "2258877731",
+        "observaciones"         : "observaciones"
+    }'
+```
+con PHP - cURL.
+```php
+    <?php
+
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+    CURLOPT_URL => 'API_URL/api/registrar-red-apoyo-victima-por-hecho',
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => '',
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => 'POST',
+    CURLOPT_POSTFIELDS =>'{
+        "hechos_id"             : 1,
+        "nombre"                : "Juanita",
+        "primer_apellido"       : "papellido",
+        "segundo_apellido"      : "sapellido",
+        "vinculo_victima_id"    : 4,
+        "telefono"              : "2258877731",
+        "observaciones"         : "observaciones"
+    }',
+    CURLOPT_HTTPHEADER => array(
+        'Accept: application/json',
+        'Content-Type: application/json',
+        'Authorization: Bearer TOKEN'
+    ),
+    ));
+
+    $response = curl_exec($curl);
+
+    curl_close($curl);
+    echo $response;
+```
+con JavaScrip - fetch.
+```javascript
+    const myHeaders = new Headers();
+    myHeaders.append("Accept", "application/json");
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Authorization", "Bearer TOKEN");
+
+    const raw = JSON.stringify({
+    "hechos_id": 1,
+    "nombre": "Juanita",
+    "primer_apellido": "papellido",
+    "segundo_apellido": "sapellido",
+    "vinculo_victima_id": 4,
+    "telefono": "2258877731",
+    "observaciones": "observaciones"
+    });
+
+    const requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow"
+    };
+
+    fetch("API_URL/api/registrar-red-apoyo-victima-por-hecho", requestOptions)
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.error(error));
+```
+#### La respuesta que se recibirá después de la petición.
+con estatus 200  en formato json.
+```json
+{
+    "nombre": "Juanita",
+    "primer_apellido": "papellido",
+    "segundo_apellido": "sapellido",
+    "vinculo_victima_id": 4,
+    "telefono": "2258877731",
+    "observaciones": "observaciones",
+    "users_id": 1,
+    "hechos_id": 1,
+    "updated_at": "2024-11-14T00:48:45.000000Z",
+    "created_at": "2024-11-14T00:48:45.000000Z",
+    "id": 51
+}
+```
+con estatus 422. Error de tipo de dato.
+```json
+{
+    "message": "El campo NOMBRE_CAMPO debe ser una TIPO_DATO.",
+    "errors": {
+        "otra_discapacidad": [
+            "El campo NOMBRE_CAMPO debe ser una TIPO_DATO."
+        ]
+    }
+}
+con estatus 422. El hecho es un campo que debe envíar.
+```json
+{
+    "message": "El campo hechos id es requerido.",
+    "errors": {
+        "hechos_id": [
+            "El campo hechos id es requerido."
+        ]
+    }
+}
+```
+--------------------------------------------------------------
 Registro del seguimiento de un hecho de violencia.
 --------------------------------------------------------------
 El seguimiento requiere que exista un hecho de violencia para ser registrado, teniendo una dependencia funcional directa.
 #### POST
 ```
-    http://API_URL/api/seguimiento
+    API_URL/api/seguimiento
 ```
 catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view), [tipo_id](https://drive.google.com/file/d/1Tz1iLpC6t2DzMORBua1caDhzsWivB_WL/view) y [servicios_id](https://drive.google.com/file/d/1aK-fX_3OAdzQIF72efVlLA-20lJFOda1/view)
 #### Body raw (json)
@@ -2293,7 +3078,7 @@ catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l
 #### Ejemplo de solicitud.
 con curl.
 ```bash
-    curl --location 'http://API_URL/api/seguimiento' \
+    curl --location 'API_URL/api/seguimiento' \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer TOKEN' \
@@ -2314,7 +3099,7 @@ con PHP - cURL.
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://API_URL/api/seguimiento',
+    CURLOPT_URL => 'API_URL/api/seguimiento',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
@@ -2367,7 +3152,7 @@ con JavaScrip - fetch.
     redirect: "follow"
     };
 
-    fetch("http://API_URL/api/seguimiento", requestOptions)
+    fetch("API_URL/api/seguimiento", requestOptions)
     .then((response) => response.text())
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
@@ -2435,7 +3220,7 @@ con estatus 422. .
 El registro requiere que exista un hecho de violencia, teniendo una dependencia funcional directa.
 #### POST
 ```
-    http://API_URL/api/registrar-mujer-en-prision
+    API_URL/api/registrar-mujer-en-prision
 ```
 catálogos: [calidad_legal_id](https://drive.google.com/file/d/1MpQvCjgHaLPso9DCxl6ugngvlyUwamRF/view), [tortura_tipo_id](https://drive.google.com/file/d/1ycr5AJKeDrzD8q3HfJAyCNuK_uZ26n_Z/view), [tortura_momento_id](https://drive.google.com/file/d/1taXbMYYtM7tfd4X4GaX1rZrRImRmIzYZ/view) y [autoridad_id](https://drive.google.com/file/d/1V5roC6VJQBAm_2D0Mw6VrapUoZSPlBP7/view).
 #### Body raw (json)
@@ -2471,7 +3256,7 @@ catálogos: [calidad_legal_id](https://drive.google.com/file/d/1MpQvCjgHaLPso9DC
 #### Ejemplo de solicitud.
 con curl.
 ```bash
-    curl --location 'http://API_URL/api/registrar-mujer-en-prision' \
+    curl --location 'API_URL/api/registrar-mujer-en-prision' \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer TOKEN' \
@@ -2495,7 +3280,7 @@ con PHP - cURL.
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://API_URL/api/registrar-mujer-en-prision',
+    CURLOPT_URL => 'API_URL/api/registrar-mujer-en-prision',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
@@ -2554,7 +3339,7 @@ con JavaScrip - fetch.
     redirect: "follow"
     };
 
-    fetch("http://API_URL/api/registrar-mujer-en-prision", requestOptions)
+    fetch("API_URL/api/registrar-mujer-en-prision", requestOptions)
     .then((response) => response.text())
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
@@ -2596,7 +3381,7 @@ con estatus 422. Faltan parámetros.
 El registro requiere que exista un hecho de violencia, teniendo una dependencia funcional directa.
 #### POST
 ```
-    http://API_URL/api/registrar-mujer-victima-de-trata
+    API_URL/api/registrar-mujer-victima-de-trata
 ```
 catálogos: [accion_omision_dolosa_id](https://drive.google.com/file/d/13CdVeVrsyRmC9PmOj5kPkgw52Xrv2b2M/view), [fines_reclutamiento_id](https://drive.google.com/file/d/1jC7ZmP3p_CiuNqCcflfkDsilpbrLfx02/view), [accion_omision_dolosa_array](https://drive.google.com/file/d/13CdVeVrsyRmC9PmOj5kPkgw52Xrv2b2M/view) y [fines_reclutamiento_array](https://drive.google.com/file/d/1jC7ZmP3p_CiuNqCcflfkDsilpbrLfx02/view)
 #### Body raw (json)
@@ -2625,7 +3410,7 @@ catálogos: [accion_omision_dolosa_id](https://drive.google.com/file/d/13CdVeVrs
 #### Ejemplo de solicitud.
 con curl.
 ```bash
-    curl --location 'http://API_URL/api/registrar-mujer-victima-de-trata' \
+    curl --location 'API_URL/api/registrar-mujer-victima-de-trata' \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer TOKEN' \
@@ -2645,7 +3430,7 @@ con PHP - cURL.
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://API_URL/api/registrar-mujer-victima-de-trata',
+    CURLOPT_URL => 'API_URL/api/registrar-mujer-victima-de-trata',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
@@ -2696,7 +3481,7 @@ con JavaScrip - fetch.
     redirect: "follow"
     };
 
-    fetch("http://API_URL/api/registrar-mujer-victima-de-trata", requestOptions)
+    fetch("API_URL/api/registrar-mujer-victima-de-trata", requestOptions)
     .then((response) => response.text())
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
@@ -2735,7 +3520,7 @@ con estatus 422. Faltan parámetros.
 El registro requiere que exista un hecho de violencia, teniendo una dependencia funcional directa.
 #### POST
 ```
-    http://API_URL/api/registrar-mujer-desaparecida
+    API_URL/api/registrar-mujer-desaparecida
 ```
 catálogos: [tipo_de_desaparicion_id](https://drive.google.com/file/d/1iILF7y_7DU-U5l_AKquuuqarLu1AA-6y/view), [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view), [cve_mun](https://drive.google.com/file/d/19q9v31lH0Dgq7bsCBpO3hGfr_mT5VfNk/view), [vinculo_victima_id](https://drive.google.com/file/d/1_F5CDwHh3Tq7JtOho6v1upeZYnIZf8C6/view) y [estatus_desaparicion_id](https://drive.google.com/file/d/16k8t3y2nOkq1xhZ-7aGx77V333Yq__eg/view)
 #### Body raw (json)
@@ -2782,7 +3567,7 @@ catálogos: [tipo_de_desaparicion_id](https://drive.google.com/file/d/1iILF7y_7D
 #### Ejemplo de solicitud.
 con curl.
 ```bash
-    curl --location 'http://API_URL/api/registrar-mujer-victima-de-trata' \
+    curl --location 'API_URL/api/registrar-mujer-victima-de-trata' \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer TOKEN' \
@@ -2811,7 +3596,7 @@ con PHP - cURL.
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://API_URL/api/registrar-mujer-victima-de-trata',
+    CURLOPT_URL => 'API_URL/api/registrar-mujer-victima-de-trata',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
@@ -2880,7 +3665,7 @@ con JavaScrip - fetch.
     redirect: "follow"
     };
 
-    fetch("http://API_URL/api/registrar-mujer-victima-de-trata", requestOptions)
+    fetch("API_URL/api/registrar-mujer-victima-de-trata", requestOptions)
     .then((response) => response.text())
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
@@ -2927,7 +3712,7 @@ con estatus 422. Faltan parámetros.
 El registro requiere que exista un hecho de violencia, teniendo una dependencia funcional directa.
 #### POST
 ```
-    http://API_URL/api/registrar-canalizacion
+    API_URL/api/registrar-canalizacion
 ```
 catálogos: [instancias_id](https://drive.google.com/file/d/152JS404Y43GSvJnTWFx3K7DSuQJX9OUK/view), [instancias_envia_id](https://drive.google.com/file/d/152JS404Y43GSvJnTWFx3K7DSuQJX9OUK/view), [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view), [cve_mun](https://drive.google.com/file/d/19q9v31lH0Dgq7bsCBpO3hGfr_mT5VfNk/view), tipo_id y [servicios_id](https://drive.google.com/file/d/1Tz1iLpC6t2DzMORBua1caDhzsWivB_WL/view)
 #### Body raw (json)
@@ -2974,7 +3759,7 @@ catálogos: [instancias_id](https://drive.google.com/file/d/152JS404Y43GSvJnTWFx
 #### Ejemplo de solicitud.
 con curl.
 ```bash
-    curl --location 'http://API_URL/api/registrar-canalizacion' \
+    curl --location 'API_URL/api/registrar-canalizacion' \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer TOKEN' \
@@ -3003,7 +3788,7 @@ con PHP - cURL.
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://API_URL/api/registrar-canalizacion',
+    CURLOPT_URL => 'API_URL/api/registrar-canalizacion',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
@@ -3072,7 +3857,7 @@ con JavaScrip - fetch.
     redirect: "follow"
     };
 
-    fetch("http://API_URL/api/registrar-canalizacion", requestOptions)
+    fetch("API_URL/api/registrar-canalizacion", requestOptions)
     .then((response) => response.text())
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
@@ -3140,7 +3925,7 @@ con estatus 422. Faltan parámetros..
 El registro requiere que exista un hecho de violencia, teniendo una dependencia funcional directa.
 #### POST
 ```
-    http://API_URL/api/registrar-agresor
+    API_URL/api/registrar-agresor
 ```
 catálogos: [sexo_id](https://docs.google.com/spreadsheets/d/1KhLoeg4tQSjiADualz6AvGSHHuA4hlr7FANCYOx2HyI/edit?gid=0#gid=0), [tipos_armas](https://drive.google.com/file/d/1yFUao4LN0Qcs0rP2OP_YeykQoDHZXP12/view), [vinculo_victima_id](https://drive.google.com/file/d/1_F5CDwHh3Tq7JtOho6v1upeZYnIZf8C6/view), [identidad_genero_id](https://drive.google.com/file/d/1K7jBCF4E6aiBfnrg4ioD5cqh6gbFOXcL/view), [orientacion_sexual_id](https://drive.google.com/file/d/1hc5Yhl2gr6_pWBFED7G0QMGyooVzIS5x/view), [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view), [cve_mun](https://drive.google.com/file/d/19q9v31lH0Dgq7bsCBpO3hGfr_mT5VfNk/view), [cve_loc](https://drive.google.com/file/d/1VDHjmDqURqkLc5MQb84MKhI9NlVrg3m3/view), [colonias_id](https://drive.google.com/file/d/1wWVhPLa0zFgdoeQYEtCRNfODEcpQx6BH/view), [escolaridad_id](https://drive.google.com/file/d/1Pf_eJpt_S34Ipo908Ih7RS-kQHfwJQGr/view), [ingreso_economico_id](https://docs.google.com/spreadsheets/d/15yA5gPDJXZFZkW1fiFKhrCXeQT1uVGJB/edit?gid=717444154#gid=717444154), [ocupacion_id](https://drive.google.com/file/d/1tY37QRvcZa0c-vzlSsgEpIRJnN2BqCw_/view), [tipos_drogas](https://drive.google.com/file/d/1YDUsKIZLzOA32YrEa4LekGQ0DY2wqFl_/view).
 #### Body raw (json)
@@ -3217,7 +4002,7 @@ catálogos: [sexo_id](https://docs.google.com/spreadsheets/d/1KhLoeg4tQSjiADualz
 #### Ejemplo de solicitud.
 con curl.
 ```bash
-    curl --location 'http://API_URL/api/registrar-agresor' \
+    curl --location 'API_URL/api/registrar-agresor' \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer TOKEN' \
@@ -3261,7 +4046,7 @@ con PHP - cURL.
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://API_URL/api/registrar-agresor',
+    CURLOPT_URL => 'API_URL/api/registrar-agresor',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
@@ -3362,7 +4147,7 @@ con JavaScrip - fetch.
     redirect: "follow"
     };
 
-    fetch("http://API_URL/api/registrar-agresor", requestOptions)
+    fetch("API_URL/api/registrar-agresor", requestOptions)
     .then((response) => response.text())
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
@@ -3446,7 +4231,7 @@ con estatus 422. Faltan parámetros.
 El registro requiere que exista un hecho de violencia, teniendo una dependencia funcional directa.
 #### POST
 ```
-    http://API_URL/api/edita-mujer-en-prision
+    API_URL/api/edita-mujer-en-prision
 ```
 catálogos: calidad_legal_id, tortura_tipo_id, tortura_momento_id, autoridad_id
 #### Body raw (json)
@@ -3483,7 +4268,7 @@ catálogos: calidad_legal_id, tortura_tipo_id, tortura_momento_id, autoridad_id
 #### Ejemplo de solicitud.
 con curl.
 ```bash
-    curl --location 'http://API_URL/api/edita-mujer-en-prision' \
+    curl --location 'API_URL/api/edita-mujer-en-prision' \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer TOKEN' \
@@ -3507,7 +4292,7 @@ con PHP - cURL.
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://API_URL/api/edita-mujer-en-prision',
+    CURLOPT_URL => 'API_URL/api/edita-mujer-en-prision',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
@@ -3566,7 +4351,7 @@ con JavaScrip - fetch.
     redirect: "follow"
     };
 
-    fetch("http://API_URL/api/edita-mujer-en-prision", requestOptions)
+    fetch("API_URL/api/edita-mujer-en-prision", requestOptions)
     .then((response) => response.text())
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
@@ -3620,7 +4405,7 @@ con estatus 422. El id es necesario y debe ser enviado
 Método de personalizado para obtener los datos de niñas adolecentes de madres embarazadas menores de 15 años (name).
 #### POST
 ```
-    http://API_URL/api/custom/infoname
+    API_URL/api/custom/infoname
 ```
 #### Body raw (json)
 ```json
@@ -3637,7 +4422,7 @@ Método de personalizado para obtener los datos de niñas adolecentes de madres 
 #### Ejemplo de solicitud.
 con curl.
 ```bash
-    curl --location 'http://API_URL/api/custom/infoname' \
+    curl --location 'API_URL/api/custom/infoname' \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer TOKEN' \
@@ -3652,7 +4437,7 @@ con PHP - cURL.
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://API_URL/api/custom/infoname',
+    CURLOPT_URL => 'API_URL/api/custom/infoname',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
@@ -3693,7 +4478,7 @@ con JavaScrip - fetch.
     redirect: "follow"
     };
 
-    fetch("http://API_URL/api/custom/infoname", requestOptions)
+    fetch("API_URL/api/custom/infoname", requestOptions)
     .then((response) => response.text())
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
@@ -3793,7 +4578,7 @@ con estatus 422. El curp es necesario ser enviado.
 El consumo de este método requiere del curp de la víctima. Este endpoint estará disponible unicamente para las puebas en el desarrollo de sus soluciones para el consumo de la Api.
 #### POST
 ```
-    http://API_URL/api/delete-curp
+    API_URL/api/delete-curp
 ```
 #### Body raw (json)
 ```json
@@ -3810,7 +4595,7 @@ El consumo de este método requiere del curp de la víctima. Este endpoint estar
 #### Ejemplo de solicitud.
 con curl.
 ```bash
-    curl --location 'http://API_URL/api/delete-curp' \
+    curl --location 'API_URL/api/delete-curp' \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer TOKEN' \
@@ -3823,7 +4608,7 @@ con PHP - cURL.
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://API_URL/api/delete-curp',
+    CURLOPT_URL => 'API_URL/api/delete-curp',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
@@ -3864,7 +4649,7 @@ con JavaScrip - fetch.
     redirect: "follow"
     };
 
-    fetch("http://API_URL/api/delete-curp", requestOptions)
+    fetch("API_URL/api/delete-curp", requestOptions)
     .then((response) => response.text())
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
@@ -3905,7 +4690,7 @@ con estatus 422. En caso de no recibir el dato.
 El consumo de este método requiere del folio euv de la víctima. Este endpoint estará disponible unicamente para las puebas en el desarrollo de sus soluciones para el consumo de la Api.
 #### POST
 ```
-    http://API_URL/api/delete-curp-from-euv
+    API_URL/api/delete-curp-from-euv
 ```
 #### Body raw (json)
 ```json
@@ -3922,7 +4707,7 @@ El consumo de este método requiere del folio euv de la víctima. Este endpoint 
 #### Ejemplo de solicitud.
 con curl.
 ```bash
-    curl --location 'http://API_URL/api/delete-curp-from-euv' \
+    curl --location 'API_URL/api/delete-curp-from-euv' \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer TOKEN' \
@@ -3937,7 +4722,7 @@ con PHP - cURL.
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://API_URL/api/delete-curp-from-euv',
+    CURLOPT_URL => 'API_URL/api/delete-curp-from-euv',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
@@ -3978,7 +4763,7 @@ con JavaScrip - fetch.
     redirect: "follow"
     };
 
-    fetch("http://API_URL/api/delete-curp-from-euv", requestOptions)
+    fetch("API_URL/api/delete-curp-from-euv", requestOptions)
     .then((response) => response.text())
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
@@ -4019,7 +4804,7 @@ con estatus 422. En caso de no recibir el dato.
 El consumo de este método requiere del curp y el folio euv de la víctima. Este endpoint estará disponible unicamente para las puebas en el desarrollo de sus soluciones para el consumo de la Api.
 #### POST
 ```
-    http://API_URL/api/restore-curp-from-euv
+    API_URL/api/restore-curp-from-euv
 ```
 #### Body raw (json)
 ```json
@@ -4038,7 +4823,7 @@ El consumo de este método requiere del curp y el folio euv de la víctima. Este
 #### Ejemplo de solicitud.
 con curl.
 ```bash
-    curl --location 'http://API_URL/api/restore-curp-from-euv' \
+    curl --location 'API_URL/api/restore-curp-from-euv' \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer TOKEN' \
@@ -4054,7 +4839,7 @@ con PHP - cURL.
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://API_URL/api/restore-curp-from-euv',
+    CURLOPT_URL => 'API_URL/api/restore-curp-from-euv',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
@@ -4097,7 +4882,7 @@ con JavaScrip - fetch.
     redirect: "follow"
     };
 
-    fetch("http://API_URL/api/restore-curp-from-euv", requestOptions)
+    fetch("API_URL/api/restore-curp-from-euv", requestOptions)
     .then((response) => response.text())
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
