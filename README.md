@@ -28,7 +28,7 @@
     * [Registro una canalización para un hecho de violencia](#registro-una-canalización-para-un-hecho-de-violencia)
     * [Registro de un agresor para un hecho de violencia](#registro-de-un-agresor-para-un-hecho-de-violencia)
 * [Métodos de edición disponibles](#métodos-de-edición-disponibles)
-    * [Editar hecho de violencia ](#editar-hecho-de-violencia) <sub><small>--En construcción--</small></sub>
+    * [Editar hecho de violencia ](#editar-hecho-de-violencia) <sub><small>nuevo</small></sub>
     * [Editar los datos de una víctima](#registro-o-edición-de-los-datos-de-una-víctima) <sub><small>nuevo</small></sub>
     * [Editar registro de mujeres en prisión para un hecho de violencia](#editar-registro-de-mujeres-en-prisión-para-un-hecho-de-violencia)
     * [Editar registro de mujeres víctimas de trata](#editar-registro-de-mujeres-víctimas-de-trata)
@@ -1464,21 +1464,23 @@ El consumo de este método requiere cuatro parámetros de la víctima debido a q
 catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing), [nacionalidad_id](https://drive.google.com/file/d/1Q0gUDPgv9_3xfmPYPJ6WLfrUrFdqvEGB/view)
 #### Body raw (json)
 ```json
-    {
-        "curp"              : "CURP000000XXXXXXX0",
-        "cve_ent"           : 22,
-        "nacionalidad_id"   : 1,
-        "extranjera"        : false
-    }
+{
+    "curp"              : "FOGW030824MTSLRNA5",
+    "cve_ent"           : 22,
+    "nacionalidad_id"   : 1,
+    "extranjera"        : false,
+    "identifica_mujer"  : true
+}
 ```
 #### Campos Obligatorios
 
-|      Campo    | Obligatorio | Tipo de dato |
-|:-------------:|:-----------:|:------------:|
-|curp           |      SI     |    string    |
-|cve_ent        |      SI     |    integer   | 
-|nacionalidad_id|      NO     |    integer   |
-|extranjera     |      NO     |    boolean   |
+|         Campo        | Obligatorio | Tipo de dato |
+|:--------------------:|:-----------:|:------------:|
+| curp                 |      SI     |    string    |
+| cve_ent              |      SI     |    integer   | 
+| nacionalidad_id      |      NO     |    integer   |
+| extranjera           |      NO     |    boolean   |
+| identifica_mujer     |      NO     |    boolean   |
 
 #### Ejemplo de solicitud.
 con curl.
@@ -1491,7 +1493,8 @@ con curl.
     "curp"              : "CURP000000XXXXXXX0",
     "cve_ent"           : 22,
     "nacionalidad_id"   : 1,
-    "extranjera"        : false
+    "extranjera"        : false,
+    "identifica_mujer"  : true
     }'
 ```
 con PHP - cURL.
@@ -1513,7 +1516,8 @@ con PHP - cURL.
     "curp"              : "CURP000000XXXXXXX0",
     "cve_ent"           : 22,
     "nacionalidad_id"   : 1,
-    "extranjera"        : false
+    "extranjera"        : false,
+    "identifica_mujer"  : true
     }',
     CURLOPT_HTTPHEADER => array(
         'Accept: application/json',
@@ -1538,7 +1542,8 @@ con JavaScrip - fetch.
     "curp": "CURP000000XXXXXXX0",
     "cve_ent": 22,
     "nacionalidad_id": 1,
-    "extranjera": false
+    "extranjera": false,
+    "identifica_mujer"  : true
     });
 
     const requestOptions = {
@@ -1606,7 +1611,7 @@ El consumo de este método requiere el curp y datos, es necesario enviarlos como
 ```
     API_URL/api/registrar-victima-con-datos
 ```
-catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing)
+catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing), [nacionalidad_id](https://drive.google.com/file/d/1Q0gUDPgv9_3xfmPYPJ6WLfrUrFdqvEGB/view)
 #### Body raw (json)
 ```json
     {
@@ -1617,7 +1622,9 @@ catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l
         "sexo"              : "H",
         "cve_ent"           : 24,
         "extranjera"        : false,
-        "curp"              : "CURP000000XXXXXXX0"  
+        "curp"              : "CURP000000XXXXXXX0",
+        "nacionalidad_id"   : 1,
+        "identifica_mujer"  : true
     }
 ```
 #### Campos Obligatorios
@@ -1632,6 +1639,8 @@ catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l
 | cve_ent          |      SI       |     integer   |
 | extranjera       |      NO       |     boolean   |
 | curp             |      SI       |     string    |
+| nacionalidad_id  |      NO       |     integer   |
+| identifica_mujer |      NO       |     boolean   |
 
 #### Ejemplo de solicitud.
 con curl.
@@ -1648,7 +1657,9 @@ con curl.
     "sexo"              : "H",
     "cve_ent"           : 24,
     "extranjera"        : false,
-    "curp"              : "CURP000000XXXXXXX0"  
+    "curp"              : "CURP000000XXXXXXX0",
+    "nacionalidad_id"   : 1,
+    "identifica_mujer"  : true
     }'
 ```
 con PHP - cURL.
@@ -1674,7 +1685,9 @@ con PHP - cURL.
     "sexo"              : "H",
     "cve_ent"           : 24,
     "extranjera"        : false,
-    "curp"              : "CURP000000XXXXXXX0"  
+    "curp"              : "CURP000000XXXXXXX0",
+    "nacionalidad_id"   : 1,
+    "identifica_mujer"  : true  
     }',
     CURLOPT_HTTPHEADER => array(
         'Accept: application/json',
@@ -1703,7 +1716,9 @@ con JavaScrip - fetch.
     "sexo": "H",
     "cve_ent": 24,
     "extranjera": false,
-    "curp": "CURP000000XXXXXXX0"
+    "curp": "CURP000000XXXXXXX0",
+    "nacionalidad_id"   : 1,
+    "identifica_mujer"  : true
     });
 
     const requestOptions = {
@@ -1790,7 +1805,7 @@ El consumo de este método no requiere el curp de la víctima, sin embargo es ne
 ```
     API_URL/api/registrar-victima-sin-curp
 ```
-catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing)
+catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing), [nacionalidad_id](https://drive.google.com/file/d/1Q0gUDPgv9_3xfmPYPJ6WLfrUrFdqvEGB/view)
 #### Body raw (json)
 ```json
 {
@@ -1800,7 +1815,9 @@ catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l
     "fecha_nacimiento"  : "1965-11-20",
     "sexo"              : "H",
     "cve_ent"           : 24,
-    "extranjera"        : false
+    "extranjera"        : false,
+    "nacionalidad_id"   : 1,
+    "identifica_mujer"  : true
 }
 ```
 #### Campos Obligatorios
@@ -1815,6 +1832,7 @@ catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l
 | cve_ent           |      SI       |     integer    |
 | extranjera        |      NO       |     boolean    |
 | nacionalidad_id   |      NO       |     integer    |
+| identifica_mujer  |      NO       |     boolean    |
 |||
 
 #### Ejemplo de solicitud.
@@ -1831,7 +1849,9 @@ con curl.
     "fecha_nacimiento"  : "1965-11-20",
     "sexo"              : "H",
     "cve_ent"           : 24,
-    "extranjera"        : false
+    "extranjera"        : false,
+    "nacionalidad_id"   : 1,
+    "identifica_mujer"  : true
     }'
 ```
 con PHP - cURL.
@@ -1856,7 +1876,9 @@ con PHP - cURL.
     "fecha_nacimiento"  : "1965-11-20",
     "sexo"              : "H",
     "cve_ent"           : 24,
-    "extranjera"        : false
+    "extranjera"        : false,
+    "nacionalidad_id"   : 1,
+    "identifica_mujer"  : true
     }',
     CURLOPT_HTTPHEADER => array(
         'Accept: application/json',
@@ -1884,7 +1906,9 @@ con JavaScrip - fetch.
     "fecha_nacimiento": "1965-11-20",
     "sexo": "H",
     "cve_ent": 24,
-    "extranjera": false
+    "extranjera": false,
+    "nacionalidad_id"   : 1,
+    "identifica_mujer"  : true
     });
 
     const requestOptions = {
@@ -1999,7 +2023,15 @@ catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l
     "efectos_economicos_y_patrimoniales"            : [],
     "agente_de_lesion"                              : [],
     "area_anatomica_lesionada"                      : [],
-    "es_relacionada_con_orientacion_o_identidad"    : false
+    "es_relacionada_con_orientacion_o_identidad"    : false,
+    "lugar_detalle_otro"                            : "lugar_detalle_otro",
+    "tipo_violencia_otro"                           : "tipo_violencia_otro",
+    "efecto_fisico_otro"                            : "efecto_fisico_otro",
+    "consecuencia_sexual_otro"                      : "consecuencia_sexual_otro" ,          
+    "efecto_psicologico_otro"                       : "efecto_psicologico_otro",           
+    "efecto_economico_patrimonial_otro"             : "efecto_economico_patrimonial_otro",           
+    "agente_lesion_otro"                            : "agente_lesion_otro",
+    "area_anatomica_lesionada_otro"                 : "area_anatomica_lesionada_otro" 
 }
 ```
 #### Campos Obligatorios
@@ -2035,6 +2067,14 @@ catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l
 | agente_de_lesion                              |     NO      |   integer[]  |
 | area_anatomica_lesionada                      |     NO      |   integer[]  |
 | es_relacionada_con_orientacion_o_identidad    |     NO      |    bolean    |
+| lugar_detalle_otro                            |     NO      |    string    |  
+| tipo_violencia_otro                           |     NO      |    string    | 
+| efecto_fisico_otro                            |     NO      |    string    | 
+| consecuencia_sexual_otro                      |     NO      |    string    | 
+| efecto_psicologico_otro                       |     NO      |    string    | 
+| efecto_economico_patrimonial_otro             |     NO      |    string    | 
+| agente_lesion_otro                            |     NO      |    string    | 
+| area_anatomica_lesionada_otro                 |     NO      |    string    | 
 |||
 
 #### Ejemplo de solicitud.
@@ -2073,7 +2113,15 @@ con curl.
     "efectos_economicos_y_patrimoniales"            : [],
     "agente_de_lesion"                              : [],
     "area_anatomica_lesionada"                      : [],
-    "es_relacionada_con_orientacion_o_identidad"    : false
+    "es_relacionada_con_orientacion_o_identidad"    : false,
+    "lugar_detalle_otro"                            : "lugar_detalle_otro",
+    "tipo_violencia_otro"                           : "tipo_violencia_otro",
+    "efecto_fisico_otro"                            : "efecto_fisico_otro",
+    "consecuencia_sexual_otro"                      : "consecuencia_sexual_otro" ,          
+    "efecto_psicologico_otro"                       : "efecto_psicologico_otro",           
+    "efecto_economico_patrimonial_otro"             : "efecto_economico_patrimonial_otro",           
+    "agente_lesion_otro"                            : "agente_lesion_otro",
+    "area_anatomica_lesionada_otro"                 : "area_anatomica_lesionada_otro" 
     }'
 ```
 con PHP - cURL.
@@ -2120,7 +2168,15 @@ con PHP - cURL.
     "efectos_economicos_y_patrimoniales"            : [],
     "agente_de_lesion"                              : [],
     "area_anatomica_lesionada"                      : [],
-    "es_relacionada_con_orientacion_o_identidad"    : false
+    "es_relacionada_con_orientacion_o_identidad"    : false,
+    "lugar_detalle_otro"                            : "lugar_detalle_otro",
+    "tipo_violencia_otro"                           : "tipo_violencia_otro",
+    "efecto_fisico_otro"                            : "efecto_fisico_otro",
+    "consecuencia_sexual_otro"                      : "consecuencia_sexual_otro" ,          
+    "efecto_psicologico_otro"                       : "efecto_psicologico_otro",           
+    "efecto_economico_patrimonial_otro"             : "efecto_economico_patrimonial_otro",           
+    "agente_lesion_otro"                            : "agente_lesion_otro",
+    "area_anatomica_lesionada_otro"                 : "area_anatomica_lesionada_otro" 
     }',
     CURLOPT_HTTPHEADER => array(
         'Accept: application/json',
@@ -2170,7 +2226,15 @@ con JavaScrip - fetch.
     "efectos_economicos_y_patrimoniales": [],
     "agente_de_lesion": [],
     "area_anatomica_lesionada": [],
-    "es_relacionada_con_orientacion_o_identidad": false
+    "es_relacionada_con_orientacion_o_identidad": false,
+    "lugar_detalle_otro"                        : "lugar_detalle_otro",
+    "tipo_violencia_otro"                       : "tipo_violencia_otro",
+    "efecto_fisico_otro"                        : "efecto_fisico_otro",
+    "consecuencia_sexual_otro"                  : "consecuencia_sexual_otro" ,          
+    "efecto_psicologico_otro"                   : "efecto_psicologico_otro",           
+    "efecto_economico_patrimonial_otro"         : "efecto_economico_patrimonial_otro",           
+    "agente_lesion_otro"                        : "agente_lesion_otro",
+    "area_anatomica_lesionada_otro"             : "area_anatomica_lesionada_otro" 
     });
 
     const requestOptions = {
@@ -4224,7 +4288,648 @@ con estatus 422. Faltan parámetros.
 -----------------------------------------------------------------
 ### Editar hecho de violencia
 -----------------------------------------------------------------
+El hecho de violencia tiene una dependencia funcional, que requiere que la víctima esté registrada. Además de tener un registro previo del hecho.
+#### POST
+```json
+    http://API_URL/api/edita-hecho-de-violencia
+```
+catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing), [lugar_id](https://drive.google.com/file/d/1_rs52tWT5M-6U0AVn3texkHHpeSwtmRZ/view), [lugar_detalle_id](https://drive.google.com/file/d/1HvwJJpAHiQ7h5XnzVLAMT6tDnUCZZnZk/view), [pais_id](https://drive.google.com/file/d/1-5gPflCkSALusWLp_pUN20NJbqEWE6ir/view), [cve_mun](https://drive.google.com/file/d/19q9v31lH0Dgq7bsCBpO3hGfr_mT5VfNk/view), [cve_loc](https://drive.google.com/file/d/1VDHjmDqURqkLc5MQb84MKhI9NlVrg3m3/view), [tipo_violencia](https://drive.google.com/file/d/1Vf4-VABIMH5LIK308ubKLfjfFKwfnhOk/view), [modalidad_violencia](https://drive.google.com/file/d/1_Oq77ueBKXeV6e9848S7Y4i-Xa2WGUG-/view), [efectos_fisicos](https://drive.google.com/file/d/1TFijVmvWgGEAzjrAE1WVW-WQveIg-UXy/view), [consecuencias_sexuales](https://drive.google.com/file/d/1qG8ny2idjFkaGjYP_piFKFb30Dgg4jhR/view), [efectos_psicologicos](https://drive.google.com/file/d/1F-R-n6QdIxWPczrw_ZFcSvzQzu_FPXY0/view), [efectos_economicos_y_patrimoniales](https://drive.google.com/file/d/1o9U4ySp0xzFkItncnuLDeqliUOhHIB1L/view), [agente_de_lesion](https://drive.google.com/file/d/1RjXu3Ea0osZeesVqZPWAQXP3iVVIY2Kh/view) y [area_anatomica_lesionada](https://drive.google.com/file/d/1R0fblWPIU9-bc74GapgzEnBwFjP4T11p/view).
+#### Body raw (json)
+```json
+{
+    "id" : 1,
+    "fecha_hechos" : "2022-10-24",
+    "hora_hechos"  : "10:20",
+    "descripcion_hechos" : "hechos",
+    "lugar_id" : 2,
+    "lugar_detalle_id" : "19",
+    "en_domicilio_victima" : true,
+    "pais_id" : 153,
+    "cve_ent" : 30,
+    "cve_mun" : 2,
+    "calle" : "sdsd",
+    "num_exterior_km" : "0",
+    "num_interior" : "interior",
+    "cve_loc" : 2,
+    "cp" : "55120",
+    "lat" : 0.253,
+    "lng" : 0.9326,
+    "es_festivo" : true,
+    "conoce_la_autoridad" : true,
+    "conoce_la_autoridad_detalle" : "al juez",
+    "tipo_violencia" : [1],
+    "modalidad_violencia" : 2,
+    "es_victima_de_delincuencia_organizada" : true,
+    "hay_denuncia" : true,
+    "efectos_fisicos" : [1,3],
+    "consecuencias_sexuales" : [1],
+    "efectos_psicologicos" : [1],
+    "efectos_economicos_y_patrimoniales" : [2,1],
+    "agente_de_lesion" : [2,3],
+    "area_anatomica_lesionada": [2,1],
+    "es_relacionada_con_orientacion_o_identidad" : true,
+    "colonias_id" : 19727,
+    "culmino_en_muerte" : true,
+    "tipo_muerte_id" : 1,
+    "tipo_muerte_otro" : "otra muerte",
+    "tipo_conducta_violencia_sexual_id" : 1,
+    "tipo_violencia_sexual" : "q",
+    "tipo_agresor_sexual_id" : 2,
+    "tipo_agresor_sexual_otro"            : "Otro agresor",
+    "lugar_detalle_otro"                  : "lugar_detalle_otro",
+    "tipo_violencia_otro"                 : "tipo_violencia_otro",
+    "efecto_fisico_otro"                  : "efecto_fisico_otro",
+    "consecuencia_sexual_otro"            : "consecuencia_sexual_otro" ,          
+    "efecto_psicologico_otro"             : "efecto_psicologico_otro",           
+    "efecto_economico_patrimonial_otro"   : "efecto_economico_patrimonial_otro",           
+    "agente_lesion_otro"                  : "agente_lesion_otro",
+    "area_anatomica_lesionada_otro"       : "area_anatomica_lesionada_otro" 
+}
+```
+#### Campos Obligatorios
 
+|                    Campo                   | Obligatorio |Tipo de dato |
+|:------------------------------------------:|:-----------:|:-----------:|
+| id                                         |     SI      |   integer   | 
+| fecha_hechos                               |     NO      |    date     | 
+| hora_hechos                                |     NO      |    time     |
+| descripcion_hechos                         |     NO      |   string    | 
+| lugar_id                                   |     NO      |   integer   | 
+| lugar_detalle_id                           |     NO      |   integer   | 
+| en_domicilio_victima                       |     NO      |   boolean   | 
+| pais_id                                    |     NO      |   integer   | 
+| cve_ent                                    |     NO      |   integer   | 
+| cve_mun                                    |     NO      |   integer   | 
+| calle                                      |     NO      |   string    | 
+| num_exterior_km                            |     NO      |   string    | 
+| num_interior                               |     NO      |   string    | 
+| cve_loc                                    |     NO      |   integer   | 
+| cp                                         |     NO      |   string    | 
+| lat                                        |     NO      |   number    | 
+| lng                                        |     NO      |   number    | 
+| es_festivo                                 |     NO      |   boolean   | 
+| conoce_la_autoridad                        |     NO      |   boolean   |
+| conoce_la_autoridad_detalle                |     NO      |   string    |
+| tipo_violencia                             |     NO      |  integer[]  | 
+| modalidad_violencia                        |     NO      |   integer   | 
+| es_victima_de_delincuencia_organizada      |     NO      |   boolean   | 
+| hay_denuncia                               |     NO      |   boolean   | 
+| efectos_fisicos                            |     NO      |  integer[]  | 
+| consecuencias_sexuales                     |     NO      |  integer[]  | 
+| efectos_psicologicos                       |     NO      |  integer[]  | 
+| efectos_economicos_y_patrimoniales         |     NO      |  integer[]  | 
+| agente_de_lesion                           |     NO      |  integer[]  | 
+| area_anatomica_lesionada                   |     NO      |  integer[]  | 
+| es_relacionada_con_orientacion_o_identidad |     NO      |   boolean   | 
+| colonias_id                                |     NO      |   integer   | 
+| culmino_en_muerte                          |     NO      |   boolean   | 
+| tipo_muerte_id                             |     NO      |   integer   | 
+| tipo_muerte_otro                           |     NO      |   string    | 
+| tipo_conducta_violencia_sexual_id          |     NO      |   integer   | 
+| tipo_violencia_sexual                      |     NO      |   string    | 
+| tipo_agresor_sexual_id                     |     NO      |   integer   | 
+| tipo_agresor_sexual_otro                   |     NO      |   string    |
+| lugar_detalle_otro                         |     NO      |   string    |  
+| tipo_violencia_otro                        |     NO      |   string    | 
+| efecto_fisico_otro                         |     NO      |   string    | 
+| consecuencia_sexual_otro                   |     NO      |   string    | 
+| efecto_psicologico_otro                    |     NO      |   string    | 
+| efecto_economico_patrimonial_otro          |     NO      |   string    | 
+| agente_lesion_otro                         |     NO      |   string    | 
+| area_anatomica_lesionada_otro              |     NO      |   string    | 
+| | |
+Las opciones del campo tipo_violencia_sexual de tipo string son: Acoso/Hostigamiento  
+
+#### Ejemplo de solicitud.
+con curl.
+```bash
+curl --location 'API_URL/api/edita-hecho-de-violencia' \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer TOKEN' \
+--data '{
+    "id" : 1,
+    "fecha_hechos" : "2022-10-24",
+    "hora_hechos"  : "10:20",
+    "descripcion_hechos" : "hechos",
+    "lugar_id" : 2,
+    "lugar_detalle_id" : "19",
+    "en_domicilio_victima" : true,
+    "pais_id" : 153,
+    "cve_ent" : 30,
+    "cve_mun" : 2,
+    "calle" : "sdsd",
+    "num_exterior_km" : "0",
+    "num_interior" : "interior",
+    "cve_loc" : 2,
+    "cp" : "55120",
+    "lat" : 0.253,
+    "lng" : 0.9326,
+    "es_festivo" : true,
+    "conoce_la_autoridad" : true,
+    "conoce_la_autoridad_detalle" : "al juez",
+    "tipo_violencia" : [1],
+    "modalidad_violencia" : 2,
+    "es_victima_de_delincuencia_organizada" : true,
+    "hay_denuncia" : true,
+    "efectos_fisicos" : [1,3],
+    "consecuencias_sexuales" : [1],
+    "efectos_psicologicos" : [1],
+    "efectos_economicos_y_patrimoniales" : [2,1],
+    "agente_de_lesion" : [2,3],
+    "area_anatomica_lesionada": [2,1],
+    "es_relacionada_con_orientacion_o_identidad" : true,
+    "colonias_id" : 19727,
+    "culmino_en_muerte" : true,
+    "tipo_muerte_id" : 1,
+    "tipo_muerte_otro" : "otra muerte",
+    "tipo_violencia_sexual" : "Hostigamiento",
+    "tipo_agresor_sexual_id" : 2,
+    "tipo_agresor_sexual_otro"            : "Otro agresor",
+    "lugar_detalle_otro"                  : "lugar_detalle_otro",
+    "tipo_violencia_otro"                 : "tipo_violencia_otro",
+    "efecto_fisico_otro"                  : "efecto_fisico_otro",
+    "consecuencia_sexual_otro"            : "consecuencia_sexual_otro" ,          
+    "efecto_psicologico_otro"             : "efecto_psicologico_otro",           
+    "efecto_economico_patrimonial_otro"   : "efecto_economico_patrimonial_otro",           
+    "agente_lesion_otro"                  : "agente_lesion_otro",
+    "area_anatomica_lesionada_otro"       : "area_anatomica_lesionada_otro" 
+}
+'
+```
+con PHP - cURL.
+```php
+<?php
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => 'API_URL/api/edita-hecho-de-violencia',
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => '',
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => 'POST',
+  CURLOPT_POSTFIELDS =>'{
+    "id" : 1,
+    "fecha_hechos" : "2022-10-24",
+    "hora_hechos"  : "10:20",
+    "descripcion_hechos" : "hechos",
+    "lugar_id" : 2,
+    "lugar_detalle_id" : "19",
+    "en_domicilio_victima" : true,
+    "pais_id" : 153,
+    "cve_ent" : 30,
+    "cve_mun" : 2,
+    "calle" : "sdsd",
+    "num_exterior_km" : "0",
+    "num_interior" : "interior",
+    "cve_loc" : 2,
+    "cp" : "55120",
+    "lat" : 0.253,
+    "lng" : 0.9326,
+    "es_festivo" : true,
+    "conoce_la_autoridad" : true,
+    "conoce_la_autoridad_detalle" : "al juez",
+    "tipo_violencia" : [1],
+    "modalidad_violencia" : 2,
+    "es_victima_de_delincuencia_organizada" : true,
+    "hay_denuncia" : true,
+    "efectos_fisicos" : [1,3],
+    "consecuencias_sexuales" : [1],
+    "efectos_psicologicos" : [1],
+    "efectos_economicos_y_patrimoniales" : [2,1],
+    "agente_de_lesion" : [2,3],
+    "area_anatomica_lesionada": [2,1],
+    "es_relacionada_con_orientacion_o_identidad" : true,
+    "colonias_id" : 19727,
+    "culmino_en_muerte" : true,
+    "tipo_muerte_id" : 1,
+    "tipo_muerte_otro" : "otra muerte",
+    "tipo_violencia_sexual" : "Hostigamiento",
+    "tipo_agresor_sexual_id" : 2,
+    "tipo_agresor_sexual_otro"            : "Otro agresor",
+    "lugar_detalle_otro"                  : "lugar_detalle_otro",
+    "tipo_violencia_otro"                 : "tipo_violencia_otro",
+    "efecto_fisico_otro"                  : "efecto_fisico_otro",
+    "consecuencia_sexual_otro"            : "consecuencia_sexual_otro" ,          
+    "efecto_psicologico_otro"             : "efecto_psicologico_otro",           
+    "efecto_economico_patrimonial_otro"   : "efecto_economico_patrimonial_otro",           
+    "agente_lesion_otro"                  : "agente_lesion_otro",
+    "area_anatomica_lesionada_otro"       : "area_anatomica_lesionada_otro" 
+}
+',
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'Content-Type: application/json',
+    'Authorization: Bearer TOKEN'
+  ),
+));
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+echo $response;
+
+```
+con JavaScrip - fetch.
+```javascript
+    const myHeaders = new Headers();
+    myHeaders.append("Accept", "application/json");
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Authorization", "Bearer TOKEN");
+
+    const raw = JSON.stringify({
+    "id": 1,
+    "fecha_hechos": "2022-10-24",
+    "hora_hechos": "10:20",
+    "descripcion_hechos": "hechos",
+    "lugar_id": 2,
+    "lugar_detalle_id": "19",
+    "en_domicilio_victima": true,
+    "pais_id": 153,
+    "cve_ent": 30,
+    "cve_mun": 2,
+    "calle": "sdsd",
+    "num_exterior_km": "0",
+    "num_interior": "interior",
+    "cve_loc": 2,
+    "cp": "55120",
+    "lat": 0.253,
+    "lng": 0.9326,
+    "es_festivo": true,
+    "conoce_la_autoridad": true,
+    "conoce_la_autoridad_detalle": "al juez",
+    "tipo_violencia": [
+        1
+    ],
+    "modalidad_violencia": 2,
+    "es_victima_de_delincuencia_organizada": true,
+    "hay_denuncia": true,
+    "efectos_fisicos": [
+        1,
+        3
+    ],
+    "consecuencias_sexuales": [
+        1
+    ],
+    "efectos_psicologicos": [
+        1
+    ],
+    "efectos_economicos_y_patrimoniales": [
+        2,
+        1
+    ],
+    "agente_de_lesion": [
+        2,
+        3
+    ],
+    "area_anatomica_lesionada": [
+        2,
+        1
+    ],
+    "es_relacionada_con_orientacion_o_identidad": true,
+    "colonias_id": 19727,
+    "culmino_en_muerte": true,
+    "tipo_muerte_id": 1,
+    "tipo_muerte_otro": "otra muerte",
+    "tipo_violencia_sexual": "Hostigamiento",
+    "tipo_agresor_sexual_id": 2,
+    "tipo_agresor_sexual_otro": "Otro agresor",
+    "lugar_detalle_otro": "lugar_detalle_otro",
+    "tipo_violencia_otro": "tipo_violencia_otro",
+    "efecto_fisico_otro": "efecto_fisico_otro",
+    "consecuencia_sexual_otro": "consecuencia_sexual_otro",
+    "efecto_psicologico_otro": "efecto_psicologico_otro",
+    "efecto_economico_patrimonial_otro": "efecto_economico_patrimonial_otro",
+    "agente_lesion_otro": "agente_lesion_otro",
+    "area_anatomica_lesionada_otro": "area_anatomica_lesionada_otro"
+    });
+
+    const requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow"
+    };
+
+    fetch("API_URL/api/edita-hecho-de-violencia", requestOptions)
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.error(error));
+```
+#### La respuesta que se recibirá después de la petición.
+con estatus 200  en formato json.
+```json
+{
+    "id": 1,
+    "victimas_id": 22,
+    "users_id": 1,
+    "fecha_hechos": "2022-10-24",
+    "hora_hechos": "10:20",
+    "descripcion_hechos": "hechos",
+    "lugar_id": 2,
+    "lugar_detalle_id": "19",
+    "en_domicilio_victima": true,
+    "pais_id": 153,
+    "cve_ent": 30,
+    "cve_mun": 2,
+    "calle": "sdsd",
+    "num_exterior_km": "0",
+    "num_interior": "interior",
+    "cve_loc": 2,
+    "cp": "55120",
+    "lat": 0.253,
+    "lng": 0.9326,
+    "es_festivo": true,
+    "conoce_la_autoridad": true,
+    "conoce_la_autoridad_detalle": "al juez",
+    "tipo_violencia": [
+        1
+    ],
+    "modalidad_violencia": 2,
+    "es_victima_de_delincuencia_organizada": true,
+    "hay_denuncia": true,
+    "efectos_fisicos": [
+        1,
+        3
+    ],
+    "consecuencias_sexuales": [
+        1
+    ],
+    "efectos_psicologicos": [
+        1
+    ],
+    "efectos_economicos_y_patrimoniales": [
+        2,
+        1
+    ],
+    "agente_de_lesion": [
+        2,
+        3
+    ],
+    "area_anatomica_lesionada": [
+        2,
+        1
+    ],
+    "es_relacionada_con_orientacion_o_identidad": true,
+    "created_at": "2024-08-08T22:55:02.000000Z",
+    "updated_at": "2024-11-15T01:06:27.000000Z",
+    "deleted_at": null,
+    "folio": "e293236c-6755-3987-8573-d8f70b1095d0-1",
+    "colonias_id": 19727,
+    "culmino_en_muerte": true,
+    "tipo_muerte_id": 1,
+    "tipo_muerte_otro": "otra muerte",
+    "tipo_violencia_sexual": "Hostigamiento",
+    "tipo_agresor_sexual_id": 2,
+    "tipo_agresor_sexual_otro": "Otro agresor",
+    "tipos_conductas_violencia_sexual": null,
+    "lugar_detalle_otro": "lugar_detalle_otro",
+    "tipo_violencia_otro": "tipo_violencia_otro",
+    "efecto_fisico_otro": "efecto_fisico_otro",
+    "consecuencia_sexual_otro": "consecuencia_sexual_otro",
+    "efecto_psicologico_otro": "efecto_psicologico_otro",
+    "efecto_economico_patrimonial_otro": "efecto_economico_patrimonial_otro",
+    "agente_lesion_otro": "agente_lesion_otro",
+    "area_anatomica_lesionada_otro": "area_anatomica_lesionada_otro",
+    "victima": {
+        "id": 22,
+        "nombre": "Garland Walsh",
+        "primer_apellido": "Schimmel",
+        "segundo_apellido": "x",
+        "fecha_nacimiento": "2005-03-01",
+        "cve_ent": 21,
+        "created_at": "2023-10-31T19:50:17.000000Z",
+        "updated_at": "2023-10-31T19:50:17.000000Z",
+        "curp": "false",
+        "folio_euv": "e293236c-6755-3987-8573-d8f70b1095d0",
+        "sexo": "M",
+        "extranjera": true,
+        "users_id": 931,
+        "instancias_id": null,
+        "areas_id": null,
+        "sedes_id": null,
+        "nacionalidad_id": 88,
+        "deleted_at": null,
+        "sexo_id": null,
+        "from_api": false,
+        "identifica_mujer": null
+    },
+    "lugar": {
+        "id": 2,
+        "pk_catalogo": 4,
+        "descripcion": "Transporte privado",
+        "orden": 4,
+        "es_activo": true,
+        "created_at": "2023-12-01T17:04:30.000000Z",
+        "updated_at": "2023-12-01T17:04:30.000000Z",
+        "detalles_localidad": [
+            {
+                "id": 11,
+                "pk_catalogo": 26,
+                "descripcion": "Empresa",
+                "fk_lugar_ocurrencia": 4,
+                "orden": 1,
+                "es_activo": true,
+                "created_at": "2023-12-01T17:04:30.000000Z",
+                "updated_at": "2023-12-01T17:04:30.000000Z"
+            },
+            {
+                "id": 10,
+                "pk_catalogo": 27,
+                "descripcion": "Particular",
+                "fk_lugar_ocurrencia": 4,
+                "orden": 2,
+                "es_activo": true,
+                "created_at": "2023-12-01T17:04:30.000000Z",
+                "updated_at": "2023-12-01T17:04:30.000000Z"
+            },
+            {
+                "id": 9,
+                "pk_catalogo": 28,
+                "descripcion": "Otro",
+                "fk_lugar_ocurrencia": 4,
+                "orden": 3,
+                "es_activo": true,
+                "created_at": "2023-12-01T17:04:30.000000Z",
+                "updated_at": "2023-12-01T17:04:30.000000Z"
+            }
+        ]
+    },
+    "lugar_detalle": {
+        "id": 19,
+        "pk_catalogo": 18,
+        "descripcion": "Otro",
+        "fk_lugar_ocurrencia": 2,
+        "orden": 15,
+        "es_activo": true,
+        "created_at": "2023-12-01T17:04:30.000000Z",
+        "updated_at": "2023-12-01T17:04:30.000000Z"
+    },
+    "seguimientos": [
+        {
+            "id": 20,
+            "users_id": 1,
+            "hechos_id": 1,
+            "fecha_seguimiento": "2023-10-27",
+            "hora_seguimiento": "08:12:00",
+            "tipo_id": 1,
+            "servicios_id": 1,
+            "acciones": "Se realizo la accion de prueba",
+            "observaciones": "Se realizo la observacion de prueba",
+            "created_at": "2024-09-06T02:42:51.000000Z",
+            "updated_at": "2024-09-06T02:42:51.000000Z",
+            "deleted_at": null,
+            "servicio": {
+                "id": 1,
+                "tipo_servicio_id": 1,
+                "descripcion": "INTERVENCIÓN EN CRISIS",
+                "esactivo": true,
+                "created_at": "2023-12-01T17:04:35.000000Z",
+                "updated_at": "2023-12-01T17:04:35.000000Z"
+            },
+            "tipo_servicio": {
+                "id": 1,
+                "descripcion": "Servicios de Psicología",
+                "esactivo": true,
+                "created_at": "2023-12-01T17:04:35.000000Z",
+                "updated_at": "2023-12-01T17:04:35.000000Z"
+            }
+        },
+        {
+            "id": 341,
+            "users_id": 1,
+            "hechos_id": 1,
+            "fecha_seguimiento": "2023-10-27",
+            "hora_seguimiento": "08:12:00",
+            "tipo_id": 1,
+            "servicios_id": 1,
+            "acciones": "Se realizo la accion de prueba",
+            "observaciones": "Se realizo la observacion de prueba",
+            "created_at": "2024-11-14T22:39:36.000000Z",
+            "updated_at": "2024-11-14T22:39:36.000000Z",
+            "deleted_at": null,
+            "servicio": {
+                "id": 1,
+                "tipo_servicio_id": 1,
+                "descripcion": "INTERVENCIÓN EN CRISIS",
+                "esactivo": true,
+                "created_at": "2023-12-01T17:04:35.000000Z",
+                "updated_at": "2023-12-01T17:04:35.000000Z"
+            },
+            "tipo_servicio": {
+                "id": 1,
+                "descripcion": "Servicios de Psicología",
+                "esactivo": true,
+                "created_at": "2023-12-01T17:04:35.000000Z",
+                "updated_at": "2023-12-01T17:04:35.000000Z"
+            }
+        }
+    ],
+    "canalizaciones": [],
+    "ordenes": [],
+    "victimas_trata": [],
+    "mujeres_prision": [
+        {
+            "id": 13,
+            "privada_de_libertad": true,
+            "calidad_legal_id": 1,
+            "delitos": "robo",
+            "victima_de_tortura": true,
+            "protocolo_de_estambul": true,
+            "victima_de_tortura_despues_del_protocolo_de_estambul": true,
+            "tortura_tipo_id": 1,
+            "tortura_momento_id": 5,
+            "autoridad_id": 1,
+            "created_at": "2024-10-25T20:28:54.000000Z",
+            "updated_at": "2024-10-25T20:28:54.000000Z",
+            "users_id": 1,
+            "hechos_id": 1,
+            "deleted_at": null,
+            "calidad_legal": {
+                "id": 1,
+                "descripcion": "Procesada",
+                "es_activo": true,
+                "created_at": "2023-12-01T17:04:37.000000Z",
+                "updated_at": "2023-12-01T17:04:37.000000Z"
+            }
+        },
+        {
+            "id": 14,
+            "privada_de_libertad": true,
+            "calidad_legal_id": 1,
+            "delitos": "robo",
+            "victima_de_tortura": true,
+            "protocolo_de_estambul": true,
+            "victima_de_tortura_despues_del_protocolo_de_estambul": true,
+            "tortura_tipo_id": 1,
+            "tortura_momento_id": 5,
+            "autoridad_id": 1,
+            "created_at": "2024-10-25T20:43:25.000000Z",
+            "updated_at": "2024-10-25T20:43:25.000000Z",
+            "users_id": 1,
+            "hechos_id": 1,
+            "deleted_at": null,
+            "calidad_legal": {
+                "id": 1,
+                "descripcion": "Procesada",
+                "es_activo": true,
+                "created_at": "2023-12-01T17:04:37.000000Z",
+                "updated_at": "2023-12-01T17:04:37.000000Z"
+            }
+        },
+        {
+            "id": 16,
+            "privada_de_libertad": true,
+            "calidad_legal_id": 1,
+            "delitos": "robo",
+            "victima_de_tortura": true,
+            "protocolo_de_estambul": true,
+            "victima_de_tortura_despues_del_protocolo_de_estambul": true,
+            "tortura_tipo_id": 1,
+            "tortura_momento_id": 5,
+            "autoridad_id": 1,
+            "created_at": "2024-10-28T21:59:09.000000Z",
+            "updated_at": "2024-10-28T21:59:09.000000Z",
+            "users_id": 1,
+            "hechos_id": 1,
+            "deleted_at": null,
+            "calidad_legal": {
+                "id": 1,
+                "descripcion": "Procesada",
+                "es_activo": true,
+                "created_at": "2023-12-01T17:04:37.000000Z",
+                "updated_at": "2023-12-01T17:04:37.000000Z"
+            }
+        }
+    ],
+    "colonia": {
+        "id": 19727,
+        "cve_ent": 15,
+        "cve_mun": 33,
+        "cp": 55120,
+        "descripcion": "CIUDAD AZTECA SECCIÓN ORIENTE",
+        "created_at": "2024-08-08T22:49:37.000000Z",
+        "updated_at": "2024-08-08T22:49:37.000000Z"
+    }
+}
+```
+con estatus 422. Error de tipo de dato.
+```json
+{
+    "message": "El campo NOMBRE_CAMPO debe ser una TIPO_DATO.",
+    "errors": {
+        "otra_discapacidad": [
+            "El campo NOMBRE_CAMPO debe ser una TIPO_DATO."
+        ]
+    }
+}
+con estatus 422. .
+```json
+```
 -----------------------------------------------------------------
 ### Editar registro de mujeres en prisión para un hecho de violencia
 -----------------------------------------------------------------
