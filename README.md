@@ -4927,8 +4927,6 @@ con estatus 422. Error de tipo de dato.
         ]
     }
 }
-con estatus 422. .
-```json
 ```
 -----------------------------------------------------------------
 ### Editar registro de mujeres en prisión para un hecho de violencia
