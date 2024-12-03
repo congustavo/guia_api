@@ -5953,6 +5953,10 @@ Método de personalizado para obtener los datos de niñas adolecentes de madres 
 ```
     API_URL/api/custom/infoname
 ```
+catálogos: [cve_ent ,entidadDeLaAtencion, entidadDeLaAtencion, entidadDeNacimiento, fk_estado](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing),
+ [cve_mun, fk_municipio, municipioDeLaAtencion](https://drive.google.com/file/d/19q9v31lH0Dgq7bsCBpO3hGfr_mT5VfNk/view),[cve_loc](https://drive.google.com/file/d/1VDHjmDqURqkLc5MQb84MKhI9NlVrg3m3/view), [colonias_id, codigoPostal](https://drive.google.com/file/d/1wWVhPLa0zFgdoeQYEtCRNfODEcpQx6BH/view), [nacionalidad](https://drive.google.com/file/d/1Q0gUDPgv9_3xfmPYPJ6WLfrUrFdqvEGB/view),
+ [pueblo_indigena_id](https://drive.google.com/file/d/1HUX7WHG1yI-QA-Jo7DG483HCf2kJBBDA/view?usp=drive_link), [escolaridad_id](https://drive.google.com/file/d/1Pf_eJpt_S34Ipo908Ih7RS-kQHfwJQGr/view), [dependencia](https://drive.google.com/file/d/1deTUFByYSQSG9T-cu_TmsYgsgb-YyxBW/view?usp=sharing), [fk_area_dependencia](https://drive.google.com/file/d/1UQ2ofC2VaPXo08fal_1pY32sUAAgJc6D/view?usp=sharing)
+
 #### Body raw (json)
 ```json
     {
