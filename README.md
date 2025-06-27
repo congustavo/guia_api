@@ -15,6 +15,7 @@
     * [Búsqueda de hechos por entidad y rango de fecha](#búsqueda-de-hechos-por-entidad-y-rango-de-fecha)
     * [Búsqueda de una orden de protección por id](#búsqueda-de-orden-de-protección-por-id) <sub><small>nuevo</small></sub>
     * [Búsqueda de órdenes de protección paginadas](#búsqueda-de-órdenes-de-protección-paginadas) <sub><small>nuevo</small></sub>
+    * [Búsqueda de hechos y ordenes de protección vinculadas por curp](#hechos-por-curp) <sub><small>nuevo</small></sub>
 * [Métodos de registro disponibles](#métodos-de-registro-disponibles)
     * [Registro de víctima con CURP](#registro-de-víctima-con-curp)
     * [Registro de víctima con Datos](#registro-de-víctima-con-datos)
@@ -29,11 +30,11 @@
     * [Registro de mujeres desaparecidas para un hecho de violencia](#registro-de-mujeres-desaparecidas-para-un-hecho-de-violencia)
     * [Registro una canalización para un hecho de violencia](#registro-una-canalización-para-un-hecho-de-violencia)
     * [Registro de un agresor para un hecho de violencia](#registro-de-un-agresor-para-un-hecho-de-violencia)
-    * [Registro de una orden de protección](#registro-de-una-orden-de-protección)<sub><small>nuevo</small></sub>
-    
+    * [Registro de una orden de protección.](#registro-de-una-orden-de-protección)<sub><small>nuevo</small></sub>
 * [Métodos de edición disponibles](#métodos-de-edición-disponibles)
     * [Editar hecho de violencia ](#editar-hecho-de-violencia) <sub><small>nuevo</small></sub>
     * [Editar los datos de una víctima](#registro-o-edición-de-los-datos-de-una-víctima) <sub><small>nuevo</small></sub>
+    * [Editar nacionalidad de víctima](#edita-nacionalidad-victima) <sub><small>nuevo</small></sub>
     * [Editar registro de mujeres en prisión para un hecho de violencia](#editar-registro-de-mujeres-en-prisión-para-un-hecho-de-violencia)
     * [Editar registro de mujeres víctimas de trata](#editar-registro-de-mujeres-víctimas-de-trata)
     * [Editar una orden de protección](#editar-una-orden-de-protección) <sub><small>nuevo</small></sub>
@@ -55,8 +56,8 @@ La transición del entorno de pruebas al de producción es un paso clave, ya que
 Utilizaremos variables de entorno para facilitar la gestión de dominios.
 Ejemplo:
 ```text
-API_URL=http://208.113.132.37:80                # Pruebas
-API_URL=https://banavimnacional.segob.gob.mx    # Producción
+API_URL=https://banavim-capacitacion.mujeres.gob.mx:443                # Pruebas
+API_URL=https://banavim.mujeres.gob.mx:443                             # Producción
 ```
 La transición al entorno de producción **debe hacerse solo después de finalizar las pruebas** y garantizar que no haya errores. Esto asegura que la API funcione de manera eficiente en operaciones reales sin interrupciones por lo que durante la guia se utilizará el entorno de prubas.
 
@@ -1718,6 +1719,355 @@ con estatus 200  en formato json.
     "ordenes_id": [
         17
     ]
+}
+```
+-----------------------------------------------------------------------------
+### Búsqueda de hechos y ordenes de protección vinculadas por curp
+-----------------------------------------------------------------------------
+El consumo de este método requiere un parámetro que permitirá obtener la información de los hechos vinculados al curp y las ordenes de protección vinculadas a los hechos (en caso de existir).
+#### POST
+```json
+   API_URL/api/hechos-por-curp
+```
+
+#### Body raw (json)
+```json
+{
+    "curp" : "RISL850120XDFVTSXX"
+}
+```
+#### Campos Obligatorios
+
+|     Campo     | Obligatorio |Tipo de dato |
+|:-------------:|:-----------:|:-----------:|
+|      curp     |     SI      |   String    | 
+|||
+
+#### Ejemplo de solicitud.
+con curl.
+```bash
+curl --location 'API_URL/api/hechos-por-curp' \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer TOKEN' \
+--data '{
+    "curp" : "RISL850120XDFVTSXX"
+}'
+```
+con PHP - cURL.
+```php
+<?php
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => 'API_URL/api/hechos-por-curp',
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => '',
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => 'POST',
+  CURLOPT_POSTFIELDS =>'{
+    "curp" : "RISL850120XDFVTSXX"
+}',
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'Content-Type: application/json',
+    'Authorization: Bearer TOKEN'
+  ),
+));
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+echo $response;
+```
+con JavaScrip - fetch.
+```javascript
+const myHeaders = new Headers();
+myHeaders.append("Accept", "application/json");
+myHeaders.append("Content-Type", "application/json");
+myHeaders.append("Authorization", "Bearer TOKEN");
+
+const raw = JSON.stringify({
+  "curp" : "RISL850120XDFVTSXX"
+});
+
+const requestOptions = {
+  method: "POST",
+  headers: myHeaders,
+  body: raw,
+  redirect: "follow"
+};
+
+fetch("API_URL/api/hechos-por-curp", requestOptions)
+  .then((response) => response.text())
+  .then((result) => console.log(result))
+  .catch((error) => console.error(error));
+```
+#### La respuesta que se recibirá después de la petición.
+## NOTA: Los datos utilizados en este ejemplo son para ilustrar el tipo de respuesta esperada, 
+los datos en la respuesta pueden variar de acuerdo al uso del operador del API.
+con estatus 200 en formato json.
+```json
+[
+    {
+        "id": 3,
+        "victimas_id": 10,
+        "users_id": 1,
+        "fecha_hechos": "2022-10-26",
+        "hora_hechos": "08:12:00",
+        "descripcion_hechos": "Este es un hecho",
+        "lugar_id": 3,
+        "lugar_detalle_id": 36,
+        "en_domicilio_victima": true,
+        "pais_id": 238,
+        "cve_ent": 21,
+        "cve_mun": 133,
+        "calle": "siempre viva 23",
+        "num_exterior_km": "45",
+        "num_interior": null,
+        "cve_loc": 1,
+        "cp": "74069",
+        "lat": "19.28431",
+        "lng": "-98.43885",
+        "es_festivo": false,
+        "conoce_la_autoridad": false,
+        "conoce_la_autoridad_detalle": "",
+        "tipo_violencia": [
+            1,
+            3,
+            5,
+            8
+        ],
+        "modalidad_violencia": 6,
+        "es_victima_de_delincuencia_organizada": false,
+        "hay_denuncia": false,
+        "efectos_fisicos": [
+            1,
+            2
+        ],
+        "consecuencias_sexuales": [],
+        "efectos_psicologicos": [],
+        "efectos_economicos_y_patrimoniales": [],
+        "agente_de_lesion": [],
+        "area_anatomica_lesionada": [],
+        "es_relacionada_con_orientacion_o_identidad": false,
+        "created_at": "2025-06-20T00:37:46.000000Z",
+        "updated_at": "2025-06-20T00:37:46.000000Z",
+        "deleted_at": null,
+        "folio": "EUV310017610062025-1",
+        "colonias_id": null,
+        "culmino_en_muerte": null,
+        "tipo_muerte_id": null,
+        "tipo_muerte_otro": null,
+        "tipo_violencia_sexual": null,
+        "tipo_agresor_sexual_id": null,
+        "tipo_agresor_sexual_otro": null,
+        "tipos_conductas_violencia_sexual": null,
+        "lugar_detalle_otro": "",
+        "tipo_violencia_otro": "",
+        "efecto_fisico_otro": "",
+        "consecuencia_sexual_otro": "",
+        "efecto_psicologico_otro": "",
+        "efecto_economico_patrimonial_otro": "",
+        "agente_lesion_otro": "",
+        "area_anatomica_lesionada_otro": "",
+        "en_extranjero": null,
+        "via_linea_bienestar": false,
+        "cve_ent_captura": 31,
+        "cve_mun_captura": null,
+        "dependencia_captura": 176,
+        "folio_cabi": null,
+        "dependencia_corresponde": 113,
+        "victima": {
+            "id": 10,
+            "nombre": "Luisa",
+            "primer_apellido": "Rivera",
+            "segundo_apellido": "Soto",
+            "fecha_nacimiento": "1985-01-20",
+            "cve_ent": 9,
+            "created_at": "2025-06-20T00:33:11.000000Z",
+            "updated_at": "2025-06-20T00:33:11.000000Z",
+            "curp": "RISL850120XDFVTSXX",
+            "folio_euv": "EUV310017610062025",
+            "sexo": null,
+            "extranjera": false,
+            "users_id": 1,
+            "instancias_id": null,
+            "areas_id": null,
+            "sedes_id": null,
+            "nacionalidad_id": 1,
+            "deleted_at": null,
+            "sexo_id": 2,
+            "from_api": true,
+            "identifica_mujer": null,
+            "cve_ent_captura": 31,
+            "cve_mun_captura": null,
+            "dependencia_captura": 176,
+            "dependencia_corresponde": 113
+        },
+        "lugar": {
+            "id": 3,
+            "pk_catalogo": 3,
+            "descripcion": "Transporte foráneo",
+            "orden": 4,
+            "es_activo": true,
+            "created_at": "2025-06-10T03:03:06.000000Z",
+            "updated_at": "2025-06-10T03:03:06.000000Z",
+            "detalles_localidad": [
+                {
+                    "id": 23,
+                    "pk_catalogo": 19,
+                    "descripcion": "Autobús",
+                    "fk_lugar_ocurrencia": 3,
+                    "orden": 1,
+                    "es_activo": true,
+                    "created_at": "2025-06-10T03:03:06.000000Z",
+                    "updated_at": "2025-06-10T03:03:06.000000Z"
+                },
+                {
+                    "id": 21,
+                    "pk_catalogo": 21,
+                    "descripcion": "Avión",
+                    "fk_lugar_ocurrencia": 3,
+                    "orden": 2,
+                    "es_activo": true,
+                    "created_at": "2025-06-10T03:03:06.000000Z",
+                    "updated_at": "2025-06-10T03:03:06.000000Z"
+                },
+                {
+                    "id": 22,
+                    "pk_catalogo": 20,
+                    "descripcion": "Barco",
+                    "fk_lugar_ocurrencia": 3,
+                    "orden": 3,
+                    "es_activo": true,
+                    "created_at": "2025-06-10T03:03:06.000000Z",
+                    "updated_at": "2025-06-10T03:03:06.000000Z"
+                },
+                {
+                    "id": 19,
+                    "pk_catalogo": 23,
+                    "descripcion": "Ferrocarril",
+                    "fk_lugar_ocurrencia": 3,
+                    "orden": 4,
+                    "es_activo": true,
+                    "created_at": "2025-06-10T03:03:06.000000Z",
+                    "updated_at": "2025-06-10T03:03:06.000000Z"
+                },
+                {
+                    "id": 18,
+                    "pk_catalogo": 24,
+                    "descripcion": "Lancha",
+                    "fk_lugar_ocurrencia": 3,
+                    "orden": 5,
+                    "es_activo": true,
+                    "created_at": "2025-06-10T03:03:06.000000Z",
+                    "updated_at": "2025-06-10T03:03:06.000000Z"
+                },
+                {
+                    "id": 20,
+                    "pk_catalogo": 22,
+                    "descripcion": "Tren suburbano",
+                    "fk_lugar_ocurrencia": 3,
+                    "orden": 6,
+                    "es_activo": true,
+                    "created_at": "2025-06-10T03:03:06.000000Z",
+                    "updated_at": "2025-06-10T03:03:06.000000Z"
+                },
+                {
+                    "id": 17,
+                    "pk_catalogo": 25,
+                    "descripcion": "Otro",
+                    "fk_lugar_ocurrencia": 3,
+                    "orden": 7,
+                    "es_activo": true,
+                    "created_at": "2025-06-10T03:03:06.000000Z",
+                    "updated_at": "2025-06-10T03:03:06.000000Z"
+                }
+            ]
+        },
+        "lugar_detalle": {
+            "id": 36,
+            "pk_catalogo": 6,
+            "descripcion": "Centro comercial",
+            "fk_lugar_ocurrencia": 2,
+            "orden": 3,
+            "es_activo": true,
+            "created_at": "2025-06-10T03:03:06.000000Z",
+            "updated_at": "2025-06-10T03:03:06.000000Z"
+        },
+        "seguimientos": [],
+        "canalizaciones": [],
+        "ordenes": [
+            {
+                "id": 2,
+                "tipo_id": 1,
+                "en_que_consiste": "Descripción de la orden",
+                "autoridad_emisora_otro": "Otra autoridad",
+                "cve_ent": 15,
+                "cve_mun": 1,
+                "fecha_de_emision": "2023-10-01",
+                "tiempo_indefinido": true,
+                "fecha_aproximada_de_termino": "2023-12-31",
+                "otro_tipo_de_orden": "Otro tipo de orden",
+                "created_at": "2025-06-18T02:30:58.000000Z",
+                "updated_at": "2025-06-18T02:30:58.000000Z",
+                "fecha_de_inicio": "2023-10-01",
+                "deleted_at": null,
+                "users_id": 1,
+                "hechos_id": 3,
+                "autoridad_id": 1,
+                "folio": "ABC123",
+                "dia_id": 1,
+                "tipo_orden_id": 1,
+                "tipo_medida_id": 1,
+                "mes_id": null,
+                "cve_ent_captura": 31,
+                "cve_mun_captura": null,
+                "dependencia_captura": 176,
+                "dependencia_corresponde": 113,
+                "tipo": {
+                    "id": 1,
+                    "descripcion": "Medida de Protección",
+                    "es_activo": true,
+                    "created_at": "2025-06-10T03:03:07.000000Z",
+                    "updated_at": "2025-06-10T03:03:07.000000Z"
+                },
+                "tipo_orden": {
+                    "id": 1,
+                    "descripcion": "Administrativa",
+                    "es_activo": true,
+                    "created_at": "2025-06-10T03:03:08.000000Z",
+                    "updated_at": "2025-06-10T03:03:08.000000Z"
+                },
+                "estado": {
+                    "cve_ent": 15,
+                    "nom_ent": "México",
+                    "created_at": "2025-06-10T03:00:00.000000Z",
+                    "updated_at": "2025-06-10T03:00:00.000000Z",
+                    "codigo": "mc"
+                }
+            }
+        ],
+        "victimas_trata": [],
+        "mujeres_prision": [],
+        "colonia": null
+    }
+]
+```
+con estatus 422. Error con número de caracteres del curp.
+```json
+{
+    "message": "El campo curp debe tener 18 caracteres.",
+    "errors": {
+        "curp": [
+            "El campo curp debe tener 18 caracteres."
+        ]
+    }
 }
 ```
 --------------------------------------------------------------
@@ -5362,6 +5712,143 @@ con estatus 422. Error de tipo de dato.
         ]
     }
 }
+```
+-----------------------------------------------------------------
+### Editar nacionalidad de víctima
+-----------------------------------------------------------------
+El uso de este método requiere que exista una víctima y el id de la nacionalidad correspondiente en el catálogo. 
+El parámetro de búsqueda de la víctima es su id.
+#### POST
+```
+    API_URL/api/edita-nacionalidad-victima
+```
+catálogos: [nacionalidad_id](https://drive.google.com/file/d/1Q0gUDPgv9_3xfmPYPJ6WLfrUrFdqvEGB/view)
+#### Body raw (json)
+```json
+    {
+    "id"                  : 9,
+    "nacionalidad_id"     : 164
+}
+```
+#### Campos Obligatorios
+
+|                           Campo                       | Obligatorio | Tipo de dato |
+|:-----------------------------------------------------:|:-----------:|:------------:|
+| id                                                    |     SI      |    integer   |
+| nacionalidad_id                                       |     SI      |    integer   |
+|||| 
+
+#### Ejemplo de solicitud.
+con curl.
+```bash
+    curl --location 'API_URL/api/edita-nacionalidad-victima' \
+    --header 'Accept: application/json' \
+    --header 'Content-Type: application/json' \
+    --header 'Authorization: Bearer TOKEN' \
+    --data '{
+        "id"                  : 9,
+        "nacionalidad_id"     : 164
+    }'
+```
+con PHP - cURL.
+```php
+    <?php
+
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+    CURLOPT_URL => 'API_URL/api/edita-nacionalidad-victima',
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => '',
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => 'POST',
+    CURLOPT_POSTFIELDS =>'{
+        "id"                  : 9,
+        "nacionalidad_id"     : 164
+    }',
+    CURLOPT_HTTPHEADER => array(
+        'Accept: application/json',
+        'Content-Type: application/json',
+        'Authorization: Bearer TOKEN'
+    ),
+    ));
+
+    $response = curl_exec($curl);
+
+    curl_close($curl);
+    echo $response;
+```
+con JavaScrip - fetch.
+```javascript
+    const myHeaders = new Headers();
+    myHeaders.append("Accept", "application/json");
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Authorization", "Bearer TOKEN");
+
+    const raw = JSON.stringify({
+    "id"                  : 9,
+    "nacionalidad_id"     : 164
+    });
+
+    const requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow"
+    };
+
+    fetch("API_URL/api/edita-nacionalidad-victima", requestOptions)
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.error(error));
+```
+#### La respuesta que se recibirá después de la petición.
+con estatus 200  en formato json.
+```json
+    {
+        "id": 9,
+        "nombre": "nombre",
+        "primer_apellido": "primer_apellido",
+        "segundo_apellido": "segundo_apellido",
+        "fecha_nacimiento": "1965-11-20",
+        "cve_ent": 24,
+        "created_at": "2025-06-17T21:02:59.000000Z",
+        "updated_at": "2025-06-26T22:19:23.000000Z",
+        "curp": "PISN651120XSPRGMXX",
+        "folio_euv": "EUV31001769062025",
+        "sexo": null,
+        "extranjera": false,
+        "users_id": 1,
+        "instancias_id": null,
+        "areas_id": null,
+        "sedes_id": null,
+        "nacionalidad_id": 164,
+        "deleted_at": null,
+        "sexo_id": 1,
+        "from_api": true,
+        "identifica_mujer": null,
+        "cve_ent_captura": 31,
+        "cve_mun_captura": null,
+        "dependencia_captura": 176,
+        "dependencia_corresponde": 1
+    }
+```
+con estatus 422. El id es necesario y debe ser enviado
+```json
+    {
+        "message": "El campo id es requerido. (and 1 more error)",
+        "errors": {
+            "id": [
+                "El campo id es requerido."
+            ],
+            "nacionalidad_id": [
+                "El campo nacionalidad id es requerido."
+            ]
+        }
+    }
 ```
 -----------------------------------------------------------------
 ### Editar registro de mujeres en prisión para un hecho de violencia
