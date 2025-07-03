@@ -15,7 +15,7 @@
     * [Búsqueda de hechos por entidad y rango de fecha](#búsqueda-de-hechos-por-entidad-y-rango-de-fecha)
     * [Búsqueda de una orden de protección por id](#búsqueda-de-orden-de-protección-por-id) <sub><small>nuevo</small></sub>
     * [Búsqueda de órdenes de protección paginadas](#búsqueda-de-órdenes-de-protección-paginadas) <sub><small>nuevo</small></sub>
-    * [Búsqueda de hechos y ordenes de protección vinculadas por curp](#hechos-por-curp) <sub><small>nuevo</small></sub>
+    * [Búsqueda de hechos y ordenes de protección vinculadas por curp](#búsqueda-de-hechos-y-ordenes-de-protección-vinculadas-por-curp) <sub><small>nuevo</small></sub>
 * [Métodos de registro disponibles](#métodos-de-registro-disponibles)
     * [Registro de víctima con CURP](#registro-de-víctima-con-curp)
     * [Registro de víctima con Datos](#registro-de-víctima-con-datos)
@@ -34,7 +34,7 @@
 * [Métodos de edición disponibles](#métodos-de-edición-disponibles)
     * [Editar hecho de violencia ](#editar-hecho-de-violencia) <sub><small>nuevo</small></sub>
     * [Editar los datos de una víctima](#registro-o-edición-de-los-datos-de-una-víctima) <sub><small>nuevo</small></sub>
-    * [Editar nacionalidad de víctima](#edita-nacionalidad-victima) <sub><small>nuevo</small></sub>
+    * [Editar nacionalidad de víctima](#editar-nacionalidad-de-víctima) <sub><small>nuevo</small></sub>
     * [Editar registro de mujeres en prisión para un hecho de violencia](#editar-registro-de-mujeres-en-prisión-para-un-hecho-de-violencia)
     * [Editar registro de mujeres víctimas de trata](#editar-registro-de-mujeres-víctimas-de-trata)
     * [Editar una orden de protección](#editar-una-orden-de-protección) <sub><small>nuevo</small></sub>
@@ -2079,24 +2079,26 @@ El consumo de este método requiere cuatro parámetros de la víctima debido a q
 ```
     API_URL/api/registrar-victima-con-curp
 ```
-catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing), [nacionalidad_id](https://drive.google.com/file/d/1Q0gUDPgv9_3xfmPYPJ6WLfrUrFdqvEGB/view)
+catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing), [nacionalidad_id](https://drive.google.com/file/d/1Q0gUDPgv9_3xfmPYPJ6WLfrUrFdqvEGB/view), [dependencia_corresponde](https://drive.google.com/file/d/152JS404Y43GSvJnTWFx3K7DSuQJX9OUK/view)
 #### Body raw (json)
 ```json
 {
-    "curp"              : "FOGW030824MTSLRNA5",
-    "cve_ent"           : 22,
-    "nacionalidad_id"   : 1,
-    "extranjera"        : false,
+    "curp"                     : "FOGW030824MTSLRNA5",
+    "cve_ent"                  : 22,
+    "nacionalidad_id"          : 1,
+    "extranjera"               : false,
+    "dependencia_corresponde"  : 103
 }
 ```
 #### Campos Obligatorios
 
-|         Campo        | Obligatorio | Tipo de dato |
-|:--------------------:|:-----------:|:------------:|
-| curp                 |      SI     |    string    |
-| cve_ent              |      SI     |    integer   | 
-| nacionalidad_id      |      NO     |    integer   |
-| extranjera           |      NO     |    boolean   |
+|         Campo             | Obligatorio | Tipo de dato |
+|:-------------------------:|:-----------:|:------------:|
+| curp                      |      SI     |    string    |
+| cve_ent                   |      SI     |    integer   | 
+| nacionalidad_id           |      NO     |    integer   |
+| extranjera                |      NO     |    boolean   |
+| dependencia_corresponde   |      SI     |    integer   |
 |||
 
 #### Ejemplo de solicitud.
@@ -2107,10 +2109,11 @@ con curl.
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer TOKEN' \
     --data '{
-    "curp"              : "CURP000000XXXXXXX0",
-    "cve_ent"           : 22,
-    "nacionalidad_id"   : 1,
-    "extranjera"        : false
+    "curp"                     : "CURP000000XXXXXXX0",
+    "cve_ent"                  : 22,
+    "nacionalidad_id"          : 1,
+    "extranjera"               : false,
+    "dependencia_corresponde"  : 103
     }'
 ```
 con PHP - cURL.
@@ -2129,10 +2132,11 @@ con PHP - cURL.
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => 'POST',
     CURLOPT_POSTFIELDS =>'{
-    "curp"              : "CURP000000XXXXXXX0",
-    "cve_ent"           : 22,
-    "nacionalidad_id"   : 1,
-    "extranjera"        : false
+    "curp"                     : "CURP000000XXXXXXX0",
+    "cve_ent"                  : 22,
+    "nacionalidad_id"          : 1,
+    "extranjera"               : false,
+    "dependencia_corresponde"  : 103
     }',
     CURLOPT_HTTPHEADER => array(
         'Accept: application/json',
@@ -2157,7 +2161,8 @@ con JavaScrip - fetch.
     "curp": "CURP000000XXXXXXX0",
     "cve_ent": 22,
     "nacionalidad_id": 1,
-    "extranjera": false
+    "extranjera": false,
+    "dependencia_corresponde": 103
     });
 
     const requestOptions = {
@@ -2185,6 +2190,7 @@ con estatus 200  en formato json.
         "cve_ent": 9,
         "nacionalidad_id": 1,
         "extranjera": false,
+        "dependencia_corresponde": 103,
         "users_id": 1,
         "instancias_id": null,
         "areas_id": null,
@@ -2225,34 +2231,36 @@ El consumo de este método requiere el curp y datos, es necesario enviarlos como
 ```
     API_URL/api/registrar-victima-con-datos
 ```
-catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing), [nacionalidad_id](https://drive.google.com/file/d/1Q0gUDPgv9_3xfmPYPJ6WLfrUrFdqvEGB/view)
+catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing), [nacionalidad_id](https://drive.google.com/file/d/1Q0gUDPgv9_3xfmPYPJ6WLfrUrFdqvEGB/view), [dependencia_corresponde](https://drive.google.com/file/d/152JS404Y43GSvJnTWFx3K7DSuQJX9OUK/view)
 #### Body raw (json)
 ```json
     {
-        "nombre"            : "nombre",
-        "primer_apellido"   : "primer_apellido",
-        "segundo_apellido"  : "segundo_apellido",
-        "fecha_nacimiento"  : "1965-11-20",
-        "sexo"              : "H",
-        "cve_ent"           : 24,
-        "extranjera"        : false,
-        "curp"              : "CURP000000XXXXXXX0",
-        "nacionalidad_id"   : 1
+        "nombre"                   : "nombre",
+        "primer_apellido"          : "primer_apellido",
+        "segundo_apellido"         : "segundo_apellido",
+        "fecha_nacimiento"         : "1965-11-20",
+        "sexo"                     : "H",
+        "cve_ent"                  : 24,
+        "extranjera"               : false,
+        "curp"                     : "CURP000000XXXXXXX0",
+        "nacionalidad_id"          : 1,
+        "dependencia_corresponde"  : 103
     }
 ```
 #### Campos Obligatorios
 
 |       Campo      |  Obligatorio  |  Tipo de dato |
-|:----------------:|:-------------:|:-------------:|
-| nombre           |      SI       |     string    | 
-| primer_apellido  |      SI       |     string    |
-| segundo_apellido |      SI       |     string    |
-| fecha_nacimiento |      SI       |      date     |  
-| sexo             |      SI       |     string    |
-| cve_ent          |      SI       |     integer   |
-| extranjera       |      NO       |     boolean   |
-| curp             |      SI       |     string    |
-| nacionalidad_id  |      NO       |     integer   |
+|:------------------------:|:-------------:|:-------------:|
+| nombre                   |      SI       |     string    | 
+| primer_apellido          |      SI       |     string    |
+| segundo_apellido         |      SI       |     string    |
+| fecha_nacimiento         |      SI       |      date     |  
+| sexo                     |      SI       |     string    |
+| cve_ent                  |      SI       |     integer   |
+| extranjera               |      NO       |     boolean   |
+| curp                     |      SI       |     string    |
+| nacionalidad_id          |      NO       |     integer   |
+| dependencia_Corresponde  |      SI       |     integer   |
 |||
 
 #### Ejemplo de solicitud.
@@ -2263,15 +2271,16 @@ con curl.
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer TOKEN' \
     --data '{
-    "nombre"            : "nombre",
-    "primer_apellido"   : "primer_apellido",
-    "segundo_apellido"  : "segundo_apellido",
-    "fecha_nacimiento"  : "1965-11-20",
-    "sexo"              : "H",
-    "cve_ent"           : 24,
-    "extranjera"        : false,
-    "curp"              : "CURP000000XXXXXXX0",
-    "nacionalidad_id"   : 1
+    "nombre"                   : "nombre",
+    "primer_apellido"          : "primer_apellido",
+    "segundo_apellido"         : "segundo_apellido",
+    "fecha_nacimiento"         : "1965-11-20",
+    "sexo"                     : "H",
+    "cve_ent"                  : 24,
+    "extranjera"               : false,
+    "curp"                     : "CURP000000XXXXXXX0",
+    "nacionalidad_id"          : 1,
+    "dependencia_corresponde"  : 103
     }'
 ```
 con PHP - cURL.
@@ -2290,15 +2299,16 @@ con PHP - cURL.
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => 'POST',
     CURLOPT_POSTFIELDS =>'{
-    "nombre"            : "nombre",
-    "primer_apellido"   : "primer_apellido",
-    "segundo_apellido"  : "segundo_apellido",
-    "fecha_nacimiento"  : "1965-11-20",
-    "sexo"              : "H",
-    "cve_ent"           : 24,
-    "extranjera"        : false,
-    "curp"              : "CURP000000XXXXXXX0",
-    "nacionalidad_id"   : 1
+    "nombre"                   : "nombre",
+    "primer_apellido"          : "primer_apellido",
+    "segundo_apellido"         : "segundo_apellido",
+    "fecha_nacimiento"         : "1965-11-20",
+    "sexo"                     : "H",
+    "cve_ent"                  : 24,
+    "extranjera"               : false,
+    "curp"                     : "CURP000000XXXXXXX0",
+    "nacionalidad_id"          : 1,
+    "dependencia_corresponde"  : 103
     }',
     CURLOPT_HTTPHEADER => array(
         'Accept: application/json',
@@ -2328,7 +2338,8 @@ con JavaScrip - fetch.
     "cve_ent": 24,
     "extranjera": false,
     "curp": "CURP000000XXXXXXX0",
-    "nacionalidad_id"   : 1
+    "nacionalidad_id"   : 1,
+    "dependencia_corresponde": 103
     });
 
     const requestOptions = {
@@ -2355,6 +2366,7 @@ con estatus 200  en formato json.
     "sexo_id": 2,
     "cve_ent": 9,
     "nacionalidad_id": 1,
+    "dependencia_corresponde": 103,
     "extranjera": false,
     "users_id": 1,
     "instancias_id": null,
@@ -2415,32 +2427,34 @@ El consumo de este método no requiere el curp de la víctima, sin embargo es ne
 ```
     API_URL/api/registrar-victima-sin-curp
 ```
-catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing), [nacionalidad_id](https://drive.google.com/file/d/1Q0gUDPgv9_3xfmPYPJ6WLfrUrFdqvEGB/view)
+catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing), [nacionalidad_id](https://drive.google.com/file/d/1Q0gUDPgv9_3xfmPYPJ6WLfrUrFdqvEGB/view), [dependencia_corresponde](https://drive.google.com/file/d/152JS404Y43GSvJnTWFx3K7DSuQJX9OUK/view)
 #### Body raw (json)
 ```json
 {
-    "nombre"            : "nombre",
-    "primer_apellido"   : "primer_apellido",
-    "segundo_apellido"  : "segundo_apellido",
-    "fecha_nacimiento"  : "1965-11-20",
-    "sexo"              : "H",
-    "cve_ent"           : 24,
-    "extranjera"        : false,
-    "nacionalidad_id"   : 1
+    "nombre"                   : "nombre",
+    "primer_apellido"          : "primer_apellido",
+    "segundo_apellido"         : "segundo_apellido",
+    "fecha_nacimiento"         : "1965-11-20",
+    "sexo"                     : "H",
+    "cve_ent"                  : 24,
+    "extranjera"               : false,
+    "nacionalidad_id"          : 1,
+    "dependencia_corresponde"  : 103
 }
 ```
 #### Campos Obligatorios
  
 |       Campo       |  Obligatorio  |  Tipo de dato  |
-|:-----------------:|:-------------:|:--------------:|
-| nombre            |      SI       |     string     |  
-| primer_apellido   |      SI       |     string     | 
-| segundo_apellido  |      SI       |     string     |
-| fecha_nacimiento  |      SI       |      date      |
-| sexo              |      SI       |     string     |
-| cve_ent           |      SI       |     integer    |
-| extranjera        |      NO       |     boolean    |
-| nacionalidad_id   |      NO       |     integer    |
+|:-------------------------:|:-------------:|:--------------:|
+| nombre                    |      SI       |     string     |  
+| primer_apellido           |      SI       |     string     | 
+| segundo_apellido          |      SI       |     string     |
+| fecha_nacimiento          |      SI       |      date      |
+| sexo                      |      SI       |     string     |
+| cve_ent                   |      SI       |     integer    |
+| extranjera                |      NO       |     boolean    |
+| nacionalidad_id           |      NO       |     integer    |
+| dependencia_corresponde   |      SI       |     integer    |
 |||
 
 #### Ejemplo de solicitud.
@@ -2451,14 +2465,15 @@ con curl.
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer TOKEN' \
     --data '{
-    "nombre"            : "nombre",
-    "primer_apellido"   : "primer_apellido",
-    "segundo_apellido"  : "segundo_apellido",
-    "fecha_nacimiento"  : "1965-11-20",
-    "sexo"              : "H",
-    "cve_ent"           : 24,
-    "extranjera"        : false,
-    "nacionalidad_id"   : 1
+    "nombre"                   : "nombre",
+    "primer_apellido"          : "primer_apellido",
+    "segundo_apellido"         : "segundo_apellido",
+    "fecha_nacimiento"         : "1965-11-20",
+    "sexo"                     : "H",
+    "cve_ent"                  : 24,
+    "extranjera"               : false,
+    "nacionalidad_id"          : 1,
+    "dependencia_corresponde"  : 103
     }'
 ```
 con PHP - cURL.
@@ -2477,14 +2492,15 @@ con PHP - cURL.
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => 'POST',
     CURLOPT_POSTFIELDS =>'{
-    "nombre"            : "nombre",
-    "primer_apellido"   : "primer_apellido",
-    "segundo_apellido"  : "segundo_apellido",
-    "fecha_nacimiento"  : "1965-11-20",
-    "sexo"              : "H",
-    "cve_ent"           : 24,
-    "extranjera"        : false,
-    "nacionalidad_id"   : 1
+    "nombre"                   : "nombre",
+    "primer_apellido"          : "primer_apellido",
+    "segundo_apellido"         : "segundo_apellido",
+    "fecha_nacimiento"         : "1965-11-20",
+    "sexo"                     : "H",
+    "cve_ent"                  : 24,
+    "extranjera"               : false,
+    "nacionalidad_id"          : 1,
+    "dependencia_corresponde"  : 103
     }',
     CURLOPT_HTTPHEADER => array(
         'Accept: application/json',
@@ -2513,7 +2529,8 @@ con JavaScrip - fetch.
     "sexo": "H",
     "cve_ent": 24,
     "extranjera": false,
-    "nacionalidad_id"   : 1
+    "nacionalidad_id"   : 1,
+    "dependencia_corresponde": 103
     });
 
     const requestOptions = {
@@ -2540,6 +2557,7 @@ con estatus 200  en formato json.
     "sexo_id": 1,
     "cve_ent": 24,
     "nacionalidad_id": null,
+    "dependencia_corresponde": 103,
     "extranjera": false,
     "users_id": 1,
     "instancias_id": null,
@@ -2596,7 +2614,7 @@ El hecho de violencia tiene una dependencia funcional, que requiere que la víct
 ```
     API_URL/api/hecho-de-violencia
 ```
-catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing), [lugar_id](https://drive.google.com/file/d/1_rs52tWT5M-6U0AVn3texkHHpeSwtmRZ/view), [lugar_detalle_id](https://drive.google.com/file/d/1HvwJJpAHiQ7h5XnzVLAMT6tDnUCZZnZk/view), [pais_id](https://drive.google.com/file/d/1-5gPflCkSALusWLp_pUN20NJbqEWE6ir/view), [cve_mun](https://drive.google.com/file/d/19q9v31lH0Dgq7bsCBpO3hGfr_mT5VfNk/view), [cve_loc](https://drive.google.com/file/d/1VDHjmDqURqkLc5MQb84MKhI9NlVrg3m3/view), [tipo_violencia](https://drive.google.com/file/d/1Vf4-VABIMH5LIK308ubKLfjfFKwfnhOk/view), [modalidad_violencia](https://drive.google.com/file/d/1_Oq77ueBKXeV6e9848S7Y4i-Xa2WGUG-/view), [efectos_fisicos](https://drive.google.com/file/d/1TFijVmvWgGEAzjrAE1WVW-WQveIg-UXy/view), [consecuencias_sexuales](https://drive.google.com/file/d/1qG8ny2idjFkaGjYP_piFKFb30Dgg4jhR/view), [efectos_psicologicos](https://drive.google.com/file/d/1F-R-n6QdIxWPczrw_ZFcSvzQzu_FPXY0/view), [efectos_economicos_y_patrimoniales](https://drive.google.com/file/d/1o9U4ySp0xzFkItncnuLDeqliUOhHIB1L/view), [agente_de_lesion](https://drive.google.com/file/d/1RjXu3Ea0osZeesVqZPWAQXP3iVVIY2Kh/view) y [area_anatomica_lesionada](https://drive.google.com/file/d/1R0fblWPIU9-bc74GapgzEnBwFjP4T11p/view).
+catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing), [lugar_id](https://drive.google.com/file/d/1_rs52tWT5M-6U0AVn3texkHHpeSwtmRZ/view), [lugar_detalle_id](https://drive.google.com/file/d/1HvwJJpAHiQ7h5XnzVLAMT6tDnUCZZnZk/view), [pais_id](https://drive.google.com/file/d/1-5gPflCkSALusWLp_pUN20NJbqEWE6ir/view), [cve_mun](https://drive.google.com/file/d/19q9v31lH0Dgq7bsCBpO3hGfr_mT5VfNk/view), [cve_loc](https://drive.google.com/file/d/1VDHjmDqURqkLc5MQb84MKhI9NlVrg3m3/view), [tipo_violencia](https://drive.google.com/file/d/1Vf4-VABIMH5LIK308ubKLfjfFKwfnhOk/view), [modalidad_violencia](https://drive.google.com/file/d/1_Oq77ueBKXeV6e9848S7Y4i-Xa2WGUG-/view), [efectos_fisicos](https://drive.google.com/file/d/1TFijVmvWgGEAzjrAE1WVW-WQveIg-UXy/view), [consecuencias_sexuales](https://drive.google.com/file/d/1qG8ny2idjFkaGjYP_piFKFb30Dgg4jhR/view), [efectos_psicologicos](https://drive.google.com/file/d/1F-R-n6QdIxWPczrw_ZFcSvzQzu_FPXY0/view), [efectos_economicos_y_patrimoniales](https://drive.google.com/file/d/1o9U4ySp0xzFkItncnuLDeqliUOhHIB1L/view), [agente_de_lesion](https://drive.google.com/file/d/1RjXu3Ea0osZeesVqZPWAQXP3iVVIY2Kh/view), [area_anatomica_lesionada](https://drive.google.com/file/d/1R0fblWPIU9-bc74GapgzEnBwFjP4T11p/view) y [dependencia_corresponde](https://drive.google.com/file/d/152JS404Y43GSvJnTWFx3K7DSuQJX9OUK/view).
 #### Body raw (json)
 ```json
 {
@@ -2628,7 +2646,8 @@ catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l
     "efectos_economicos_y_patrimoniales"            : [],
     "agente_de_lesion"                              : [],
     "area_anatomica_lesionada"                      : [],
-    "es_relacionada_con_orientacion_o_identidad"    : false 
+    "es_relacionada_con_orientacion_o_identidad"    : false,
+    "dependencia_corresponde": 103
 }
 ```
 #### Campos Obligatorios
@@ -2664,6 +2683,7 @@ catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l
 | agente_de_lesion                              |     NO      |   integer[]  |
 | area_anatomica_lesionada                      |     NO      |   integer[]  |
 | es_relacionada_con_orientacion_o_identidad    |     NO      |    bolean    |
+| dependencia_Corresponde                       |     SI      |    integer   |
 |||
 
 #### Ejemplo de solicitud.
@@ -2702,7 +2722,8 @@ con curl.
     "efectos_economicos_y_patrimoniales"            : [],
     "agente_de_lesion"                              : [],
     "area_anatomica_lesionada"                      : [],
-    "es_relacionada_con_orientacion_o_identidad"    : false
+    "es_relacionada_con_orientacion_o_identidad"    : false,
+    "dependencia_corresponde"                       : 103
     }'
 ```
 con PHP - cURL.
@@ -2749,7 +2770,8 @@ con PHP - cURL.
     "efectos_economicos_y_patrimoniales"            : [],
     "agente_de_lesion"                              : [],
     "area_anatomica_lesionada"                      : [],
-    "es_relacionada_con_orientacion_o_identidad"    : false
+    "es_relacionada_con_orientacion_o_identidad"    : false,
+    "dependencia_corresponde": 103
     }',
     CURLOPT_HTTPHEADER => array(
         'Accept: application/json',
@@ -2799,7 +2821,8 @@ con JavaScrip - fetch.
     "efectos_economicos_y_patrimoniales": [],
     "agente_de_lesion": [],
     "area_anatomica_lesionada": [],
-    "es_relacionada_con_orientacion_o_identidad": false
+    "es_relacionada_con_orientacion_o_identidad": false,
+    "dependencia_corresponde": 103
     });
 
     const requestOptions = {
@@ -2852,6 +2875,7 @@ con estatus 200  en formato json.
         "agente_de_lesion": "[]",
         "area_anatomica_lesionada": "[]",
         "es_relacionada_con_orientacion_o_identidad": false,
+        "dependencia_corresponde": 103,
         "updated_at": "2024-07-26T19:11:04.000000Z",
         "created_at": "2024-07-26T19:11:04.000000Z",
         "id": 5300
@@ -2905,7 +2929,7 @@ Esto permite aprovechar el mismo endpoint para múltiples acciones, facilitand
 ```json
     API_URL/api/registrar-datos-victima-por-hecho
 ```
-catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing), [cve_mun](https://drive.google.com/file/d/19q9v31lH0Dgq7bsCBpO3hGfr_mT5VfNk/view), [cve_loc](https://drive.google.com/file/d/1VDHjmDqURqkLc5MQb84MKhI9NlVrg3m3/view), [colonias_id](https://drive.google.com/file/d/1wWVhPLa0zFgdoeQYEtCRNfODEcpQx6BH/view), [estado_conyugal](https://drive.google.com/file/d/1ealfYFyyPpz_C2VfJ3tTrpXzGMVAzfwi/view?usp=sharing), [pais_id](https://drive.google.com/file/d/1-5gPflCkSALusWLp_pUN20NJbqEWE6ir/view), [escolaridad_id](https://drive.google.com/file/d/1Pf_eJpt_S34Ipo908Ih7RS-kQHfwJQGr/view), [ingreso_economico_id](https://docs.google.com/spreadsheets/d/15yA5gPDJXZFZkW1fiFKhrCXeQT1uVGJB/edit?gid=717444154#gid=717444154), [ocupacion_id](https://drive.google.com/file/d/1tY37QRvcZa0c-vzlSsgEpIRJnN2BqCw_/view), [discapacidad](https://drive.google.com/file/d/1mNHUBUsaUKiOPfnoRkGyJjG9fWvcKZFU/view?usp=sharing), [pueblo_indigena_id](https://drive.google.com/file/d/1HUX7WHG1yI-QA-Jo7DG483HCf2kJBBDA/view?usp=drive_link), [identidad_genero_id](https://drive.google.com/file/d/1K7jBCF4E6aiBfnrg4ioD5cqh6gbFOXcL/view), [orientacion_sexual_id](https://drive.google.com/file/d/1hc5Yhl2gr6_pWBFED7G0QMGyooVzIS5x/view), [cual_adiccion](https://drive.google.com/file/d/165EOC-eMmor3JFDXKJT4-Scb8zgjZEAF/view?usp=sharing), [gestacion_id](https://drive.google.com/file/d/1pJCpimw2w7NzZwj0_0zRW3dalcDBgzdu/view?usp=sharing), [servicio_medico_id](https://drive.google.com/file/d/148DpyySvBaHaBcimb0VhGkyusW3lqrc9/view?usp=sharing), [tipos_adicciones](https://drive.google.com/file/d/1Rj1oaktbwIiDQ04Jq6-n8bSXv09FCTaa/view?usp=sharing).
+catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing), [cve_mun](https://drive.google.com/file/d/19q9v31lH0Dgq7bsCBpO3hGfr_mT5VfNk/view), [cve_loc](https://drive.google.com/file/d/1VDHjmDqURqkLc5MQb84MKhI9NlVrg3m3/view), [colonias_id](https://drive.google.com/file/d/1wWVhPLa0zFgdoeQYEtCRNfODEcpQx6BH/view), [estado_conyugal](https://drive.google.com/file/d/1ealfYFyyPpz_C2VfJ3tTrpXzGMVAzfwi/view?usp=sharing), [pais_id](https://drive.google.com/file/d/1-5gPflCkSALusWLp_pUN20NJbqEWE6ir/view), [escolaridad_id](https://drive.google.com/file/d/1Pf_eJpt_S34Ipo908Ih7RS-kQHfwJQGr/view), [ingreso_economico_id](https://docs.google.com/spreadsheets/d/15yA5gPDJXZFZkW1fiFKhrCXeQT1uVGJB/edit?gid=717444154#gid=717444154), [ocupacion_id](https://drive.google.com/file/d/1tY37QRvcZa0c-vzlSsgEpIRJnN2BqCw_/view), [discapacidad](https://drive.google.com/file/d/1mNHUBUsaUKiOPfnoRkGyJjG9fWvcKZFU/view?usp=sharing), [pueblo_indigena_id](https://drive.google.com/file/d/1HUX7WHG1yI-QA-Jo7DG483HCf2kJBBDA/view?usp=drive_link), [identidad_genero_id](https://drive.google.com/file/d/1K7jBCF4E6aiBfnrg4ioD5cqh6gbFOXcL/view), [orientacion_sexual_id](https://drive.google.com/file/d/1hc5Yhl2gr6_pWBFED7G0QMGyooVzIS5x/view), [cual_adiccion](https://drive.google.com/file/d/165EOC-eMmor3JFDXKJT4-Scb8zgjZEAF/view?usp=sharing), [gestacion_id](https://drive.google.com/file/d/1pJCpimw2w7NzZwj0_0zRW3dalcDBgzdu/view?usp=sharing), [servicio_medico_id](https://drive.google.com/file/d/148DpyySvBaHaBcimb0VhGkyusW3lqrc9/view?usp=sharing), [tipos_adicciones](https://drive.google.com/file/d/1Rj1oaktbwIiDQ04Jq6-n8bSXv09FCTaa/view?usp=sharing), [dependencia_corresponde](https://drive.google.com/file/d/152JS404Y43GSvJnTWFx3K7DSuQJX9OUK/view).
 
 #### Body raw (json)
 ```
@@ -2961,7 +2985,8 @@ catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l
     "numero_seguro_social"         : "AV0569806410",
     "servicio_medico_id"           : 1,
     "otro_servicio_medico"         : "otro servicio medico", 
-    "tipos_adicciones"             : [1] 
+    "tipos_adicciones"             : [1],
+    "dependencia_corresponde"      : 103
 }
 ```
 #### Campos Obligatorios
@@ -3020,6 +3045,7 @@ catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l
 | servicio_medico_id           |     NO      |   integer   | 
 | otro_servicio_medico         |     NO      |   string    | 
 | tipos_adicciones             |     NO      |   integer[] | 
+| dependencia_corresponde      |     SI      |   integer   | 
 
 #### Ejemplo de solicitud.
 con curl.
@@ -3080,7 +3106,8 @@ curl --location 'API_URL/api/registrar-datos-victima-por-hecho' \
     "numero_seguro_social"         : "AV0569806410",
     "servicio_medico_id"           : 1,
     "otro_servicio_medico"         : "otro servicio medico", 
-    "tipos_adicciones"             : [1] 
+    "tipos_adicciones"             : [1],
+    "dependencia_corresponde"      : 103
 }'
 ```
 con PHP - cURL.
@@ -3150,7 +3177,8 @@ curl_setopt_array($curl, array(
     "numero_seguro_social"         : "AV0569806410",
     "servicio_medico_id"           : 1,
     "otro_servicio_medico"         : "otro servicio medico", 
-    "tipos_adicciones"             : [1] 
+    "tipos_adicciones"             : [1],
+    "dependencia_corresponde"      : 103
 }',
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
@@ -3229,7 +3257,8 @@ const raw = JSON.stringify({
   "otro_servicio_medico": "otro servicio medico",
   "tipos_adicciones": [
     1
-  ]
+  ],
+  "dependencia_corresponde": 103
 });
 
 const requestOptions = {
@@ -3298,6 +3327,7 @@ con estatus 200  en formato json.
     "cual_adiccion": [
         1
     ],
+    "dependencia_corresponde": 103,
     "deleted_at": null,
     "persona_afrodescendiente": "afro",
     "caso_name": "no name",
@@ -4857,7 +4887,7 @@ con estatus 422. Faltan parámetros.
 ```json
     API_URL/api/registrar-orden-de-proteccion
 ```
-catálogos: [tipo_id](https://drive.google.com/file/d/19l9hKuNa_vwlFP75k3GLNT2b3WXIU6Wa/view?usp=sharing), [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing), [cve_mun](https://drive.google.com/file/d/19q9v31lH0Dgq7bsCBpO3hGfr_mT5VfNk/view), [autoridad_id](https://drive.google.com/file/d/1V5roC6VJQBAm_2D0Mw6VrapUoZSPlBP7/view?usp=drive_link), [dia_id](https://drive.google.com/file/d/1p54Md635_hT6MnwS9VJvTpiVmOML_GjH/view?usp=sharing), [tipo_orden_id](https://drive.google.com/file/d/1VouluPnN8QjhNhU643mMzdrOJaYfpQ4p/view?usp=sharing), [tipo_medida_id](https://drive.google.com/file/d/1_NuvQWNCvpLrMa12XB17-5F96FQkoI6U/view?usp=drive_link), [fracciones_tipo_orden](https://drive.google.com/file/d/1o7P1e43843s33VA3wtqj45_Nwk6NsYh0/view?usp=sharing), [fracciones_tipo_medida](https://drive.google.com/file/d/1P6754jUcYzBOpVrAcsJfFMI6K1vQtYUG/view?usp=sharing)
+catálogos: [tipo_id](https://drive.google.com/file/d/19l9hKuNa_vwlFP75k3GLNT2b3WXIU6Wa/view?usp=sharing), [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view?usp=sharing), [cve_mun](https://drive.google.com/file/d/19q9v31lH0Dgq7bsCBpO3hGfr_mT5VfNk/view), [autoridad_id](https://drive.google.com/file/d/1V5roC6VJQBAm_2D0Mw6VrapUoZSPlBP7/view?usp=drive_link), [dia_id](https://drive.google.com/file/d/1p54Md635_hT6MnwS9VJvTpiVmOML_GjH/view?usp=sharing), [tipo_orden_id](https://drive.google.com/file/d/1VouluPnN8QjhNhU643mMzdrOJaYfpQ4p/view?usp=sharing), [tipo_medida_id](https://drive.google.com/file/d/1_NuvQWNCvpLrMa12XB17-5F96FQkoI6U/view?usp=drive_link), [fracciones_tipo_orden](https://drive.google.com/file/d/1o7P1e43843s33VA3wtqj45_Nwk6NsYh0/view?usp=sharing), [fracciones_tipo_medida](https://drive.google.com/file/d/1P6754jUcYzBOpVrAcsJfFMI6K1vQtYUG/view?usp=sharing), [dependencia_corresponde](https://drive.google.com/file/d/152JS404Y43GSvJnTWFx3K7DSuQJX9OUK/view)
 #### Body raw (json)
 ```json
 {
@@ -4878,7 +4908,8 @@ catálogos: [tipo_id](https://drive.google.com/file/d/19l9hKuNa_vwlFP75k3GLNT2b3
     "tipo_orden_id": 1,
     "tipo_medida_id": 1,
     "fracciones_tipo_orden": [1, 2],
-    "fracciones_tipo_medida": [1, 2]
+    "fracciones_tipo_medida": [1, 2],
+    "dependencia_corresponde": 103
 }
 ```
 #### Campos Obligatorios
@@ -4903,6 +4934,7 @@ catálogos: [tipo_id](https://drive.google.com/file/d/19l9hKuNa_vwlFP75k3GLNT2b3
 | tipo_medida_id             |     NO      |   integer   | 
 | fracciones_tipo_orden      |     NO      |  integer[]  | 
 | fracciones_tipo_medida     |     NO      |  integer[]  | 
+| dependencia_corresponde    |     SI      |  integer[]  | 
 |||
 
 #### Ejemplo de solicitud.
@@ -4930,7 +4962,8 @@ curl --location 'API_URL/api/registrar-orden-de-proteccion' \
     "tipo_orden_id": 1,
     "tipo_medida_id": 1,
     "fracciones_tipo_orden": [1, 2],
-    "fracciones_tipo_medida": [1, 2]
+    "fracciones_tipo_medida": [1, 2],
+    "dependencia_corresponde": 103
 }'
 ```
 con PHP - cURL.
@@ -4966,7 +4999,8 @@ curl_setopt_array($curl, array(
     "tipo_orden_id": 1,
     "tipo_medida_id": 1,
     "fracciones_tipo_orden": [1, 2],
-    "fracciones_tipo_medida": [1, 2]
+    "fracciones_tipo_medida": [1, 2],
+    "dependencia_corresponde": 103
 }',
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
@@ -5011,7 +5045,8 @@ const raw = JSON.stringify({
   "fracciones_tipo_medida": [
     1,
     2
-  ]
+  ],
+    "dependencia_corresponde": 103
 });
 
 const requestOptions = {
@@ -5054,6 +5089,7 @@ con estatus 200  en formato json.
         1,
         2
     ],
+    "dependencia_corresponde": 103,
     "users_id": 1,
     "updated_at": "2024-11-21T00:24:33.000000Z",
     "created_at": "2024-11-21T00:24:33.000000Z",
@@ -5726,9 +5762,9 @@ catálogos: [nacionalidad_id](https://drive.google.com/file/d/1Q0gUDPgv9_3xfmPYP
 #### Body raw (json)
 ```json
     {
-    "id"                  : 9,
-    "nacionalidad_id"     : 164
-}
+        "id"                  : 9,
+        "nacionalidad_id"     : 164
+    }
 ```
 #### Campos Obligatorios
 
