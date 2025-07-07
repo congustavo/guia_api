@@ -3371,7 +3371,7 @@ El registro de un dependiente de la víctima, tiene una dependencia funcional qu
 ```json
     API_URL/api/registrar-dependiente-victima-por-hecho
 ```
-catálogo: [vinculo_victima_id](https://drive.google.com/file/d/1_F5CDwHh3Tq7JtOho6v1upeZYnIZf8C6/view), *falta*
+catálogo: [vinculo_victima_id](https://drive.google.com/file/d/1_F5CDwHh3Tq7JtOho6v1upeZYnIZf8C6/view), [dependencia_corresponde](https://drive.google.com/file/d/152JS404Y43GSvJnTWFx3K7DSuQJX9OUK/view)
 #### Body raw (json)
 ```json
 {
@@ -3561,7 +3561,7 @@ El registro de la red de apoyo requiere que la víctima tenga un hecho de víole
 ```json
     API_URL/api/registrar-red-apoyo-victima-por-hecho
 ```
-catálogo: [vinculo_victima_id](https://drive.google.com/file/d/1_F5CDwHh3Tq7JtOho6v1upeZYnIZf8C6/view), *falta*
+catálogo: [vinculo_victima_id](https://drive.google.com/file/d/1_F5CDwHh3Tq7JtOho6v1upeZYnIZf8C6/view), [dependencia_corresponde](https://drive.google.com/file/d/152JS404Y43GSvJnTWFx3K7DSuQJX9OUK/view)
 #### Body raw (json)
 ```json
 {
@@ -3720,7 +3720,7 @@ El seguimiento requiere que exista un hecho de violencia para ser registrado, te
 ```
     API_URL/api/seguimiento
 ```
-catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view), [tipo_id](https://drive.google.com/file/d/1Z6scmhtreut1JJtDr11WSGcuKlibs_cI/view) y [servicios_id](https://drive.google.com/file/d/1JDVkLKaKQIshGa4Xhmx5B343_SDc1ce0/view), *falta*
+catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view), [tipo_id](https://drive.google.com/file/d/1Z6scmhtreut1JJtDr11WSGcuKlibs_cI/view) y [servicios_id](https://drive.google.com/file/d/1JDVkLKaKQIshGa4Xhmx5B343_SDc1ce0/view), [dependencia_corresponde](https://drive.google.com/file/d/152JS404Y43GSvJnTWFx3K7DSuQJX9OUK/view)
 #### Body raw (json)
 ```json
     {
@@ -3899,7 +3899,7 @@ El registro requiere que exista un hecho de violencia, teniendo una dependencia 
 ```
     API_URL/api/registrar-mujer-en-prision
 ```
-catálogos: [calidad_legal_id](https://drive.google.com/file/d/1MpQvCjgHaLPso9DCxl6ugngvlyUwamRF/view), [tortura_tipo_id](https://drive.google.com/file/d/1ycr5AJKeDrzD8q3HfJAyCNuK_uZ26n_Z/view), [tortura_momento_id](https://drive.google.com/file/d/1taXbMYYtM7tfd4X4GaX1rZrRImRmIzYZ/view) y [autoridad_id](https://drive.google.com/file/d/1V5roC6VJQBAm_2D0Mw6VrapUoZSPlBP7/view), *falta*
+catálogos: [calidad_legal_id](https://drive.google.com/file/d/1MpQvCjgHaLPso9DCxl6ugngvlyUwamRF/view), [tortura_tipo_id](https://drive.google.com/file/d/1ycr5AJKeDrzD8q3HfJAyCNuK_uZ26n_Z/view), [tortura_momento_id](https://drive.google.com/file/d/1taXbMYYtM7tfd4X4GaX1rZrRImRmIzYZ/view) y [autoridad_id](https://drive.google.com/file/d/1V5roC6VJQBAm_2D0Mw6VrapUoZSPlBP7/view), [dependencia_corresponde](https://drive.google.com/file/d/152JS404Y43GSvJnTWFx3K7DSuQJX9OUK/view)
 #### Body raw (json)
 ```json
 {
@@ -4066,7 +4066,7 @@ El registro requiere que exista un hecho de violencia, teniendo una dependencia 
 ```
     API_URL/api/registrar-mujer-victima-de-trata
 ```
-catálogos: [accion_omision_dolosa_id](https://drive.google.com/file/d/13CdVeVrsyRmC9PmOj5kPkgw52Xrv2b2M/view), [fines_reclutamiento_id](https://drive.google.com/file/d/1jC7ZmP3p_CiuNqCcflfkDsilpbrLfx02/view), [accion_omision_dolosa_array](https://drive.google.com/file/d/13CdVeVrsyRmC9PmOj5kPkgw52Xrv2b2M/view) y [fines_reclutamiento_array](https://drive.google.com/file/d/1jC7ZmP3p_CiuNqCcflfkDsilpbrLfx02/view), *falta*
+catálogos: [accion_omision_dolosa_id](https://drive.google.com/file/d/13CdVeVrsyRmC9PmOj5kPkgw52Xrv2b2M/view), [fines_reclutamiento_id](https://drive.google.com/file/d/1jC7ZmP3p_CiuNqCcflfkDsilpbrLfx02/view), [accion_omision_dolosa_array](https://drive.google.com/file/d/13CdVeVrsyRmC9PmOj5kPkgw52Xrv2b2M/view) y [fines_reclutamiento_array](https://drive.google.com/file/d/1jC7ZmP3p_CiuNqCcflfkDsilpbrLfx02/view), [dependencia_corresponde](https://drive.google.com/file/d/152JS404Y43GSvJnTWFx3K7DSuQJX9OUK/view)
 #### Body raw (json)
 ```json
     {
@@ -4211,7 +4211,7 @@ El registro requiere que exista un hecho de violencia, teniendo una dependencia 
 ```
     API_URL/api/registrar-mujer-desaparecida
 ```
-catálogos: [tipo_de_desaparicion_id](https://drive.google.com/file/d/1iILF7y_7DU-U5l_AKquuuqarLu1AA-6y/view), [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view), [cve_mun](https://drive.google.com/file/d/19q9v31lH0Dgq7bsCBpO3hGfr_mT5VfNk/view), [vinculo_victima_id](https://drive.google.com/file/d/1_F5CDwHh3Tq7JtOho6v1upeZYnIZf8C6/view) y [estatus_desaparicion_id](https://drive.google.com/file/d/16k8t3y2nOkq1xhZ-7aGx77V333Yq__eg/view), *falta*
+catálogos: [tipo_de_desaparicion_id](https://drive.google.com/file/d/1iILF7y_7DU-U5l_AKquuuqarLu1AA-6y/view), [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view), [cve_mun](https://drive.google.com/file/d/19q9v31lH0Dgq7bsCBpO3hGfr_mT5VfNk/view), [vinculo_victima_id](https://drive.google.com/file/d/1_F5CDwHh3Tq7JtOho6v1upeZYnIZf8C6/view) y [estatus_desaparicion_id](https://drive.google.com/file/d/16k8t3y2nOkq1xhZ-7aGx77V333Yq__eg/view), [dependencia_corresponde](https://drive.google.com/file/d/152JS404Y43GSvJnTWFx3K7DSuQJX9OUK/view)
 #### Body raw (json)
 ```json
 {
@@ -4409,7 +4409,7 @@ El registro requiere que exista un hecho de violencia, teniendo una dependencia 
 ```
     API_URL/api/registrar-canalizacion
 ```
-catálogos: [instancias_id](https://drive.google.com/file/d/152JS404Y43GSvJnTWFx3K7DSuQJX9OUK/view), [instancias_envia_id](https://drive.google.com/file/d/152JS404Y43GSvJnTWFx3K7DSuQJX9OUK/view), [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view), [cve_mun](https://drive.google.com/file/d/19q9v31lH0Dgq7bsCBpO3hGfr_mT5VfNk/view), [tipo_id](https://drive.google.com/file/d/1Z6scmhtreut1JJtDr11WSGcuKlibs_cI/view) y [servicios_id](https://drive.google.com/file/d/1JDVkLKaKQIshGa4Xhmx5B343_SDc1ce0/view), *falta*
+catálogos: [instancias_id](https://drive.google.com/file/d/152JS404Y43GSvJnTWFx3K7DSuQJX9OUK/view), [instancias_envia_id](https://drive.google.com/file/d/152JS404Y43GSvJnTWFx3K7DSuQJX9OUK/view), [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view), [cve_mun](https://drive.google.com/file/d/19q9v31lH0Dgq7bsCBpO3hGfr_mT5VfNk/view), [tipo_id](https://drive.google.com/file/d/1Z6scmhtreut1JJtDr11WSGcuKlibs_cI/view) y [servicios_id](https://drive.google.com/file/d/1JDVkLKaKQIshGa4Xhmx5B343_SDc1ce0/view), [dependencia_corresponde](https://drive.google.com/file/d/152JS404Y43GSvJnTWFx3K7DSuQJX9OUK/view)
 #### Body raw (json)
 ```json
 {
@@ -4628,7 +4628,7 @@ El registro requiere que exista un hecho de violencia, teniendo una dependencia 
 ```
     API_URL/api/registrar-agresor
 ```
-catálogos: [sexo_id](https://docs.google.com/spreadsheets/d/1KhLoeg4tQSjiADualz6AvGSHHuA4hlr7FANCYOx2HyI/edit?gid=0#gid=0), [tipos_armas](https://drive.google.com/file/d/1yFUao4LN0Qcs0rP2OP_YeykQoDHZXP12/view), [vinculo_victima_id](https://drive.google.com/file/d/1_F5CDwHh3Tq7JtOho6v1upeZYnIZf8C6/view), [identidad_genero_id](https://drive.google.com/file/d/1K7jBCF4E6aiBfnrg4ioD5cqh6gbFOXcL/view), [orientacion_sexual_id](https://drive.google.com/file/d/1hc5Yhl2gr6_pWBFED7G0QMGyooVzIS5x/view), [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view), [cve_mun](https://drive.google.com/file/d/19q9v31lH0Dgq7bsCBpO3hGfr_mT5VfNk/view), [cve_loc](https://drive.google.com/file/d/1VDHjmDqURqkLc5MQb84MKhI9NlVrg3m3/view), [colonias_id](https://drive.google.com/file/d/1wWVhPLa0zFgdoeQYEtCRNfODEcpQx6BH/view), [escolaridad_id](https://drive.google.com/file/d/1Pf_eJpt_S34Ipo908Ih7RS-kQHfwJQGr/view), [ingreso_economico_id](https://docs.google.com/spreadsheets/d/15yA5gPDJXZFZkW1fiFKhrCXeQT1uVGJB/edit?gid=717444154#gid=717444154), [ocupacion_id](https://drive.google.com/file/d/1tY37QRvcZa0c-vzlSsgEpIRJnN2BqCw_/view), [tipos_drogas](https://drive.google.com/file/d/1YDUsKIZLzOA32YrEa4LekGQ0DY2wqFl_/view), *falta*
+catálogos: [sexo_id](https://docs.google.com/spreadsheets/d/1KhLoeg4tQSjiADualz6AvGSHHuA4hlr7FANCYOx2HyI/edit?gid=0#gid=0), [tipos_armas](https://drive.google.com/file/d/1yFUao4LN0Qcs0rP2OP_YeykQoDHZXP12/view), [vinculo_victima_id](https://drive.google.com/file/d/1_F5CDwHh3Tq7JtOho6v1upeZYnIZf8C6/view), [identidad_genero_id](https://drive.google.com/file/d/1K7jBCF4E6aiBfnrg4ioD5cqh6gbFOXcL/view), [orientacion_sexual_id](https://drive.google.com/file/d/1hc5Yhl2gr6_pWBFED7G0QMGyooVzIS5x/view), [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view), [cve_mun](https://drive.google.com/file/d/19q9v31lH0Dgq7bsCBpO3hGfr_mT5VfNk/view), [cve_loc](https://drive.google.com/file/d/1VDHjmDqURqkLc5MQb84MKhI9NlVrg3m3/view), [colonias_id](https://drive.google.com/file/d/1wWVhPLa0zFgdoeQYEtCRNfODEcpQx6BH/view), [escolaridad_id](https://drive.google.com/file/d/1Pf_eJpt_S34Ipo908Ih7RS-kQHfwJQGr/view), [ingreso_economico_id](https://docs.google.com/spreadsheets/d/15yA5gPDJXZFZkW1fiFKhrCXeQT1uVGJB/edit?gid=717444154#gid=717444154), [ocupacion_id](https://drive.google.com/file/d/1tY37QRvcZa0c-vzlSsgEpIRJnN2BqCw_/view), [tipos_drogas](https://drive.google.com/file/d/1YDUsKIZLzOA32YrEa4LekGQ0DY2wqFl_/view), [dependencia_corresponde](https://drive.google.com/file/d/152JS404Y43GSvJnTWFx3K7DSuQJX9OUK/view)
 #### Body raw (json)
 ```json
     {
