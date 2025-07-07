@@ -59,7 +59,7 @@ Ejemplo:
 API_URL=https://banavim-capacitacion.mujeres.gob.mx:443                # Pruebas
 API_URL=https://banavim.mujeres.gob.mx:443                             # Producción
 ```
-La transición al entorno de producción **debe hacerse solo después de finalizar las pruebas** y garantizar que no haya errores. Esto asegura que la API funcione de manera eficiente en operaciones reales sin interrupciones por lo que durante la guia se utilizará el entorno de prubas.
+La transición al entorno de producción **debe hacerse solo después de finalizar las pruebas** y garantizar que no haya errores. Esto asegura que la API funcione de manera eficiente en operaciones reales sin interrupciones por lo que durante la guia se utilizará el entorno de pruebas.
 
 ----------------------------------------------------------------
 ### Identificarse para obtener un token.
@@ -73,7 +73,7 @@ Los tokens se generan con un algoritmo de combinación única de caracteres que 
 #### Body raw (json)
 ```json
 {
-    "email" : "CORREO",
+    "email"    : "CORREO",
     "password" : "CONTRASEÑA"
 }
 ```
@@ -91,7 +91,7 @@ con curl.
     --header 'Accept: application/json' \
     --header 'Content-Type: application/json' \
     --data-raw '{
-        "email" : "CORREO",
+        "email"    : "CORREO",
         "password" : "CONTRASEÑA"
     }'
 ```
@@ -109,7 +109,7 @@ con PHP - cURL.
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => 'POST',
     CURLOPT_POSTFIELDS =>'{
-        "email" : "CORREO",
+        "email"    : "CORREO",
         "password" : "CONTRASEÑA"
     }',
     CURLOPT_HTTPHEADER => array(
@@ -129,8 +129,8 @@ con JavaScrip - fetch
     myHeaders.append("Accept", "application/json");
     myHeaders.append("Content-Type", "application/json");
     const raw = JSON.stringify({
-    "email": "CORREO",
-    "password": "CONTRASEÑA"
+    "email"    : "CORREO",
+    "password" : "CONTRASEÑA"
     });
     const requestOptions = {
     method: "POST",
@@ -553,7 +553,7 @@ Esté método permite buscar seguimientos con el folio EUV y el hecho_id
 ```json
     {
         "folio_euv" : "folio_euv-31ec-3455-a838-f34fb5c53dca",
-        "hecho_id" : 1382
+        "hecho_id"  : 1382
     }
 ```
 #### Campos Obligatorios
@@ -571,7 +571,7 @@ con curl.
     --header 'Authorization: Bearer TOKEN' \
     --data '{
         "folio_euv" : "folio_euv-31ec-3455-a838-f34fb5c53dca",
-        "hecho_id" : 1382
+        "hecho_id"  : 1382
     }'
 ```
 con PHP - cURL.
@@ -591,7 +591,7 @@ con PHP - cURL.
     CURLOPT_CUSTOMREQUEST => 'POST',
     CURLOPT_POSTFIELDS =>'{
         "folio_euv" : "folio_euv-31ec-3455-a838-f34fb5c53dca",
-        "hecho_id" : 1382
+        "hecho_id"  : 1382
     }',
     CURLOPT_HTTPHEADER => array(
         'Content-Type: application/json',
@@ -611,7 +611,7 @@ con JavaScrip - fetch
 
     const raw = JSON.stringify({
     "folio_euv": "folio_euv-31ec-3455-a838-f34fb5c53dca",
-    "hecho_id": 1382
+    "hecho_id" : 1382
     });
 
     const requestOptions = {
@@ -912,8 +912,8 @@ con JavaScrip - fetch.
 
     const raw = JSON.stringify({
     "fecha_inicial": "2022-5-27",
-    "fecha_final": "2024-7-27",
-    "enlace_id": 1
+    "fecha_final"  : "2024-7-27",
+    "enlace_id"    : 1
     });
 
     const requestOptions = {
@@ -971,8 +971,8 @@ catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l
     {
         "fecha_inicial" : "2022-5-27",
         "fecha_final"   : "2024-5-27",
-        "page" : 1,
-        "cve_ent" : 21
+        "page"          : 1,
+        "cve_ent"       : 21
     }
 ```
 #### Campos Obligatorios
@@ -994,8 +994,8 @@ con curl.
     --data '{
         "fecha_inicial" : "2022-5-27",
         "fecha_final"   : "2024-5-27",
-        "page" : 1,
-        "cve_ent" : 21
+        "page"          : 1,
+        "cve_ent"       : 21
     }'
 ```
 con PHP - cURL.
@@ -1016,8 +1016,8 @@ con PHP - cURL.
     CURLOPT_POSTFIELDS =>'{
         "fecha_inicial" : "2022-5-27",
         "fecha_final"   : "2024-5-27",
-        "page" : 1,
-        "cve_ent" : 21
+        "page"          : 1,
+        "cve_ent"       : 21
     }',
     CURLOPT_HTTPHEADER => array(
         'Accept: application/json',
@@ -1040,9 +1040,9 @@ con JavaScrip - fetch.
 
     const raw = JSON.stringify({
     "fecha_inicial": "2022-5-27",
-    "fecha_final": "2024-5-27",
-    "page": 1,
-    "cve_ent": 21
+    "fecha_final"  : "2024-5-27",
+    "page"         : 1,
+    "cve_ent"      : 21
     });
 
     const requestOptions = {
@@ -1170,7 +1170,7 @@ con JavaScrip - fetch.
     myHeaders.append("Authorization", "Bearer TOKEN");
 
     const raw = JSON.stringify({
-    "id": 2
+        "id": 2
     });
 
     const requestOptions = {
@@ -1339,9 +1339,9 @@ catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l
 ```json
     {
         "fecha_inicial" : "2022-5-27",
-        "fecha_final": "2024-10-27",
-        "page": 2,
-        "cve_ent": 2
+        "fecha_final"   : "2024-10-27",
+        "page"          : 2,
+        "cve_ent"       : 2
     }
 ```
 #### Campos Obligatorios
@@ -1362,9 +1362,9 @@ curl --location 'API_URL/api/hechos' \
 --header 'Authorization: Bearer TOKEN' \
 --data '{
     "fecha_inicial" : "2022-5-27",
-    "fecha_final": "2024-10-25",
-    "page": 2,
-    "cve_ent": 2
+    "fecha_final"   : "2024-10-25",
+    "page"          : 2,
+    "cve_ent"       : 2
 }'
 ```
 con PHP - cURL.
@@ -1384,9 +1384,9 @@ con PHP - cURL.
     CURLOPT_CUSTOMREQUEST => 'POST',
     CURLOPT_POSTFIELDS =>'{
         "fecha_inicial" : "2022-5-27",
-        "fecha_final": "2024-10-25",
-        "page": 2,
-        "cve_ent": 2
+        "fecha_final"   : "2024-10-25",
+        "page"          : 2,
+        "cve_ent"       : 2
     }',
     CURLOPT_HTTPHEADER => array(
         'Accept: application/json',
@@ -1409,9 +1409,9 @@ myHeaders.append("Authorization", "Bearer TOKEN");
 
 const raw = JSON.stringify({
   "fecha_inicial": "2022-5-27",
-  "fecha_final": "2024-10-25",
-  "page": 2,
-  "cve_ent": 2
+  "fecha_final"  : "2024-10-25",
+  "page"         : 2,
+  "cve_ent"      : 2
 });
 
 const requestOptions = {
@@ -1621,9 +1621,9 @@ catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l
 ```json
 {
     "fecha_inicial": "2023-10-01",
-    "fecha_final": "2023-10-10",
-    "page": 1,
-    "cve_ent": 15
+    "fecha_final"  : "2023-10-10",
+    "page"         : 1,
+    "cve_ent"      : 15
 }
 ```
 #### Campos Obligatorios
@@ -1645,9 +1645,9 @@ curl --location 'API_URL/api/ordenes-de-proteccion' \
 --header 'Authorization: Bearer TOKEN' \
 --data '{
     "fecha_inicial": "2023-10-01",
-    "fecha_final": "2023-10-10",
-    "page": 1,
-    "cve_ent": 15
+    "fecha_final"  : "2023-10-10",
+    "page"         : 1,
+    "cve_ent"      : 15
 }'
 ```
 con PHP - cURL.
@@ -1667,9 +1667,9 @@ curl_setopt_array($curl, array(
   CURLOPT_CUSTOMREQUEST => 'POST',
   CURLOPT_POSTFIELDS =>'{
     "fecha_inicial": "2023-10-01",
-    "fecha_final": "2023-10-10",
-    "page": 1,
-    "cve_ent": 15
+    "fecha_final"  : "2023-10-10",
+    "page"         : 1,
+    "cve_ent"      : 15
 }',
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
@@ -1692,9 +1692,9 @@ myHeaders.append("Authorization", "Bearer TOKEN");
 
 const raw = JSON.stringify({
   "fecha_inicial": "2023-10-01",
-  "fecha_final": "2023-10-10",
-  "page": 1,
-  "cve_ent": 15
+  "fecha_final"  : "2023-10-10",
+  "page"         : 1,
+  "cve_ent"      : 15
 });
 
 const requestOptions = {
@@ -2158,10 +2158,10 @@ con JavaScrip - fetch.
     myHeaders.append("Authorization", "Bearer TOKEN");
 
     const raw = JSON.stringify({
-    "curp": "CURP000000XXXXXXX0",
-    "cve_ent": 22,
-    "nacionalidad_id": 1,
-    "extranjera": false,
+    "curp"                   : "CURP000000XXXXXXX0",
+    "cve_ent"                : 22,
+    "nacionalidad_id"        : 1,
+    "extranjera"             : false,
     "dependencia_corresponde": 103
     });
 
@@ -2330,16 +2330,16 @@ con JavaScrip - fetch.
     myHeaders.append("Authorization", "Bearer TOKEN");
 
     const raw = JSON.stringify({
-    "nombre": "nombre",
-    "primer_apellido": "primer_apellido",
-    "segundo_apellido": "segundo_apellido",
-    "fecha_nacimiento": "1965-11-20",
-    "sexo": "H",
-    "cve_ent": 24,
-    "extranjera": false,
-    "curp": "CURP000000XXXXXXX0",
-    "nacionalidad_id"   : 1,
-    "dependencia_corresponde": 103
+    "nombre"                  : "nombre",
+    "primer_apellido"         : "primer_apellido",
+    "segundo_apellido"        : "segundo_apellido",
+    "fecha_nacimiento"        : "1965-11-20",
+    "sexo"                    : "H",
+    "cve_ent"                 : 24,
+    "extranjera"              : false,
+    "curp"                    : "CURP000000XXXXXXX0",
+    "nacionalidad_id"         : 1,
+    "dependencia_corresponde" : 103
     });
 
     const requestOptions = {
@@ -2522,15 +2522,15 @@ con JavaScrip - fetch.
     myHeaders.append("Authorization", "Bearer TOKEN");
 
     const raw = JSON.stringify({
-    "nombre": "nombre",
-    "primer_apellido": "primer_apellido",
-    "segundo_apellido": "segundo_apellido",
-    "fecha_nacimiento": "1965-11-20",
-    "sexo": "H",
-    "cve_ent": 24,
-    "extranjera": false,
-    "nacionalidad_id"   : 1,
-    "dependencia_corresponde": 103
+    "nombre"                  : "nombre",
+    "primer_apellido"         : "primer_apellido",
+    "segundo_apellido"        : "segundo_apellido",
+    "fecha_nacimiento"        : "1965-11-20",
+    "sexo"                    : "H",
+    "cve_ent"                 : 24,
+    "extranjera"              : false,
+    "nacionalidad_id"         : 1,
+    "dependencia_corresponde" : 103
     });
 
     const requestOptions = {
@@ -2793,36 +2793,36 @@ con JavaScrip - fetch.
     myHeaders.append("Authorization", "Bearer TOKEN");
 
     const raw = JSON.stringify({
-    "folio_euv": "EUV000000000005248072024",
-    "fecha_hechos": "2022-10-26",
-    "hora_hechos": "08:12",
-    "descripcion_hechos": "Este es un hecho",
-    "lugar_id": 3,
-    "lugar_detalle_id": 36,
-    "en_domicilio_victima": true,
-    "pais_id": 238,
-    "cve_ent": 21,
-    "cve_mun": 133,
-    "calle": "siempre viva 23",
-    "num_exterior_km": "45",
-    "cve_loc": 1,
-    "cp": "74069",
-    "lat": 19.28431,
-    "lng": -98.43885,
-    "es_festivo": false,
-    "conoce_la_autoridad": false,
-    "tipo_violencia": [1,3,5,8],
-    "modalidad_violencia": 6,
-    "es_victima_de_delincuencia_organizada": false,
-    "hay_denuncia": false,
-    "efectos_fisicos": [1,2],
-    "consecuencias_sexuales": [],
-    "efectos_psicologicos": [],
-    "efectos_economicos_y_patrimoniales": [],
-    "agente_de_lesion": [],
-    "area_anatomica_lesionada": [],
-    "es_relacionada_con_orientacion_o_identidad": false,
-    "dependencia_corresponde": 103
+    "folio_euv"                                  : "EUV000000000005248072024",
+    "fecha_hechos"                               : "2022-10-26",
+    "hora_hechos"                                : "08:12",
+    "descripcion_hechos"                         : "Este es un hecho",
+    "lugar_id"                                   : 3,
+    "lugar_detalle_id"                           : 36,
+    "en_domicilio_victima"                       : true,
+    "pais_id"                                    : 238,
+    "cve_ent"                                    : 21,
+    "cve_mun"                                    : 133,
+    "calle"                                      : "siempre viva 23",
+    "num_exterior_km"                            : "45",
+    "cve_loc"                                    : 1,
+    "cp"                                         : "74069",
+    "lat"                                        : 19.28431,
+    "lng"                                        : -98.43885,
+    "es_festivo"                                 : false,
+    "conoce_la_autoridad"                        : false,
+    "tipo_violencia"                             : [1,3,5,8],
+    "modalidad_violencia"                        : 6,
+    "es_victima_de_delincuencia_organizada"      : false,
+    "hay_denuncia"                               : false,
+    "efectos_fisicos"                            : [1,2],
+    "consecuencias_sexuales"                     : [],
+    "efectos_psicologicos"                       : [],
+    "efectos_economicos_y_patrimoniales"         : [],
+    "agente_de_lesion"                           : [],
+    "area_anatomica_lesionada"                   : [],
+    "es_relacionada_con_orientacion_o_identidad" : false,
+    "dependencia_corresponde"                    : 103
     });
 
     const requestOptions = {
@@ -3200,7 +3200,7 @@ myHeaders.append("Content-Type", "application/json");
 myHeaders.append("Authorization", "Bearer TOKEN");
 
 const raw = JSON.stringify({
-  "hechos_id": 2,
+  "hechos_id" : 2,
   "edad": 33,
   "telefono": "26460978",
   "correo_electronico": "prueba@fake.com",
@@ -3228,37 +3228,37 @@ const raw = JSON.stringify({
   "enfermedad": true,
   "cual_enfermedad": "descripción de la enfermedad",
   "enfermedad_psiquiatrica": true,
-  "cual_enfermedad_psiquiatrica": "psiquiatrica",
-  "tratamiento": true,
-  "cual_tratamiento": "tratamiento",
-  "situacion_calle": true,
-  "migrante": true,
-  "pueblo_indigena": true,
-  "pueblo_indigena_id": 1,
-  "lgbtti": true,
-  "identidad_genero_id": 1,
-  "orientacion_sexual_id": 1,
-  "embarazada": true,
-  "numero_semanas_emb": 20,
-  "dependientes": true,
-  "red_apoyo": true,
-  "adiccion": true,
-  "cual_adiccion": [
-    1
-  ],
-  "persona_afrodescendiente": "afro",
-  "caso_name": "no name",
-  "realiza_mas_actividades": true,
-  "discapacidad_por_violencia": true,
-  "gestacion_id": 1,
-  "clave_centro_escolar": "Clave centro",
-  "numero_seguro_social": "AV0569806410",
-  "servicio_medico_id": 1,
-  "otro_servicio_medico": "otro servicio medico",
-  "tipos_adicciones": [
-    1
-  ],
-  "dependencia_corresponde": 103
+  "cual_enfermedad_psiquiatrica" : "psiquiatrica",
+  "tratamiento"                  : true,
+  "cual_tratamiento"             : "tratamiento",
+  "situacion_calle"              : true,
+  "migrante"                     : true,
+  "pueblo_indigena"              : true,
+  "pueblo_indigena_id"           : 1,
+  "lgbtti"                       : true,
+  "identidad_genero_id"          : 1,
+  "orientacion_sexual_id"        : 1,
+  "embarazada"                   : true,
+  "numero_semanas_emb"           : 20,
+  "dependientes"                 : true,
+  "red_apoyo"                    : true,
+  "adiccion"                     : true,
+  "cual_adiccion"                : [
+                                    1
+                                   ],
+  "persona_afrodescendiente"     : "afro",
+  "caso_name"                    : "no name",
+  "realiza_mas_actividades"      : true,
+  "discapacidad_por_violencia"   : true,
+  "gestacion_id"                 : 1,
+  "clave_centro_escolar"         : "Clave centro",
+  "numero_seguro_social"         : "AV0569806410",
+  "servicio_medico_id"           : 1,
+  "otro_servicio_medico"         : "otro servicio medico",
+  "tipos_adicciones"             : [
+                                    1
+                                   ],
+  "dependencia_corresponde"      : 103
 });
 
 const requestOptions = {
@@ -3371,7 +3371,7 @@ El registro de un dependiente de la víctima, tiene una dependencia funcional qu
 ```json
     API_URL/api/registrar-dependiente-victima-por-hecho
 ```
-catálogo: [vinculo_victima_id](https://drive.google.com/file/d/1_F5CDwHh3Tq7JtOho6v1upeZYnIZf8C6/view)
+catálogo: [vinculo_victima_id](https://drive.google.com/file/d/1_F5CDwHh3Tq7JtOho6v1upeZYnIZf8C6/view), *falta*
 #### Body raw (json)
 ```json
 {
@@ -3386,7 +3386,8 @@ catálogo: [vinculo_victima_id](https://drive.google.com/file/d/1_F5CDwHh3Tq7JtO
     "extranjera"                   : true,
     "enfermedad"                   : true,
     "cual_enfermedad"              : "enfermedad",
-    "observaciones"                : "observación"
+    "observaciones"                : "observación",
+    "dependencia_corresponde"      : 103
 }
 ```
 #### Campos Obligatorios
@@ -3405,6 +3406,7 @@ catálogo: [vinculo_victima_id](https://drive.google.com/file/d/1_F5CDwHh3Tq7JtO
 | enfermedad              |     NO      |   boolean   | 
 | cual_enfermedad         |     NO      |   string    | 
 | observaciones           |     NO      |   string    | 
+| dependencia_corresponde |     SI      |   integer   | 
 | | |
 #### Ejemplo de solicitud.
 con curl.
@@ -3425,7 +3427,8 @@ con curl.
         "extranjera"                   : true,
         "enfermedad"                   : true,
         "cual_enfermedad"              : "enfermedad",
-        "observaciones"                : "observación"
+        "observaciones"                : "observación",
+        "dependencia_corresponde"      : 103
     }'
 ```
 con PHP - cURL.
@@ -3455,7 +3458,8 @@ con PHP - cURL.
         "extranjera"                   : true,
         "enfermedad"                   : true,
         "cual_enfermedad"              : "enfermedad",
-        "observaciones"                : "observación"
+        "observaciones"                : "observación",
+        "dependencia_corresponde"      : 103
     }',
     CURLOPT_HTTPHEADER => array(
         'Accept: application/json',
@@ -3477,18 +3481,19 @@ con JavaScrip - fetch.
     myHeaders.append("Authorization", "Bearer TOKEN");
 
     const raw = JSON.stringify({
-    "hechos_id": 2,
-    "nombre": "dependiente",
-    "primer_apellido": "papellido",
-    "segundo_apellido": "sapellido",
-    "edad": 3,
-    "vinculo_victima_id": 1,
-    "esta_en_riesgo": true,
-    "presenta_discapacidad": true,
-    "extranjera": true,
-    "enfermedad": true,
-    "cual_enfermedad": "enfermedad",
-    "observaciones": "onservación"
+    "hechos_id"               : 2,
+    "nombre"                  : "dependiente",
+    "primer_apellido"         : "papellido",
+    "segundo_apellido"        : "sapellido",
+    "edad"                    : 3,
+    "vinculo_victima_id"      : 1,
+    "esta_en_riesgo"          : true,
+    "presenta_discapacidad"   : true,
+    "extranjera"              : true,
+    "enfermedad"              : true,
+    "cual_enfermedad"         : "enfermedad",
+    "observaciones"           : "observación",
+    "dependencia_corresponde" : 103
     });
 
     const requestOptions = {
@@ -3520,6 +3525,7 @@ con estatus 200  en formato json.
     "observaciones": "observación",
     "users_id": 1,
     "hechos_id": 2,
+    "dependencia_corresponde": 103,
     "updated_at": "2024-11-14T00:18:38.000000Z",
     "created_at": "2024-11-14T00:18:38.000000Z",
     "id": 73
@@ -3555,30 +3561,32 @@ El registro de la red de apoyo requiere que la víctima tenga un hecho de víole
 ```json
     API_URL/api/registrar-red-apoyo-victima-por-hecho
 ```
-catálogo: [vinculo_victima_id](https://drive.google.com/file/d/1_F5CDwHh3Tq7JtOho6v1upeZYnIZf8C6/view)
+catálogo: [vinculo_victima_id](https://drive.google.com/file/d/1_F5CDwHh3Tq7JtOho6v1upeZYnIZf8C6/view), *falta*
 #### Body raw (json)
 ```json
 {
-    "hechos_id"             : 1,
-    "nombre"                : "Juanita",
-    "primer_apellido"       : "papellido",
-    "segundo_apellido"      : "sapellido",
-    "vinculo_victima_id"    : 4,
-    "telefono"              : "2258877731",
-    "observaciones"         : "observaciones"
+    "hechos_id"               : 1,
+    "nombre"                  : "Juanita",
+    "primer_apellido"         : "papellido",
+    "segundo_apellido"        : "sapellido",
+    "vinculo_victima_id"      : 4,
+    "telefono"                : "2258877731",
+    "observaciones"           : "observaciones",
+    "dependencia_corresponde" : 103
 }
 ```
 #### Campos Obligatorios
 
-|        Campo       | Obligatorio | Tipo de dato |
-|:------------------:|:-----------:|:------------:|
-| hechos_id          |      SI     |    integer   | 
-| nombre             |      NO     |    string    | 
-| primer_apellido    |      NO     |    string    | 
-| segundo_apellido   |      NO     |    string    | 
-| vinculo_victima_id |      NO     |    integer   | 
-| telefono           |      NO     |    string    | 
-| observaciones      |      NO     |    string    | 
+|        Campo             | Obligatorio | Tipo de dato |
+|:------------------------:|:-----------:|:------------:|
+| hechos_id                |      SI     |    integer   | 
+| nombre                   |      NO     |    string    | 
+| primer_apellido          |      NO     |    string    | 
+| segundo_apellido         |      NO     |    string    | 
+| vinculo_victima_id       |      NO     |    integer   | 
+| telefono                 |      NO     |    string    | 
+| observaciones            |      NO     |    string    | 
+| dependencia_corresponde  |      SI     |    integer   | 
 |||
 #### Ejemplo de solicitud.
 con curl.
@@ -3588,13 +3596,14 @@ con curl.
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer TOKEN' \
     --data '{
-        "hechos_id"             : 1,
-        "nombre"                : "Juanita",
-        "primer_apellido"       : "papellido",
-        "segundo_apellido"      : "sapellido",
-        "vinculo_victima_id"    : 4,
-        "telefono"              : "2258877731",
-        "observaciones"         : "observaciones"
+        "hechos_id"               : 1,
+        "nombre"                  : "Juanita",
+        "primer_apellido"         : "papellido",
+        "segundo_apellido"        : "sapellido",
+        "vinculo_victima_id"      : 4,
+        "telefono"                : "2258877731",
+        "observaciones"           : "observaciones",
+        "dependencia_corresponde" : 103
     }'
 ```
 con PHP - cURL.
@@ -3613,13 +3622,14 @@ con PHP - cURL.
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => 'POST',
     CURLOPT_POSTFIELDS =>'{
-        "hechos_id"             : 1,
-        "nombre"                : "Juanita",
-        "primer_apellido"       : "papellido",
-        "segundo_apellido"      : "sapellido",
-        "vinculo_victima_id"    : 4,
-        "telefono"              : "2258877731",
-        "observaciones"         : "observaciones"
+        "hechos_id"               : 1,
+        "nombre"                  : "Juanita",
+        "primer_apellido"         : "papellido",
+        "segundo_apellido"        : "sapellido",
+        "vinculo_victima_id"      : 4,
+        "telefono"                : "2258877731",
+        "observaciones"           : "observaciones",
+        "dependencia_corresponde" : 103
     }',
     CURLOPT_HTTPHEADER => array(
         'Accept: application/json',
@@ -3643,11 +3653,12 @@ con JavaScrip - fetch.
     const raw = JSON.stringify({
     "hechos_id": 1,
     "nombre": "Juanita",
-    "primer_apellido": "papellido",
-    "segundo_apellido": "sapellido",
-    "vinculo_victima_id": 4,
-    "telefono": "2258877731",
-    "observaciones": "observaciones"
+    "primer_apellido"         : "papellido",
+    "segundo_apellido"        : "sapellido",
+    "vinculo_victima_id"      : 4,
+    "telefono"                : "2258877731",
+    "observaciones"           : "observaciones",
+    "dependencia_corresponde" : 103
     });
 
     const requestOptions = {
@@ -3674,6 +3685,7 @@ con estatus 200  en formato json.
     "observaciones": "observaciones",
     "users_id": 1,
     "hechos_id": 1,
+    "dependencia_corresponde": 103,
     "updated_at": "2024-11-14T00:48:45.000000Z",
     "created_at": "2024-11-14T00:48:45.000000Z",
     "id": 51
@@ -3708,30 +3720,32 @@ El seguimiento requiere que exista un hecho de violencia para ser registrado, te
 ```
     API_URL/api/seguimiento
 ```
-catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view), [tipo_id](https://drive.google.com/file/d/1Z6scmhtreut1JJtDr11WSGcuKlibs_cI/view) y [servicios_id](https://drive.google.com/file/d/1JDVkLKaKQIshGa4Xhmx5B343_SDc1ce0/view)
+catálogos: [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view), [tipo_id](https://drive.google.com/file/d/1Z6scmhtreut1JJtDr11WSGcuKlibs_cI/view) y [servicios_id](https://drive.google.com/file/d/1JDVkLKaKQIshGa4Xhmx5B343_SDc1ce0/view), *falta*
 #### Body raw (json)
 ```json
     {
-        "hechos_id"         : 1,
-        "fecha_seguimiento" : "2023-10-27",
-        "hora_seguimiento"    : "08:12",
-        "tipo_id"             : 1,
-        "servicios_id"        : 1,
-        "acciones"            : "Se realizo la accion de prueba",
-        "observaciones"       : "Se realizo la observacion de prueba"
+        "hechos_id"               : 1,
+        "fecha_seguimiento"       : "2023-10-27",
+        "hora_seguimiento"        : "08:12",
+        "tipo_id"                 : 1,
+        "servicios_id"            : 1,
+        "acciones"                : "Se realizo la accion de prueba",
+        "observaciones"           : "Se realizo la observacion de prueba",
+        "dependencia_corresponde" : 103
     }
 ```
 #### Campos Obligatorios
 
-|   Campo           | Obligatorio |Tipo de dato |
-|:-----------------:|:-----------:|:-----------:|
-| hechos_id         |     SI      |   integer   |
-| fecha_seguimiento |     SI      |    date     | 
-| hora_seguimiento  |     SI      |    time     | 
-| tipo_id           |     SI      |   integer   | 
-| servicios_id      |     SI      |   integer   | 
-| acciones          |     SI      |   string    | 
-| observaciones     |     SI      |   string    | 
+|   Campo                     | Obligatorio |Tipo de dato |
+|:---------------------------:|:-----------:|:-----------:|
+| hechos_id                   |     SI      |   integer   |
+| fecha_seguimiento           |     SI      |    date     | 
+| hora_seguimiento            |     SI      |    time     | 
+| tipo_id                     |     SI      |   integer   | 
+| servicios_id                |     SI      |   integer   | 
+| acciones                    |     SI      |   string    | 
+| observaciones               |     SI      |   string    | 
+| dependencia_corresponde     |     SI      |   integer   | 
 |||| 
 
 #### Ejemplo de solicitud.
@@ -3742,13 +3756,14 @@ con curl.
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer TOKEN' \
     --data '{
-        "hechos_id"         : 1,
-        "fecha_seguimiento" : "2023-10-27",
-        "hora_seguimiento"    : "08:12",
-        "tipo_id"             : 1,
-        "servicios_id"        : 1,
-        "acciones"            : "Se realizo la accion de prueba",
-        "observaciones"       : "Se realizo la observacion de prueba"
+        "hechos_id"               : 1,
+        "fecha_seguimiento"       : "2023-10-27",
+        "hora_seguimiento"        : "08:12",
+        "tipo_id"                 : 1,
+        "servicios_id"            : 1,
+        "acciones"                : "Se realizo la accion de prueba",
+        "observaciones"           : "Se realizo la observacion de prueba",
+        "dependencia_corresponde" : 103
     }'
 ```
 con PHP - cURL.
@@ -3767,13 +3782,14 @@ con PHP - cURL.
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => 'POST',
     CURLOPT_POSTFIELDS =>'{
-        "hechos_id"         : 1,
-        "fecha_seguimiento" : "2023-10-27",
-        "hora_seguimiento"    : "08:12",
-        "tipo_id"             : 1,
-        "servicios_id"        : 1,
-        "acciones"            : "Se realizo la accion de prueba",
-        "observaciones"     : "Se realizo la observacion de prueba"
+        "hechos_id"               : 1,
+        "fecha_seguimiento"       : "2023-10-27",
+        "hora_seguimiento"        : "08:12",
+        "tipo_id"                 : 1,
+        "servicios_id"            : 1,
+        "acciones"                : "Se realizo la accion de prueba",
+        "observaciones"           : "Se realizo la observacion de prueba",
+        "dependencia_corresponde" : 103
     }',
     CURLOPT_HTTPHEADER => array(
         'Accept: application/json',
@@ -3795,13 +3811,14 @@ con JavaScrip - fetch.
     myHeaders.append("Authorization", "Bearer TOKEN");
 
     const raw = JSON.stringify({
-    "hechos_id": 1,
-    "fecha_seguimiento": "2023-10-27",
-    "hora_seguimiento": "08:12",
-    "tipo_id": 1,
-    "servicios_id": 1,
-    "acciones": "Se realizo la accion de prueba",
-    "observaciones": "Se realizo la observacion de prueba"
+        "hechos_id"               : 1,
+        "fecha_seguimiento"       : "2023-10-27",
+        "hora_seguimiento"        : "08:12",
+        "tipo_id"                 : 1,
+        "servicios_id"            : 1,
+        "acciones"                : "Se realizo la accion de prueba",
+        "observaciones"           : "Se realizo la observacion de prueba",
+        "dependencia_corresponde" : 103
     });
 
     const requestOptions = {
@@ -3829,6 +3846,7 @@ con estatus 200  en formato json.
         "servicios_id": 1,
         "acciones": "Se realizo la accion de prueba",
         "observaciones": "Se realizo la observacion de prueba",
+        "dependencia_corresponde" : 103,
         "updated_at": "2024-07-26T22:08:18.000000Z",
         "created_at": "2024-07-26T22:08:18.000000Z",
         "id": 9031
@@ -3881,20 +3899,21 @@ El registro requiere que exista un hecho de violencia, teniendo una dependencia 
 ```
     API_URL/api/registrar-mujer-en-prision
 ```
-catálogos: [calidad_legal_id](https://drive.google.com/file/d/1MpQvCjgHaLPso9DCxl6ugngvlyUwamRF/view), [tortura_tipo_id](https://drive.google.com/file/d/1ycr5AJKeDrzD8q3HfJAyCNuK_uZ26n_Z/view), [tortura_momento_id](https://drive.google.com/file/d/1taXbMYYtM7tfd4X4GaX1rZrRImRmIzYZ/view) y [autoridad_id](https://drive.google.com/file/d/1V5roC6VJQBAm_2D0Mw6VrapUoZSPlBP7/view).
+catálogos: [calidad_legal_id](https://drive.google.com/file/d/1MpQvCjgHaLPso9DCxl6ugngvlyUwamRF/view), [tortura_tipo_id](https://drive.google.com/file/d/1ycr5AJKeDrzD8q3HfJAyCNuK_uZ26n_Z/view), [tortura_momento_id](https://drive.google.com/file/d/1taXbMYYtM7tfd4X4GaX1rZrRImRmIzYZ/view) y [autoridad_id](https://drive.google.com/file/d/1V5roC6VJQBAm_2D0Mw6VrapUoZSPlBP7/view), *falta*
 #### Body raw (json)
 ```json
 {
-    "hechos_id"             : 1,
-    "privada_de_libertad"   : true,
-    "calidad_legal_id"      : 1,
-    "delitos"               : "robo",
-    "victima_de_tortura"    : true,
-    "protocolo_de_estambul" : true,
+    "hechos_id"                                            : 1,
+    "privada_de_libertad"                                  : true,
+    "calidad_legal_id"                                     : 1,
+    "delitos"                                              : "robo",
+    "victima_de_tortura"                                   : true,
+    "protocolo_de_estambul"                                : true,
     "victima_de_tortura_despues_del_protocolo_de_estambul" : true,
-    "tortura_tipo_id"       : 1,
-    "tortura_momento_id"    : 5,
-    "autoridad_id"          : 1
+    "tortura_tipo_id"                                      : 1,
+    "tortura_momento_id"                                   : 5,
+    "autoridad_id"                                         : 1,
+    "dependencia_corresponde"                              : 103
 }
 ```
 #### Campos Obligatorios
@@ -3911,6 +3930,7 @@ catálogos: [calidad_legal_id](https://drive.google.com/file/d/1MpQvCjgHaLPso9DC
 | tortura_tipo_id                                        |     NO      |    integer   |
 | tortura_momento_id                                     |     NO      |    integer   |
 | autoridad_id                                           |     NO      |    integer   |
+| dependencia_corresponde                                |     SI      |    integer   |
 |||
 #### Ejemplo de solicitud.
 con curl.
@@ -3920,16 +3940,17 @@ con curl.
     --header 'Content-Type: application/json' \
     --header 'Authorization: Bearer TOKEN' \
     --data '{
-        "hechos_id"             : 1,
-        "privada_de_libertad"   : true,
-        "calidad_legal_id"      : 1,
-        "delitos"               : "robo",
-        "victima_de_tortura"    : true,
-        "protocolo_de_estambul" : true,
+        "hechos_id"                                            : 1,
+        "privada_de_libertad"                                  : true,
+        "calidad_legal_id"                                     : 1,
+        "delitos"                                              : "robo",
+        "victima_de_tortura"                                   : true,
+        "protocolo_de_estambul"                                : true,
         "victima_de_tortura_despues_del_protocolo_de_estambul" : true,
-        "tortura_tipo_id"       : 1,
-        "tortura_momento_id"    : 5,
-        "autoridad_id"          : 1
+        "tortura_tipo_id"                                      : 1,
+        "tortura_momento_id"                                   : 5,
+        "autoridad_id"                                         : 1,
+        "dependencia_corresponde"                              : 103
     }'
 ```
 con PHP - cURL.
@@ -3948,16 +3969,17 @@ con PHP - cURL.
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => 'POST',
     CURLOPT_POSTFIELDS =>'{
-        "hechos_id"             : 1,
-        "privada_de_libertad"   : true,
-        "calidad_legal_id"      : 1,
-        "delitos"               : "robo",
-        "victima_de_tortura"    : true,
-        "protocolo_de_estambul" : true,
+        "hechos_id"                                            : 1,
+        "privada_de_libertad"                                  : true,
+        "calidad_legal_id"                                     : 1,
+        "delitos"                                              : "robo",
+        "victima_de_tortura"                                   : true,
+        "protocolo_de_estambul"                                : true,
         "victima_de_tortura_despues_del_protocolo_de_estambul" : true,
-        "tortura_tipo_id"       : 1,
-        "tortura_momento_id"    : 5,
-        "autoridad_id"          : 1
+        "tortura_tipo_id"                                      : 1,
+        "tortura_momento_id"                                   : 5,
+        "autoridad_id"                                         : 1,
+        "dependencia_corresponde"                              : 103
     }',
     CURLOPT_HTTPHEADER => array(
         'Accept: application/json',
@@ -3979,16 +4001,17 @@ con JavaScrip - fetch.
     myHeaders.append("Authorization", "Bearer TOKEN");
 
     const raw = JSON.stringify({
-    "hechos_id": 1,
-    "privada_de_libertad": true,
-    "calidad_legal_id": 1,
-    "delitos": "robo",
-    "victima_de_tortura": true,
-    "protocolo_de_estambul": true,
-    "victima_de_tortura_despues_del_protocolo_de_estambul": true,
-    "tortura_tipo_id": 1,
-    "tortura_momento_id": 5,
-    "autoridad_id": 1
+        "hechos_id"                                            : 1,
+        "privada_de_libertad"                                  : true,
+        "calidad_legal_id"                                     : 1,
+        "delitos"                                              : "robo",
+        "victima_de_tortura"                                   : true,
+        "protocolo_de_estambul"                                : true,
+        "victima_de_tortura_despues_del_protocolo_de_estambul" : true,
+        "tortura_tipo_id"                                      : 1,
+        "tortura_momento_id"                                   : 5,
+        "autoridad_id"                                         : 1,
+        "dependencia_corresponde"                              : 103
     });
 
     const requestOptions = {
@@ -4018,6 +4041,7 @@ con estatus 200  en formato json.
     "tortura_tipo_id": 1,
     "tortura_momento_id": 5,
     "autoridad_id": 1,
+    "dependencia_corresponde": 103,
     "updated_at": "2024-08-05T21:25:09.000000Z",
     "created_at": "2024-08-05T21:25:09.000000Z",
     "id": 25
@@ -4042,7 +4066,7 @@ El registro requiere que exista un hecho de violencia, teniendo una dependencia 
 ```
     API_URL/api/registrar-mujer-victima-de-trata
 ```
-catálogos: [accion_omision_dolosa_id](https://drive.google.com/file/d/13CdVeVrsyRmC9PmOj5kPkgw52Xrv2b2M/view), [fines_reclutamiento_id](https://drive.google.com/file/d/1jC7ZmP3p_CiuNqCcflfkDsilpbrLfx02/view), [accion_omision_dolosa_array](https://drive.google.com/file/d/13CdVeVrsyRmC9PmOj5kPkgw52Xrv2b2M/view) y [fines_reclutamiento_array](https://drive.google.com/file/d/1jC7ZmP3p_CiuNqCcflfkDsilpbrLfx02/view)
+catálogos: [accion_omision_dolosa_id](https://drive.google.com/file/d/13CdVeVrsyRmC9PmOj5kPkgw52Xrv2b2M/view), [fines_reclutamiento_id](https://drive.google.com/file/d/1jC7ZmP3p_CiuNqCcflfkDsilpbrLfx02/view), [accion_omision_dolosa_array](https://drive.google.com/file/d/13CdVeVrsyRmC9PmOj5kPkgw52Xrv2b2M/view) y [fines_reclutamiento_array](https://drive.google.com/file/d/1jC7ZmP3p_CiuNqCcflfkDsilpbrLfx02/view), *falta*
 #### Body raw (json)
 ```json
     {
@@ -4051,7 +4075,8 @@ catálogos: [accion_omision_dolosa_id](https://drive.google.com/file/d/13CdVeVrs
         "accion_omision_dolosa_id"      : 8,
         "fines_reclutamiento_id"        : 4,
         "accion_omision_dolosa_array"   : [1,2,3],
-        "fines_reclutamiento_array"     : [1,2,3]
+        "fines_reclutamiento_array"     : [1,2,3],
+    "dependencia_corresponde"           : 103
     }
 ```
 #### Campos Obligatorios
@@ -4064,6 +4089,7 @@ catálogos: [accion_omision_dolosa_id](https://drive.google.com/file/d/13CdVeVrs
 | fines_reclutamiento_id        |      NO      |    integer   |
 | accion_omision_dolosa_array   |      NO      |   integer[]  |
 | fines_reclutamiento_array     |      NO      |   integer[]  |
+| dependencia_corresponde       |      SI      |    integer   |
 |||
 
 #### Ejemplo de solicitud.
@@ -4079,7 +4105,8 @@ con curl.
         "accion_omision_dolosa_id"      : 8,
         "fines_reclutamiento_id"        : 4,
         "accion_omision_dolosa_array"   : [1,2,3],
-        "fines_reclutamiento_array"     : [1,2, 3]
+        "fines_reclutamiento_array"     : [1,2, 3],
+        "dependencia_corresponde"       : 103
     }'
 ```
 con PHP - cURL.
@@ -4103,7 +4130,8 @@ con PHP - cURL.
         "accion_omision_dolosa_id"      : 8,
         "fines_reclutamiento_id"        : 4,
         "accion_omision_dolosa_array"   : [1,2,3],
-        "fines_reclutamiento_array"     : [1,2, 3]
+        "fines_reclutamiento_array"     : [1,2, 3],
+        "dependencia_corresponde"       : 103
     }',
     CURLOPT_HTTPHEADER => array(
         'Accept: application/json',
@@ -4125,12 +4153,13 @@ con JavaScrip - fetch.
     myHeaders.append("Authorization", "Bearer TOKEN");
 
     const raw = JSON.stringify({
-    "hechos_id": 5,
-    "victima_de_trata_de_personas": true,
-    "accion_omision_dolosa_id": 8,
-    "fines_reclutamiento_id": 4,
-    "accion_omision_dolosa_array": [1,2,3],
-    "fines_reclutamiento_array": [1,2,3]
+    "hechos_id"                    : 5,
+    "victima_de_trata_de_personas" : true,
+    "accion_omision_dolosa_id"     : 8,
+    "fines_reclutamiento_id"       : 4,
+    "accion_omision_dolosa_array"  : [1,2,3],
+    "fines_reclutamiento_array"    : [1,2,3],
+    "dependencia_corresponde"      : 103
     });
 
     const requestOptions = {
@@ -4156,6 +4185,7 @@ con estatus 200  en formato json.
     "fines_reclutamiento_id": 4,
     "accion_omision_dolosa_array": "[1,2,3]",
     "fines_reclutamiento_array": "[1,2,3]",
+    "dependencia_corresponde": 103,
     "updated_at": "2024-08-05T22:13:39.000000Z",
     "created_at": "2024-08-05T22:13:39.000000Z",
     "id": 27
@@ -4181,7 +4211,7 @@ El registro requiere que exista un hecho de violencia, teniendo una dependencia 
 ```
     API_URL/api/registrar-mujer-desaparecida
 ```
-catálogos: [tipo_de_desaparicion_id](https://drive.google.com/file/d/1iILF7y_7DU-U5l_AKquuuqarLu1AA-6y/view), [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view), [cve_mun](https://drive.google.com/file/d/19q9v31lH0Dgq7bsCBpO3hGfr_mT5VfNk/view), [vinculo_victima_id](https://drive.google.com/file/d/1_F5CDwHh3Tq7JtOho6v1upeZYnIZf8C6/view) y [estatus_desaparicion_id](https://drive.google.com/file/d/16k8t3y2nOkq1xhZ-7aGx77V333Yq__eg/view)
+catálogos: [tipo_de_desaparicion_id](https://drive.google.com/file/d/1iILF7y_7DU-U5l_AKquuuqarLu1AA-6y/view), [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view), [cve_mun](https://drive.google.com/file/d/19q9v31lH0Dgq7bsCBpO3hGfr_mT5VfNk/view), [vinculo_victima_id](https://drive.google.com/file/d/1_F5CDwHh3Tq7JtOho6v1upeZYnIZf8C6/view) y [estatus_desaparicion_id](https://drive.google.com/file/d/16k8t3y2nOkq1xhZ-7aGx77V333Yq__eg/view), *falta*
 #### Body raw (json)
 ```json
 {
@@ -4199,7 +4229,8 @@ catálogos: [tipo_de_desaparicion_id](https://drive.google.com/file/d/1iILF7y_7D
     "edad"                      : 23,
     "vinculo_victima_id"        : 4,
     "estatus_desaparicion_id"   : 1,
-    "con_vida"                  : true
+    "con_vida"                  : true,
+    "dependencia_corresponde"   : 103
 }
 ```
 #### Campos Obligatorios
@@ -4221,6 +4252,7 @@ catálogos: [tipo_de_desaparicion_id](https://drive.google.com/file/d/1iILF7y_7D
 | vinculo_victima_id       |      NO      |    integer   |
 | estatus_desaparicion_id  |      NO      |    integer   |
 | con_vida                 |      NO      |    boolean   |
+| dependencia_corresponde  |      SI      |    integer   |
 |||
 
 #### Ejemplo de solicitud.
@@ -4245,7 +4277,8 @@ con curl.
         "edad"                      : 23,
         "vinculo_victima_id"        : 4,
         "estatus_desaparicion_id"   : 1,
-        "con_vida"                  : true
+        "con_vida"                  : true,
+        "dependencia_corresponde"   : 103
     }'
 ```
 con PHP - cURL.
@@ -4278,7 +4311,8 @@ con PHP - cURL.
         "edad"                      : 23,
         "vinculo_victima_id"        : 4,
         "estatus_desaparicion_id"   : 1,
-        "con_vida"                  : true
+        "con_vida"                  : true,
+        "dependencia_corresponde"   : 103
     }',
     CURLOPT_HTTPHEADER => array(
         'Accept: application/json',
@@ -4300,21 +4334,22 @@ con JavaScrip - fetch.
     myHeaders.append("Authorization", "Bearer TOKEN");
 
     const raw = JSON.stringify({
-    "hechos_id": 5,
-    "persona_desaparecida": true,
-    "tipo_de_desaparicion_id": 2,
-    "fecha_de_desaparicion": "2022-11-1",
-    "cve_ent": 21,
-    "cve_mun": 132,
-    "es_institucion": true,
-    "nombre_institucion": "CCI",
-    "nombre": "JP",
-    "apellido_paterno": "MRT",
-    "apellido_materno": "MKT",
-    "edad": 23,
-    "vinculo_victima_id": 4,
-    "estatus_desaparicion_id": 1,
-    "con_vida": true
+    "hechos_id"               : 5,
+    "persona_desaparecida"    : true,
+    "tipo_de_desaparicion_id" : 2,
+    "fecha_de_desaparicion"   : "2022-11-1",
+    "cve_ent"                 : 21,
+    "cve_mun"                 : 132,
+    "es_institucion"          : true,
+    "nombre_institucion"      : "CCI",
+    "nombre"                  : "JP",
+    "apellido_paterno"        : "MRT",
+    "apellido_materno"        : "MKT",
+    "edad"                    : 23,
+    "vinculo_victima_id"      : 4,
+    "estatus_desaparicion_id" : 1,
+    "con_vida"                : true,
+    "dependencia_corresponde" : 103
     });
 
     const requestOptions = {
@@ -4349,6 +4384,7 @@ con estatus 200  en formato json.
     "vinculo_victima_id": 4,
     "estatus_desaparicion_id": 1,
     "con_vida": true,
+    "dependencia_corresponde": 103,
     "updated_at": "2024-08-05T23:09:57.000000Z",
     "created_at": "2024-08-05T23:09:57.000000Z",
     "id": 24
@@ -4373,7 +4409,7 @@ El registro requiere que exista un hecho de violencia, teniendo una dependencia 
 ```
     API_URL/api/registrar-canalizacion
 ```
-catálogos: [instancias_id](https://drive.google.com/file/d/152JS404Y43GSvJnTWFx3K7DSuQJX9OUK/view), [instancias_envia_id](https://drive.google.com/file/d/152JS404Y43GSvJnTWFx3K7DSuQJX9OUK/view), [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view), [cve_mun](https://drive.google.com/file/d/19q9v31lH0Dgq7bsCBpO3hGfr_mT5VfNk/view), [tipo_id](https://drive.google.com/file/d/1Z6scmhtreut1JJtDr11WSGcuKlibs_cI/view) y [servicios_id](https://drive.google.com/file/d/1JDVkLKaKQIshGa4Xhmx5B343_SDc1ce0/view)
+catálogos: [instancias_id](https://drive.google.com/file/d/152JS404Y43GSvJnTWFx3K7DSuQJX9OUK/view), [instancias_envia_id](https://drive.google.com/file/d/152JS404Y43GSvJnTWFx3K7DSuQJX9OUK/view), [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view), [cve_mun](https://drive.google.com/file/d/19q9v31lH0Dgq7bsCBpO3hGfr_mT5VfNk/view), [tipo_id](https://drive.google.com/file/d/1Z6scmhtreut1JJtDr11WSGcuKlibs_cI/view) y [servicios_id](https://drive.google.com/file/d/1JDVkLKaKQIshGa4Xhmx5B343_SDc1ce0/view), *falta*
 #### Body raw (json)
 ```json
 {
@@ -4391,7 +4427,8 @@ catálogos: [instancias_id](https://drive.google.com/file/d/152JS404Y43GSvJnTWFx
     "primer_apellido"           : "PPPP",
     "segundo_apellido"          : "ZZZZZ",
     "tipo_id"                   : 1,
-    "servicios_id"              : 1
+    "servicios_id"              : 1,
+    "dependencia_corresponde"   : 103
 }
 ```
 #### Campos Obligatorios
@@ -4413,6 +4450,7 @@ catálogos: [instancias_id](https://drive.google.com/file/d/152JS404Y43GSvJnTWFx
 | segundo_apellido              |      NO     |    string    |
 | tipo_id                       |      SI     |    integer   |
 | servicios_id                  |      SI     |    integer   |
+| dependencia_corresponde       |      SI     |    integer   |
 |||
 
 #### Ejemplo de solicitud.
@@ -4437,7 +4475,8 @@ con curl.
         "primer_apellido"           : "PPPP",
         "segundo_apellido"          : "ZZZZZ",
         "tipo_id"                   : 1,
-        "servicios_id"              : 1
+        "servicios_id"              : 1,
+        "dependencia_corresponde"   : 103
     }'
 ```
 con PHP - cURL.
@@ -4470,7 +4509,8 @@ con PHP - cURL.
         "primer_apellido"           : "PPPP",
         "segundo_apellido"          : "ZZZZZ",
         "tipo_id"                   : 1,
-        "servicios_id"              : 1
+        "servicios_id"              : 1,
+        "dependencia_corresponde"   : 103
     }',
     CURLOPT_HTTPHEADER => array(
         'Accept: application/json',
@@ -4492,21 +4532,22 @@ con JavaScrip - fetch.
     myHeaders.append("Authorization", "Bearer TOKEN");
 
     const raw = JSON.stringify({
-    "hechos_id": 5,
-    "instancias_id": 251,
-    "instancias_envia_id": 405,
-    "cve_ent": 21,
-    "cve_mun": 132,
-    "fecha_canalizacion": "2022-03-2",
-    "observaciones_incompetencia": "nope",
-    "observaciones": "nein",
-    "acompanamiento": false,
-    "estatus": "ahí va",
-    "nombre": "JJJJ",
-    "primer_apellido": "PPPP",
-    "segundo_apellido": "ZZZZZ",
-    "tipo_id": 1,
-    "servicios_id": 1
+    "hechos_id"                   : 5,
+    "instancias_id"               : 251,
+    "instancias_envia_id"         : 405,
+    "cve_ent"                     : 21,
+    "cve_mun"                     : 132,
+    "fecha_canalizacion"          : "2022-03-2",
+    "observaciones_incompetencia" : "nope",
+    "observaciones"               : "nein",
+    "acompanamiento"              : false,
+    "estatus"                     : "ahí va",
+    "nombre"                      : "JJJJ",
+    "primer_apellido"             : "PPPP",
+    "segundo_apellido"            : "ZZZZZ",
+    "tipo_id"                     : 1,
+    "servicios_id"                : 1,
+    "dependencia_corresponde"     : 103
     });
 
     const requestOptions = {
@@ -4541,6 +4582,7 @@ con estatus 200  en formato json.
         "segundo_apellido": "ZZZZZ",
         "tipo_id": 1,
         "servicios_id": 1,
+        "dependencia_corresponde": 103,
         "updated_at": "2024-08-05T23:29:44.000000Z",
         "created_at": "2024-08-05T23:29:44.000000Z",
         "id": 56
@@ -4586,7 +4628,7 @@ El registro requiere que exista un hecho de violencia, teniendo una dependencia 
 ```
     API_URL/api/registrar-agresor
 ```
-catálogos: [sexo_id](https://docs.google.com/spreadsheets/d/1KhLoeg4tQSjiADualz6AvGSHHuA4hlr7FANCYOx2HyI/edit?gid=0#gid=0), [tipos_armas](https://drive.google.com/file/d/1yFUao4LN0Qcs0rP2OP_YeykQoDHZXP12/view), [vinculo_victima_id](https://drive.google.com/file/d/1_F5CDwHh3Tq7JtOho6v1upeZYnIZf8C6/view), [identidad_genero_id](https://drive.google.com/file/d/1K7jBCF4E6aiBfnrg4ioD5cqh6gbFOXcL/view), [orientacion_sexual_id](https://drive.google.com/file/d/1hc5Yhl2gr6_pWBFED7G0QMGyooVzIS5x/view), [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view), [cve_mun](https://drive.google.com/file/d/19q9v31lH0Dgq7bsCBpO3hGfr_mT5VfNk/view), [cve_loc](https://drive.google.com/file/d/1VDHjmDqURqkLc5MQb84MKhI9NlVrg3m3/view), [colonias_id](https://drive.google.com/file/d/1wWVhPLa0zFgdoeQYEtCRNfODEcpQx6BH/view), [escolaridad_id](https://drive.google.com/file/d/1Pf_eJpt_S34Ipo908Ih7RS-kQHfwJQGr/view), [ingreso_economico_id](https://docs.google.com/spreadsheets/d/15yA5gPDJXZFZkW1fiFKhrCXeQT1uVGJB/edit?gid=717444154#gid=717444154), [ocupacion_id](https://drive.google.com/file/d/1tY37QRvcZa0c-vzlSsgEpIRJnN2BqCw_/view), [tipos_drogas](https://drive.google.com/file/d/1YDUsKIZLzOA32YrEa4LekGQ0DY2wqFl_/view).
+catálogos: [sexo_id](https://docs.google.com/spreadsheets/d/1KhLoeg4tQSjiADualz6AvGSHHuA4hlr7FANCYOx2HyI/edit?gid=0#gid=0), [tipos_armas](https://drive.google.com/file/d/1yFUao4LN0Qcs0rP2OP_YeykQoDHZXP12/view), [vinculo_victima_id](https://drive.google.com/file/d/1_F5CDwHh3Tq7JtOho6v1upeZYnIZf8C6/view), [identidad_genero_id](https://drive.google.com/file/d/1K7jBCF4E6aiBfnrg4ioD5cqh6gbFOXcL/view), [orientacion_sexual_id](https://drive.google.com/file/d/1hc5Yhl2gr6_pWBFED7G0QMGyooVzIS5x/view), [cve_ent](https://drive.google.com/file/d/1Y163QX4ddN4J6w8ZGNUg_11-l4EM9V5w/view), [cve_mun](https://drive.google.com/file/d/19q9v31lH0Dgq7bsCBpO3hGfr_mT5VfNk/view), [cve_loc](https://drive.google.com/file/d/1VDHjmDqURqkLc5MQb84MKhI9NlVrg3m3/view), [colonias_id](https://drive.google.com/file/d/1wWVhPLa0zFgdoeQYEtCRNfODEcpQx6BH/view), [escolaridad_id](https://drive.google.com/file/d/1Pf_eJpt_S34Ipo908Ih7RS-kQHfwJQGr/view), [ingreso_economico_id](https://docs.google.com/spreadsheets/d/15yA5gPDJXZFZkW1fiFKhrCXeQT1uVGJB/edit?gid=717444154#gid=717444154), [ocupacion_id](https://drive.google.com/file/d/1tY37QRvcZa0c-vzlSsgEpIRJnN2BqCw_/view), [tipos_drogas](https://drive.google.com/file/d/1YDUsKIZLzOA32YrEa4LekGQ0DY2wqFl_/view), *falta*
 #### Body raw (json)
 ```json
     {
@@ -4619,7 +4661,8 @@ catálogos: [sexo_id](https://docs.google.com/spreadsheets/d/1KhLoeg4tQSjiADualz
         "ocupacion_id"              : 3,
         "conoce_persona"            : true,
         "consume_drogas"            : true,
-        "tipos_drogas"              : [1]
+        "tipos_drogas"              : [1],
+        "dependencia_corresponde"   : 103
     }
 ```
 #### Campos Obligatorios
@@ -4656,6 +4699,7 @@ catálogos: [sexo_id](https://docs.google.com/spreadsheets/d/1KhLoeg4tQSjiADualz
 | conoce_persona            |      SI     |    boolean   |
 | consume_drogas            |      NO     |    boolean   |
 | tipos_drogas              |      NO     |   integer[]  |
+| dependencia_corresponde   |      SI     |    integer   |
 |||
 
 #### Ejemplo de solicitud.
@@ -4695,7 +4739,8 @@ con curl.
         "ocupacion_id"              : 3,
         "conoce_persona"            : true,
         "consume_drogas"            : true,
-        "tipos_drogas"              : [1]
+        "tipos_drogas"              : [1],
+        "dependencia_corresponde"   : 103
     }'
 ```
 con PHP - cURL.
@@ -4743,7 +4788,8 @@ con PHP - cURL.
         "ocupacion_id"              : 3,
         "conoce_persona"            : true,
         "consume_drogas"            : true,
-        "tipos_drogas"              : [1]
+        "tipos_drogas"              : [1],
+        "dependencia_corresponde"   : 103
     }',
     CURLOPT_HTTPHEADER => array(
         'Accept: application/json',
@@ -4765,38 +4811,39 @@ con JavaScrip - fetch.
     myHeaders.append("Authorization", "Bearer TOKEN");
 
     const raw = JSON.stringify({
-    "hechos_id": 5,
-    "nombre": "FFFF",
-    "primer_apellido": "AAAA",
-    "segundo_apellido": "AAAA",
-    "curp": "CURP000000XXXXXXX0",
-    "sexo_id": 1,
-    "edad": 50,
+    "hechos_id"              : 5,
+    "nombre"                 : "FFFF",
+    "primer_apellido"        : "AAAA",
+    "segundo_apellido"       : "AAAA",
+    "curp"                   : "CURP000000XXXXXXX0",
+    "sexo_id"                : 1,
+    "edad"                   : 50,
     "mismo_domicilio_victima": true,
-    "acceso_a_armas": true,
-    "tipos_armas": [1],
-    "vinculo_victima_id": 5,
-    "identidad_genero_id": null,
-    "orientacion_sexual_id": 1,
-    "calle": "FFFFFFFF",
-    "num_exterior": "23 A",
-    "num_interior": "5B, piso 3",
-    "cve_ent": 21,
-    "cve_mun": 132,
-    "cve_loc": 1,
-    "codigo_postal": 74000,
-    "colonias_id": 16813,
-    "entre_calle_uno": null,
-    "entre_calle_dos": null,
-    "referencia": null,
-    "escolaridad_id": null,
-    "ingreso_economico_id": null,
-    "ocupacion_id": 3,
-    "conoce_persona": true,
-    "consume_drogas": true,
-    "tipos_drogas": [
-        1
-    ]
+    "acceso_a_armas"         : true,
+    "tipos_armas"            : [1],
+    "vinculo_victima_id"     : 5,
+    "identidad_genero_id"    : null,
+    "orientacion_sexual_id"  : 1,
+    "calle"                  : "FFFFFFFF",
+    "num_exterior"           : "23 A",
+    "num_interior"           : "5B, piso 3",
+    "cve_ent"                : 21,
+    "cve_mun"                : 132,
+    "cve_loc"                : 1,
+    "codigo_postal"          : 74000,
+    "colonias_id"            : 16813,
+    "entre_calle_uno"        : null,
+    "entre_calle_dos"        : null,
+    "referencia"             : null,
+    "escolaridad_id"         : null,
+    "ingreso_economico_id"   : null,
+    "ocupacion_id"           : 3,
+    "conoce_persona"         : true,
+    "consume_drogas"         : true,
+    "tipos_drogas"           : [
+                                  1
+                               ],
+    "dependencia_corresponde": 103
     });
 
     const requestOptions = {
@@ -4846,6 +4893,7 @@ con estatus 200  en formato json.
     "conoce_persona": true,
     "consume_drogas": true,
     "tipos_drogas": "[1]",
+    "dependencia_corresponde": 103,
     "updated_at": "2024-08-05T23:40:17.000000Z",
     "created_at": "2024-08-05T23:40:17.000000Z",
     "id": 54
